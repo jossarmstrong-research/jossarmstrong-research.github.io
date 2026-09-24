@@ -1,0 +1,283 @@
+[
+  {
+    "id": "work-2023-rbs-dimensionality",
+    "title": "Dimensionality Reduction for Optimization of Radio Base Station Transmission Based on Energy Efficiency",
+    "year": 2023,
+    "status": "Published",
+    "venue": "IEEE ITMS 2023",
+    "url": "https://doi.org/10.1109/ITMS59786.2023.10317744",
+    "topics": [
+      "energy efficiency",
+      "network management",
+      "dimensionality reduction"
+    ]
+  },
+  {
+    "id": "work-2023-cell-similarity",
+    "title": "Exploiting Cell Similarities in a Radio Access Network to Enhance Explainability for Autonomic Network Management Systems",
+    "year": 2023,
+    "status": "Published",
+    "venue": "IEEE ICCAIS 2023",
+    "url": "https://doi.org/10.1109/ICCAIS59597.2023.10382371",
+    "topics": [
+      "explainable AI",
+      "autonomous networks",
+      "cell similarity"
+    ]
+  },
+  {
+    "id": "work-2024-pecdafs",
+    "title": "Pre-Emptive Conflict Detection Architecture for O-RAN Service Management and Orchestration",
+    "year": 2024,
+    "status": "Published",
+    "venue": "IEEE IAICT 2024",
+    "url": "https://doi.org/10.1109/IAICT62357.2024.10617647",
+    "topics": [
+      "O-RAN",
+      "conflict detection",
+      "network orchestration"
+    ]
+  },
+  {
+    "id": "work-2025-begreen-demo",
+    "title": "Demo: BeGREEN Intelligence Plane for AI-driven Energy Efficient O-RAN management",
+    "year": 2025,
+    "status": "Published",
+    "venue": "IEEE INFOCOM Workshops 2025",
+    "url": "https://doi.org/10.1109/INFOCOMWKSHPS65812.2025.11152833",
+    "topics": [
+      "O-RAN",
+      "energy efficiency",
+      "AI-driven network management"
+    ]
+  },
+  {
+    "id": "work-2025-camino",
+    "title": "CAMINO - Contextually Aware Mediation of Intent for Network Orchestration",
+    "year": 2025,
+    "status": "Published",
+    "venue": "Telecommunication Systems",
+    "url": "https://doi.org/10.1007/s11235-025-01324-9",
+    "topics": [
+      "intent-based networking",
+      "O-RAN",
+      "conflict mediation"
+    ]
+  },
+  {
+    "id": "work-2026-tacit",
+    "title": "TACIT: Trustworthy Arbitration Through Calibrated Inference Tracking for rApp Conflict Resolution in O-RAN",
+    "year": 2026,
+    "status": "Published",
+    "venue": "IEEE Access",
+    "url": "https://doi.org/10.1109/ACCESS.2026.3693113",
+    "topics": [
+      "O-RAN",
+      "multi-agent coordination",
+      "reputation",
+      "conflict resolution"
+    ]
+  },
+  {
+    "id": "work-2026-cross-kpi",
+    "title": "Exploiting Cross-KPI Confidence Patterns to Expand Automation Scope in 5G Network Management",
+    "year": 2026,
+    "status": "Published",
+    "venue": "EuCNC & 6G Summit 2026",
+    "url": "https://doi.org/10.1109/EuCNC/6GSummit68295.2026.11577320",
+    "topics": [
+      "calibrated automation",
+      "5G",
+      "cross-KPI confidence"
+    ]
+  },
+  {
+    "id": "work-2026-calibrated-uncertainty",
+    "title": "Calibrated Uncertainty for Trustworthy O-RAN: Learned Confidence Signals Expand Automation Scope",
+    "year": 2026,
+    "status": "Published",
+    "venue": "IEEE ICC Workshops 2026",
+    "url": "https://doi.org/10.1109/ICCWorkshops63917.2026.11586689",
+    "topics": [
+      "O-RAN",
+      "uncertainty quantification",
+      "conformal prediction",
+      "trustworthy AI"
+    ]
+  },
+  {
+    "id": "work-2026-oracle",
+    "title": "ORACLE: Open RAN Arbitration via Consensus Ledger Enforcement",
+    "year": 2026,
+    "status": "Published",
+    "venue": "EuCNC & 6G Summit 2026",
+    "url": "https://doi.org/10.1109/EuCNC/6GSummit68295.2026.11577222",
+    "topics": [
+      "O-RAN",
+      "distributed coordination",
+      "consensus",
+      "arbitration"
+    ]
+  },
+  {
+    "id": "work-2026-ib-reduction",
+    "title": "Source-Side Sufficiency for the Information Bottleneck: Exact Reduction and Finite-Block Equivalence",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "arXiv:2604.26744",
+    "url": "https://arxiv.org/abs/2604.26744",
+    "topics": [
+      "information bottleneck",
+      "sufficiency",
+      "rate-distortion"
+    ]
+  },
+  {
+    "id": "work-2026-mises",
+    "title": "Information Requirements for Service Allocation and Aggregate Verification",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "arXiv:2604.26808",
+    "url": "https://arxiv.org/abs/2604.26808",
+    "topics": [
+      "information sufficiency",
+      "allocation",
+      "verification"
+    ],
+    "note": "Previously titled MISES: Minimal Information Sufficiency for Effective Service. This record represents the single MISES/JAVIC manuscript lineage."
+  },
+  {
+    "id": "work-2026-menger",
+    "title": "Implicit Evaluation Under Minimal Information: Hierarchical Component Selection from One-Bit Feedback",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "arXiv:2605.00921",
+    "url": "https://arxiv.org/abs/2605.00921",
+    "topics": [
+      "hierarchical selection",
+      "minimal feedback",
+      "mechanism design"
+    ]
+  },
+  {
+    "id": "work-2026-bohm",
+    "title": "Multi-Resolution Attribution from Adaptive Routing State",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "arXiv:2605.22866",
+    "url": "https://arxiv.org/abs/2605.22866",
+    "topics": [
+      "hierarchical attribution",
+      "compound AI",
+      "adaptive routing"
+    ],
+    "note": "Previously titled BOHM: Zero-Cost Hierarchical Attribution for Compound AI Systems."
+  },
+  {
+    "id": "work-2026-margin",
+    "title": "MARGIN: Runtime Confidence Calibration for Multi-Agent Foundation Model Coordination",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "arXiv:2605.22949",
+    "url": "https://arxiv.org/abs/2605.22949",
+    "topics": [
+      "multi-agent systems",
+      "confidence calibration",
+      "foundation models"
+    ]
+  },
+  {
+    "id": "work-2026-semantic-rd",
+    "title": "Designed-Source Reductions and a Dual-Purpose Feasibility Band for Semantic Rate-Distortion",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "arXiv:2606.11280",
+    "url": "https://arxiv.org/abs/2606.11280",
+    "topics": [
+      "semantic communication",
+      "rate-distortion",
+      "information constraints"
+    ]
+  },
+  {
+    "id": "work-2026-privacy-intent",
+    "title": "Privacy-Preserving Intent Fulfilment and Assurance for 6G RAN",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "arXiv:2607.08809",
+    "url": "https://arxiv.org/abs/2607.08809",
+    "topics": [
+      "6G",
+      "intent management",
+      "privacy",
+      "assurance"
+    ]
+  },
+  {
+    "id": "work-2026-task-quantization",
+    "title": "Task-Oriented Quantization for Quadratic Scheduling: Centroid Water-Filling and Power-Diagram Encoders",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "arXiv:2609.20882",
+    "url": "https://arxiv.org/abs/2609.20882",
+    "topics": [
+      "task-oriented quantization",
+      "rate-distortion",
+      "scheduling"
+    ]
+  },
+  {
+    "id": "work-2026-calculation-minimality",
+    "title": "The Other Side of the Calculation Argument: Information Minimality as a Design Principle",
+    "year": 2026,
+    "status": "Working paper",
+    "venue": "SSRN",
+    "url": "https://ssrn.com/abstract=7079259",
+    "topics": [
+      "Austrian economics",
+      "information minimality",
+      "mechanism design"
+    ]
+  },
+  {
+    "id": "work-2026-informativeness",
+    "title": "Quantifying the Informativeness Principle",
+    "year": 2026,
+    "status": "Working paper",
+    "venue": "SSRN",
+    "url": "https://ssrn.com/abstract=7478268",
+    "topics": [
+      "contract theory",
+      "informativeness principle",
+      "Fisher information"
+    ]
+  },
+  {
+    "id": "work-2026-three-bounds",
+    "title": "Three Bounds on Central Coordination: Information Theory and the Irreducibility of Entrepreneurial Judgement",
+    "year": 2026,
+    "status": "Working paper",
+    "venue": "SSRN",
+    "url": "https://ssrn.com/abstract=7033358",
+    "topics": [
+      "Austrian economics",
+      "information theory",
+      "economic coordination"
+    ]
+  },
+  {
+    "id": "work-2026-strata",
+    "title": "Task-Relative Information Contracts: Sufficiency, Evidence, and Hierarchical Preservation in Multi-Agent Systems",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "Zenodo",
+    "url": "https://doi.org/10.5281/zenodo.22819849",
+    "topics": [
+      "multi-agent systems",
+      "task-relative information",
+      "finite evidence",
+      "hierarchical preservation"
+    ],
+    "note": "Public preprint on Zenodo."
+  }
+]

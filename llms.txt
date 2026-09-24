@@ -1,0 +1,20 @@
+# Joss Armstrong
+
+> Researcher working across information theory, economics, multi-agent systems, cognition, artificial intelligence and autonomous network management.
+
+Canonical site: https://jossarmstrong.org/
+
+## Primary pages
+- Research overview: https://jossarmstrong.org/research/
+- Public works: https://jossarmstrong.org/works/
+- About and identifiers: https://jossarmstrong.org/about/
+- Machine-readable works catalogue: https://jossarmstrong.org/data/works.json
+
+## Research structure
+A central strand studies task-relative information requirements for coordination: what information a decision requires, what can be discarded, and how those requirements change with finite evidence, hierarchy and recursion. The wider portfolio includes related and independently motivated work in mechanism design, economic institutions, cognition, multi-agent systems, autonomous networks, privacy, auditability, resource allocation and distributed AI.
+
+Relationships among works should not be inferred as formal dependence merely because two works share a topic. The site distinguishes motivation, formal dependence, application, empirical evidence, independent development and later conceptual connection.
+
+## Public identity
+- ORCID: https://orcid.org/0009-0009-3462-9679
+- SSRN: https://ssrn.com/author=13213839
