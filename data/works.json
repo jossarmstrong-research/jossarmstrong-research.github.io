@@ -281,5 +281,29 @@
       "hierarchical preservation"
     ],
     "note": "Public preprint on Zenodo."
+  },
+  {
+    "id": "work-2025-begreen-white-paper",
+    "title": "AI-Driven Energy Efficiency for O-RAN",
+    "year": 2025,
+    "type": "White paper",
+    "status": "Published",
+    "venue": "SNS BeGREEN project",
+    "url": "https://www.sns-begreen.com/news/begreen-white-paper-on-ai-driven-energy-efficiency-for-o-ran",
+    "topics": [
+      "O-RAN",
+      "energy efficiency",
+      "AI-driven network management"
+    ],
+    "contributors": [
+      "Miguel Catalan-Cid",
+      "German Castellanos",
+      "Joss Armstrong"
+    ],
+    "release_date": "2025-05-12",
+    "related_works": [
+      "work-2025-begreen-demo"
+    ],
+    "note": "BeGREEN Intelligence Plane implementation and evaluation in simulated O-RAN environments using VIAVI TeraVM AI RSG. Contributor credit; project white paper, not a peer-reviewed publication."
   }
 ]
