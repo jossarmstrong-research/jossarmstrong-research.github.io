@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ORACLE: Verifiable O-RAN Arbitration | Joss Armstrong</title>
+  <meta name="description" content="How ORACLE uses a permissioned ledger to make O-RAN arbitration independently verifiable. Architecture, measured workflow latency, limitations and published paper.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/oracle/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <meta name="citation_title" content="ORACLE: Open RAN Arbitration via Consensus Ledger Enforcement">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_publication_date" content="2026/06/02">
+  <meta name="citation_conference_title" content="2026 Joint European Conference on Networks and Communications &amp; 6G Summit (EuCNC/6G Summit)">
+  <meta name="citation_firstpage" content="575">
+  <meta name="citation_lastpage" content="580">
+  <meta name="citation_doi" content="10.1109/EuCNC/6GSummit68295.2026.11577222">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ORACLE: Verifiable O-RAN Arbitration">
+  <meta property="og:description" content="An author’s guide to shared records and deterministic arbitration, with prototype results and a link to the published paper.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/oracle/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","@id":"https://jossarmstrong.org/works/oracle/","url":"https://jossarmstrong.org/works/oracle/","name":"ORACLE: Verifiable O-RAN Arbitration","description":"Author companion page explaining ORACLE, its prototype evaluation and limitations.","author":{"@type":"Person","name":"Joss Armstrong","url":"https://jossarmstrong.org/"},"mainEntity":{"@type":"ScholarlyArticle","name":"ORACLE: Open RAN Arbitration via Consensus Ledger Enforcement","author":[{"@type":"Person","name":"Joss Armstrong","sameAs":"https://orcid.org/0009-0009-3462-9679"}],"datePublished":"2026-06-02","isPartOf":{"@type":"CreativeWork","name":"2026 Joint European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit)"},"pageStart":"575","pageEnd":"580","identifier":"10.1109/EuCNC/6GSummit68295.2026.11577222","url":"https://doi.org/10.1109/EuCNC/6GSummit68295.2026.11577222","publisher":{"@type":"Organization","name":"IEEE"}}}
+  </script>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="/">Joss Armstrong</a>
+    <a href="/research/">Research</a>
+    <a href="/works/" aria-current="true">Works</a>
+    <a href="/about/">About</a>
+  </nav>
+</header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / ORACLE</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author companion · O-RAN accountability</div>
+    <h1>ORACLE: Open RAN Arbitration via Consensus Ledger Enforcement</h1>
+    <p class="byline">Joss Armstrong</p>
+    <p class="meta">Published · EuCNC &amp; 6G Summit · Pages 575–580 · 2026</p>
+    <p class="lede">When competing vendors share a network, they need a way to check how decisions were made. I designed ORACLE to make the arbitration workflow independently verifiable.</p>
+    <div class="paper-actions">
+      <a class="paper-link" href="https://doi.org/10.1109/EuCNC/6GSummit68295.2026.11577222">Read the published paper</a>
+      <a href="#citation">Cite this paper</a>
+    </div>
+    <nav class="paper-contents" aria-label="On this page">
+      <a href="#problem">The problem</a><a href="#method">How it works</a><a href="#results">Results</a><a href="#scope">Scope</a><a href="#connections">Related research</a>
+    </nav>
+  </header>
+
+  <section class="section" id="problem">
+    <h2>Making the process inspectable</h2>
+    <p>In an Open Radio Access Network (O-RAN), radio applications, or rApps, from different vendors may propose incompatible configuration changes. Even when a decision rule is agreed, participants may want evidence that their predictions were included and that the rule was applied consistently.</p>
+    <p>I address this with a permissioned distributed ledger: a shared record maintained by an identified set of validators. Smart contracts enforce the workflow and execute the published decision rule on recorded inputs. Participants can inspect both the inputs and the resulting decision.</p>
+    <p>This architecture is most useful where independent verification matters to the participating vendors. If everyone accepts a single trusted coordinator, a central service is simpler and avoids the extra validator infrastructure.</p>
+  </section>
+
+  <section class="section" id="method">
+    <h2>A shared record from proposal to outcome</h2>
+    <figure class="process">
+      <ol>
+        <li><span class="step">01</span><strong>Record a proposal</strong><p>An identified rApp submits a configuration change to the ledger.</p></li>
+        <li><span class="step">02</span><strong>Collect predictions</strong><p>Registered rApps respond within an agreed collection period.</p></li>
+        <li><span class="step">03</span><strong>Execute the rule</strong><p>A smart contract applies the configured policy to the recorded inputs.</p></li>
+        <li><span class="step">04</span><strong>Record the outcome</strong><p>An outcome record links the decision to subsequent network observations.</p></li>
+      </ol>
+      <figcaption>The ORACLE workflow. The decision policy is configurable; the ledger provides the common record and execution rules.</figcaption>
+    </figure>
+    <p>The design uses three contracts: a Registry Contract for rApp registration, a Proposal Contract for proposals and prediction collection, and a Decision Contract for evaluation and outcome recording. Lightweight adapters connect rApps to contract events and transactions.</p>
+    <p>Decision-critical records are kept on the ledger. Detailed telemetry can remain outside it, with hashes or references connecting that data to the recorded outcome. Those links support later integrity checks; the measurement pipeline still determines whether the original observations were correct.</p>
+    <p>I use a simple majority selector in the reference implementation so that workflow enforcement can be evaluated separately from the quality of a particular arbitration policy. More elaborate policies, including reputation weighting, are possible extensions.</p>
+  </section>
+
+  <section class="section" id="results">
+    <h2>What the prototype demonstrated</h2>
+    <p>I deployed the contracts on a four-node Hyperledger Besu network using IBFT 2.0 consensus and a two-second block period. The evaluation used seven registered rApps and included a replay of arbitration decisions generated by an ns-3 O-RAN simulation.</p>
+    <div class="results-scroll" role="region" aria-label="ORACLE prototype measurements" tabindex="0">
+      <table class="results">
+        <caption>Measurements from the evaluated permissioned testbed</caption>
+        <thead><tr><th scope="col">Experiment</th><th scope="col">Reported result</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Ten consecutive decision cycles</th><td>15.982 seconds mean workflow latency</td></tr>
+          <tr><th scope="row">O-RAN workload replay</th><td>932 decisions; 15.444 seconds mean cycle latency</td></tr>
+          <tr><th scope="row">Replay variability</th><td>2.795 seconds latency standard deviation</td></tr>
+          <tr><th scope="row">Replay transaction failures</th><td>0 in the evaluated workload</td></tr>
+          <tr><th scope="row">Validator availability</th><td>Continued with one of four validators offline; halted with two offline</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source-note">Source: the published paper, Section V-E to V-G, including Tables III and IV. The ten-cycle measurement and workload replay are separate experiments.</p>
+    <p>The measured workflow latency fits within the paper’s example of a 60-second or longer non-real-time control interval. It does not establish suitability for near-real-time radio control. These are ledger prototype and simulation-replay measurements, not a production network trial.</p>
+    <p>I also tested five invalid operations: late predictions, duplicate predictions, decisions before quorum, proposals from unregistered rApps, and outcome recording before a decision. The contracts rejected all five cases. Execution costs increased approximately linearly with the number of participating predictors in the evaluated setup.</p>
+  </section>
+
+  <section class="section" id="scope">
+    <h2>What verification can establish</h2>
+    <p>ORACLE makes it possible to check whether recorded inputs were processed according to the agreed workflow. It cannot establish that a submitted prediction was sincere, that a sensor reading was correct, or that the selected policy leads to the best network outcome. Strategic manipulation and collusion require additional mechanisms.</p>
+    <p>The permissioned validator set and its governance remain trust assumptions. The measured four-validator system tolerates one unavailable validator; the experiment does not demonstrate operation with an arbitrarily compromised validator population.</p>
+    <p>Replication, contract execution and validator operation add overhead. Larger deployments and higher conflict volumes need further evaluation, potentially with batching or partitioning. A comparison with centralised coordination baselines is also further work.</p>
+  </section>
+
+  <section class="section" id="connections">
+    <h2>How ORACLE relates to TACIT</h2>
+    <p>In <a href="/works/tacit/">TACIT</a>, we study how prediction accuracy can determine an rApp’s influence on arbitration. In ORACLE, I study how the process and its records can be independently checked. The roles are complementary: a decision policy can use reputation, while an enforcement layer records and executes the agreed process.</p>
+    <p>The ORACLE experiments use majority selection, so their latency results are not measurements of TACIT running on-chain. A combined implementation would need its own validation.</p>
+    <p>Within my <a href="/research/#coordination">research on multi-agent systems and institutional design</a>, this is a concrete example of making authority accountable through shared evidence and explicit rules. The work arose from the practical requirements of coordination between network applications.</p>
+  </section>
+
+  <section class="section citation" id="citation">
+    <h2>Publication and citation</h2>
+    <p>J. Armstrong, “ORACLE: Open RAN Arbitration via Consensus Ledger Enforcement,” <cite>2026 Joint European Conference on Networks and Communications &amp; 6G Summit (EuCNC/6G Summit)</cite>, Málaga, Spain, pp. 575–580, 2026. DOI: <a href="https://doi.org/10.1109/EuCNC/6GSummit68295.2026.11577222">10.1109/EuCNC/6GSummit68295.2026.11577222</a>.</p>
+    <p><a href="/works/oracle/citation.bib" download>Download BibTeX citation</a></p>
+  </section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>

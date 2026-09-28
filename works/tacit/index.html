@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TACIT: Reputation-Based O-RAN Arbitration | Joss Armstrong</title>
+  <meta name="description" content="How TACIT uses verified KPI predictions and reputation-weighted arbitration to coordinate O-RAN rApps. Method, simulation results, limitations and published paper.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/tacit/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <meta name="citation_title" content="TACIT: Trustworthy Arbitration Through Calibrated Inference Tracking for rApp Conflict Resolution in O-RAN">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_author" content="Sheila Fallon">
+  <meta name="citation_author" content="Enda Fallon">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_journal_title" content="IEEE Access">
+  <meta name="citation_volume" content="14">
+  <meta name="citation_firstpage" content="75535">
+  <meta name="citation_lastpage" content="75548">
+  <meta name="citation_doi" content="10.1109/ACCESS.2026.3693113">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="TACIT: Reputation-Based O-RAN Arbitration">
+  <meta property="og:description" content="An author’s guide to coordinating rApps through prediction accuracy, with simulation results and a link to the published paper.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/tacit/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","@id":"https://jossarmstrong.org/works/tacit/","url":"https://jossarmstrong.org/works/tacit/","name":"TACIT: Reputation-Based O-RAN Arbitration","description":"Author companion page explaining TACIT, its simulation results and limitations.","author":{"@type":"Person","name":"Joss Armstrong","url":"https://jossarmstrong.org/"},"mainEntity":{"@type":"ScholarlyArticle","name":"TACIT: Trustworthy Arbitration Through Calibrated Inference Tracking for rApp Conflict Resolution in O-RAN","author":[{"@type":"Person","name":"Joss Armstrong","sameAs":"https://orcid.org/0009-0009-3462-9679"},{"@type":"Person","name":"Sheila Fallon"},{"@type":"Person","name":"Enda Fallon"}],"datePublished":"2026","isPartOf":{"@type":"PublicationVolume","volumeNumber":"14","isPartOf":{"@type":"Periodical","name":"IEEE Access"}},"pageStart":"75535","pageEnd":"75548","identifier":"10.1109/ACCESS.2026.3693113","url":"https://doi.org/10.1109/ACCESS.2026.3693113","publisher":{"@type":"Organization","name":"IEEE"}}}
+  </script>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="/">Joss Armstrong</a>
+    <a href="/research/">Research</a>
+    <a href="/works/" aria-current="true">Works</a>
+    <a href="/about/">About</a>
+  </nav>
+</header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / TACIT</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author companion · O-RAN coordination</div>
+    <h1>TACIT: Trustworthy Arbitration Through Calibrated Inference Tracking for rApp Conflict Resolution in O-RAN</h1>
+    <p class="byline">Joss Armstrong, Sheila Fallon and Enda Fallon</p>
+    <p class="meta">Published · IEEE Access · Volume 14, pages 75535–75548 · 2026</p>
+    <p class="lede">When network applications disagree, whose prediction should carry more weight? In TACIT, we let their record of predicting observed outcomes determine their influence.</p>
+    <div class="paper-actions">
+      <a class="paper-link" href="https://doi.org/10.1109/ACCESS.2026.3693113">Read the published paper</a>
+      <a href="#citation">Cite this paper</a>
+    </div>
+    <nav class="paper-contents" aria-label="On this page">
+      <a href="#problem">The problem</a><a href="#method">How it works</a><a href="#results">Results</a><a href="#scope">Scope</a><a href="#connections">Related research</a>
+    </nav>
+  </header>
+
+  <section class="section" id="problem">
+    <h2>Local improvements can conflict</h2>
+    <p>Open Radio Access Network (O-RAN) systems allow independently developed radio applications, or rApps, to optimise the same network. An energy rApp might reduce transmit power while a coverage rApp increases it. Both can have sensible objectives, yet applying their proposals independently can undermine network performance.</p>
+    <p>We ask each rApp to assess a proposed change using its own knowledge. TACIT combines those assessments without requiring the proposing rApp to reproduce everyone else’s models or classify the conflict in advance.</p>
+  </section>
+
+  <section class="section" id="method">
+    <h2>Influence follows prediction accuracy</h2>
+    <figure class="process">
+      <ol>
+        <li><span class="step">01</span><strong>Propose</strong><p>An rApp suggests a network configuration change.</p></li>
+        <li><span class="step">02</span><strong>Assess</strong><p>Participating rApps report utility votes and predicted KPI directions.</p></li>
+        <li><span class="step">03</span><strong>Arbitrate</strong><p>The proposer weights the votes by reputation and accepts or rejects the change.</p></li>
+        <li><span class="step">04</span><strong>Learn</strong><p>For accepted changes, observed outcomes update each participant’s reputation.</p></li>
+      </ol>
+      <figcaption>The TACIT feedback loop. Reputation learned from earlier outcomes affects subsequent decisions.</figcaption>
+    </figure>
+    <p>Each response contains two distinct things: a positive utility vote expressing whether the change is desirable, and predictions about whether particular key performance indicators (KPIs) will improve or degrade. A utility of 1 is neutral; values above or below 1 express benefit or harm.</p>
+    <p>We aggregate utilities using reputation-weighted Nash Social Welfare. In logarithmic form, the acceptance rule is:</p>
+    <div class="equation"><code>Accept when Σ R<sub>i</sub> log(u<sub>i</sub>) &gt; 0</code></div>
+    <p>Here, <var>R<sub>i</sub></var> is an rApp’s reputation and <var>u<sub>i</sub></var> its utility vote. A low reputation reduces the effect of either a positive or a negative vote. The proposing rApp evaluates the rule; TACIT does not require a central arbiter.</p>
+    <p>After an accepted change, we compare predictions with observed outcomes. Incorrect predictions reduce reputation faster than correct predictions restore it: our evaluation uses update rates of 0.3 and 0.1 respectively. All participating rApps can receive updates, including those that assessed someone else’s proposal. Rejected changes provide no observed counterfactual for an update.</p>
+    <p>The aggregation requires O(N) operations per proposal for N participating rApps. This bound concerns the arbitration calculation; it does not include the cost of each rApp’s prediction model or search for proposals.</p>
+  </section>
+
+  <section class="section" id="results">
+    <h2>What we evaluated</h2>
+    <p>We evaluated TACIT in ns-3 with 19 cells, approximately 190 user devices and seven concurrent rApps. The rApps used deterministic controllers and analytical prediction heuristics. Each run covered 20 configuration windows of 60 seconds.</p>
+    <div class="results-scroll" role="region" aria-label="TACIT simulation comparison" tabindex="0">
+      <table class="results">
+        <caption>Reported steady-state comparison, after 600 seconds</caption>
+        <thead><tr><th scope="col">Metric</th><th scope="col">Unconstrained</th><th scope="col">Static priority</th><th scope="col">Unweighted NSW</th><th scope="col">TACIT</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Throughput (Mbps) ↑</th><td>42.72</td><td>43.28</td><td>43.74</td><td class="highlight">44.09</td></tr>
+          <tr><th scope="row">Energy per data (J/Mbit) ↓</th><td>29.54</td><td>29.15</td><td>28.85</td><td class="highlight">28.64</td></tr>
+          <tr><th scope="row">10th-percentile user goodput (Mbps) ↑</th><td>0.180</td><td>0.187</td><td>0.198</td><td class="highlight">0.201</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source-note">Source: the paper’s steady-state comparison of arbitration strategies. Arrows indicate whether higher or lower is better. These are results from the evaluated simulation, not measured gains in an operator deployment.</p>
+    <p>Relative to unconstrained operation, the reported comparison gives 3.2% higher throughput, about 3.0% lower energy per Mbit and 11.7% higher 10th-percentile user goodput. The comparison with unweighted NSW isolates the additional contribution of reputation weighting.</p>
+    <p>In a separate malfunction experiment, we degraded the mobility rApp’s predictions from the fifth configuration window. Its reputation fell to near zero within one window. Across that experiment, TACIT reduced configuration changes from the malfunctioning rApp by 41–44% relative to the static-priority and unconstrained baselines.</p>
+  </section>
+
+  <section class="section" id="scope">
+    <h2>Where the claims stop</h2>
+    <p>We assume rApps follow the protocol and faithfully report utilities and reputation values. Prediction accuracy is checked against outcomes, but TACIT does not verify that a utility vote honestly expresses an rApp’s preferences. The malfunction experiment tests prediction failure, not strategic deception or collusion.</p>
+    <p>The implementation maintains one reputation score per rApp. A predictor that works well for some cells and poorly for others therefore gains or loses influence globally. Production-scale validation and more granular reputation remain further work.</p>
+    <p>The acceptance rule improves the aggregate of reported, weighted utilities. It does not guarantee that every rApp benefits or that every accepted prediction will be realised.</p>
+  </section>
+
+  <section class="section" id="connections">
+    <h2>From useful predictions to accountable decisions</h2>
+    <p>I place TACIT within my work on <a href="/research/#coordination">multi-agent coordination and institutional design</a>: how evidence should affect an autonomous actor’s authority. It develops the network-management trajectory represented by <a href="/works/#work-2025-camino">CAMINO</a>, shifting the emphasis from explicit conflict detection to arbitration informed by observed prediction accuracy.</p>
+    <p><a href="/works/oracle/">ORACLE</a> addresses the complementary question of whether participants can verify that the agreed arbitration process was followed. It provides a shared ledger and deterministic workflow. Its published prototype uses a simple majority policy; the two papers should not be read as a single evaluated TACIT-on-ledger deployment.</p>
+  </section>
+
+  <section class="section citation" id="citation">
+    <h2>Publication and citation</h2>
+    <p>J. Armstrong, S. Fallon and E. Fallon, “TACIT: Trustworthy Arbitration Through Calibrated Inference Tracking for rApp Conflict Resolution in O-RAN,” <cite>IEEE Access</cite>, vol. 14, pp. 75535–75548, 2026. DOI: <a href="https://doi.org/10.1109/ACCESS.2026.3693113">10.1109/ACCESS.2026.3693113</a>.</p>
+    <p><a href="/works/tacit/citation.bib" download>Download BibTeX citation</a></p>
+  </section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>
