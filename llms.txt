@@ -17,10 +17,14 @@ Canonical site: https://jossarmstrong.org/
 - MENGER, animated one-bit feedback along a selected path: https://jossarmstrong.org/works/menger/
 - Allocation and verification, the exact 96-agent feasibility example: https://jossarmstrong.org/works/allocation-verification/
 - CAMINO, an animated contextual network assessment: https://jossarmstrong.org/works/camino/
+- PECDAFs, a visual comparison before a proposed network change: https://jossarmstrong.org/works/pecdafs/
+- Cell similarity, interactive patterns and Pearson correlations: https://jossarmstrong.org/works/cell-similarity/
 
 These author companion pages explain the methods, results and limitations, and link to the public papers. IB, MENGER and allocation/verification are explicitly labelled preprints, with links to the versions explained. Their interactive examples use the public papers' equations and constructions. CAMINO's animation illustrates a reported qualitative scenario, not numerical simulation. Reading the pages does not require JavaScript. ORACLE's reported prototype uses majority selection; its results do not describe a combined TACIT-on-ledger deployment.
 
 Works are ordered by descending year within each publication category. Ties retain the existing order; the list does not imply a within-year chronology.
+
+TACIT, ORACLE, PECDAFs and cell similarity include constructed teaching examples, explicitly distinguished from the papers' empirical data. TACIT uses the paper's exact aggregation and reputation-update rules. ORACLE distinguishes rApp policy voting from validator consensus. PECDAFs illustrates observational cohort comparison, not causal identification. Cell similarity separates Pearson correlation, operating levels and SHAP model explanations; the visual contains no synthetic SHAP results.
 
 ## Research structure
 A central strand studies task-relative information requirements for coordination: what information a decision requires, what can be discarded, and how those requirements change with finite evidence, hierarchy and recursion. The wider portfolio includes related and independently motivated work in mechanism design, economic institutions, cognition, multi-agent systems, autonomous networks, privacy, auditability, resource allocation and distributed AI.

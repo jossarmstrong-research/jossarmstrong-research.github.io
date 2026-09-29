@@ -8,6 +8,8 @@
   <link rel="canonical" href="https://jossarmstrong.org/works/tacit/">
   <link rel="stylesheet" href="/css/site.css">
   <link rel="stylesheet" href="/css/paper.css">
+  <link rel="stylesheet" href="/css/explainers.css">
+  <script type="module" src="/js/explainers.js"></script>
   <meta name="citation_title" content="TACIT: Trustworthy Arbitration Through Calibrated Inference Tracking for rApp Conflict Resolution in O-RAN">
   <meta name="citation_author" content="Joss Armstrong">
   <meta name="citation_author" content="Sheila Fallon">
@@ -49,7 +51,7 @@
       <a href="#citation">Cite this paper</a>
     </div>
     <nav class="paper-contents" aria-label="On this page">
-      <a href="#problem">The problem</a><a href="#method">How it works</a><a href="#results">Results</a><a href="#scope">Scope</a><a href="#connections">Related research</a>
+      <a href="#problem">The problem</a><a href="#method">How it works</a><a href="#explore">Visual explanation</a><a href="#results">Results</a><a href="#scope">Scope</a><a href="#connections">Related research</a>
     </nav>
   </header>
 
@@ -76,6 +78,35 @@
     <p>Here, <var>R<sub>i</sub></var> is an rApp’s reputation and <var>u<sub>i</sub></var> its utility vote. A low reputation reduces the effect of either a positive or a negative vote. The proposing rApp evaluates the rule; TACIT does not require a central arbiter.</p>
     <p>After an accepted change, we compare predictions with observed outcomes. Incorrect predictions reduce reputation faster than correct predictions restore it: our evaluation uses update rates of 0.3 and 0.1 respectively. All participating rApps can receive updates, including those that assessed someone else’s proposal. Rejected changes provide no observed counterfactual for an update.</p>
     <p>The aggregation requires O(N) operations per proposal for N participating rApps. This bound concerns the arbitration calculation; it does not include the cost of each rApp’s prediction model or search for proposals.</p>
+  </section>
+
+
+  <section class="section" id="explore">
+    <h2>Watch reputation change the decision</h2>
+    <p>Keep three utility votes fixed and vary one rApp’s reputation. A and B support the proposal; C opposes it. A lower reputation makes C’s negative vote count less, just as it would make a positive vote count less.</p>
+    <div class="explainer" data-explainer="tacit">
+      <div class="experiment-label">Constructed example · the paper’s exact update and decision rules</div>
+      <h3>Same votes. Different influence.</h3>
+      <div class="experiment-controls" data-controls hidden>
+        <div class="slider-control"><label for="tacit-reputation">C’s assumed prior reputation <output for="tacit-reputation" data-value="reputation">0.800</output></label><input id="tacit-reputation" name="reputation" type="range" min="0" max="100" step="1" value="80"></div>
+        <button type="button" data-prior="0.8">Equal reputations</button><button type="button" data-prior="0.2">Lower C to 0.2</button>
+        <div class="feedback-controls" role="group" aria-label="Observe an accepted change; A and B predictions are correct"><button type="button" data-feedback="correct" disabled>Observe: C correct</button><button type="button" data-feedback="incorrect" disabled>Observe: C incorrect</button></div>
+      </div>
+      <p class="feedback-note">The example starts from assumed prior reputations of 0.8; the paper initialises new rApps at 0.5. Moving the slider or choosing a preset resets the example. Outcome buttons become available only after an acceptance.</p>
+      <div class="vote-list">
+        <div class="vote-row"><div class="vote-heading"><strong>rApp A · utility 1.4</strong><span>R = <span data-value="weight-0">0.800</span> <small>· contribution <span data-value="contribution-0">+0.269</span></small></span></div><div class="signed-track" aria-hidden="true"><span data-contribution="0" style="left:50%;width:19.23%"></span></div></div>
+        <div class="vote-row"><div class="vote-heading"><strong>rApp B · utility 1.2</strong><span>R = <span data-value="weight-1">0.800</span> <small>· contribution <span data-value="contribution-1">+0.146</span></small></span></div><div class="signed-track" aria-hidden="true"><span data-contribution="1" style="left:50%;width:10.42%"></span></div></div>
+        <div class="vote-row"><div class="vote-heading"><strong>rApp C · utility 0.5</strong><span>R = <span data-value="weight-2">0.800</span> <small>· contribution <span data-value="contribution-2">−0.555</span></small></span></div><div class="signed-track" aria-hidden="true"><span class="negative" data-contribution="2" style="left:10.39%;width:39.61%"></span></div></div>
+        <div class="signed-axis" aria-hidden="true"><span>−0.7</span><span>0</span><span>+0.7</span></div>
+      </div>
+      <p class="experiment-caption">Bars show R × ln(utility), on a shared signed scale. Positive values support acceptance; negative values oppose it. Utility 1 would contribute zero at every reputation.</p>
+      <dl class="readout"><div><dt>Weighted log-utility sum</dt><dd data-value="score">−0.139</dd></div><div><dt>Acceptance condition</dt><dd>Sum &gt; 0</dd></div></dl>
+      <div class="scenario-decision reject" data-decision data-value="decision">Reject this proposal</div>
+      <p class="experiment-status" data-value="status" role="status" aria-live="polite">At equal reputations of 0.8, the weighted sum is −0.139, so the proposal is rejected. Lowering only C’s reputation to 0.2 gives +0.276 and acceptance.</p>
+      <p class="feedback-note" data-value="feedback" role="status" aria-live="polite">No outcome has been observed in this example.</p>
+      <p class="experiment-caption">Illustrative utilities and histories, calculated using the <a href="https://doi.org/10.1109/ACCESS.2026.3693113">TACIT paper’s mechanism</a>. Utility votes are distinct from directional KPI predictions. An accurate prediction does not establish that a utility vote was sincere.</p>
+      <noscript><p>The static bars show equal reputations. For an accepted proposal with C at 0.2, an incorrect prediction lowers it to 0.14; a correct prediction raises it to 0.28. If A and B were correct, both rise from 0.8 to 0.82. Rejection produces no update.</p></noscript>
+    </div>
   </section>
 
   <section class="section" id="results">

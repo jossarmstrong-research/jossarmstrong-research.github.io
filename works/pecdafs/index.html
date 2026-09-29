@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PECDAFs: Detecting Conflict Before a Network Change | Joss Armstrong</title>
+  <meta name="description" content="Explore how PECDAFs compares similar cells using existing and proposed settings to flag possible KPI degradation before a network configuration change.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/pecdafs/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <link rel="stylesheet" href="/css/explainers.css">
+  <meta name="citation_title" content="Pre-Emptive Conflict Detection Architecture for O-RAN Service Management and Orchestration">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_author" content="Enda Fallon">
+  <meta name="citation_author" content="Sheila Fallon">
+  <meta name="citation_publication_date" content="2024-07-04">
+  <meta name="citation_doi" content="10.1109/IAICT62357.2024.10617647">
+  <meta name="citation_conference_title" content="2024 IEEE International Conference on Industry 4.0, Artificial Intelligence, and Communications Technology (IAICT)">
+  <meta name="citation_firstpage" content="335">
+  <meta name="citation_lastpage" content="340">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="PECDAFs: Detecting Conflict Before a Network Change">
+  <meta property="og:description" content="Explore how PECDAFs compares similar cells using existing and proposed settings to flag possible KPI degradation before a network configuration change.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/pecdafs/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/works/pecdafs/", "url": "https://jossarmstrong.org/works/pecdafs/", "name": "PECDAFs: Detecting Conflict Before a Network Change", "description": "Explore how PECDAFs compares similar cells using existing and proposed settings to flag possible KPI degradation before a network configuration change.", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "ScholarlyArticle", "name": "Pre-Emptive Conflict Detection Architecture for O-RAN Service Management and Orchestration", "author": [{"@type": "Person", "name": "Joss Armstrong"}, {"@type": "Person", "name": "Enda Fallon"}, {"@type": "Person", "name": "Sheila Fallon"}], "datePublished": "2024-07-04", "identifier": "10.1109/IAICT62357.2024.10617647", "url": "https://doi.org/10.1109/IAICT62357.2024.10617647", "isPartOf": {"@type": "CreativeWork", "name": "2024 IEEE International Conference on Industry 4.0, Artificial Intelligence, and Communications Technology (IAICT)"}, "pageStart": "335", "pageEnd": "340"}}</script>
+  <script type="module" src="/js/explainers.js"></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/">Joss Armstrong</a><a href="/research/">Research</a><a href="/works/" aria-current="true">Works</a><a href="/about/">About</a></nav></header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / PECDAFs</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author companion · Pre-emptive conflict detection</div>
+    <h1>Pre-Emptive Conflict Detection Architecture for O-RAN Service Management and Orchestration</h1>
+    <p class="byline">Joss Armstrong, Enda Fallon and Sheila Fallon</p>
+    <p class="meta">Published · IEEE IAICT 2024 · Pages 335–340 · 2024</p>
+    <p class="lede">Before changing a network parameter, inspect what comparable cells suggest about its side effects. A pre-emptive warning gives the proposing application evidence for its decision.</p>
+    <div class="paper-actions"><a class="paper-link" href="https://doi.org/10.1109/IAICT62357.2024.10617647">Read the published paper</a><a href="#explore">Explore the explanation</a><a href="#citation">Cite this paper</a></div>
+    <nav class="paper-contents" aria-label="On this page"><a href="#idea">The question</a><a href="#explore">Visual explanation</a><a href="#result">The result</a><a href="#scope">Scope</a><a href="#connections">Related research</a></nav>
+  </header>
+
+  <section class="section" id="idea">
+    <h2>Look for side effects before applying a change</h2>
+    <p>An rApp can improve the metric it manages while degrading a metric managed by another application. Pre-emptive conflict detection asks what the network’s existing observations can tell us about those side effects before a configuration change is applied.</p>
+    <p>We compare the target cell with meaningfully similar cells already using the current and proposed parameter values. Their KPI distributions provide evidence about possible degradation. The proposing rApp receives that evidence and decides how to act on it.</p>
+  </section>
+  <section class="section" id="explore">
+    <h2>Compare peers under two settings</h2>
+    <p>Follow a proposed change from setting A to setting B. Switch between two constructed sets of proposed-setting peers to see how the warning changes. The example illustrates the comparison behind the paper’s Figures 1, 3 and 4.</p>
+    <div class="explainer" data-explainer="pecdafs">
+      <div class="experiment-label">Constructed teaching data · not measurements from the paper</div>
+      <h3>What happened in comparable cells?</h3>
+      <div class="experiment-controls" data-controls hidden>
+      <button class="primary" type="button" data-action="play" aria-pressed="false">Play explanation</button>
+      <button type="button" data-action="next">Next step</button>
+      <button type="button" data-action="reset">Start again</button>
+      <div class="feedback-controls" role="group" aria-label="Illustrative proposed-setting cohort"><button type="button" data-scenario="risk" aria-pressed="true">Lower access success</button><button type="button" data-scenario="clear" aria-pressed="false">Higher access success</button></div><span class="step-count" data-value="step"></span>
+    </div><div class="round-progress" data-progress aria-hidden="true"></div>
+      <p class="scenario-proposal">Target cell: setting A, access success rate 97%. Proposal: change to B. Higher access success is better.</p>
+      <div class="peer-groups">
+        <div class="peer-group selected" data-peer-group="existing"><h4>Existing setting A</h4><p>Match usage patterns and remaining configuration.</p></div>
+        <div class="peer-group selected" data-peer-group="proposed"><h4>Proposed setting B</h4><p>Match usage patterns and remaining configuration.</p></div>
+        <div class="peer-group excluded" data-peer-group="other"><h4>Other settings</h4><p>Excluded from this two-setting comparison.</p></div>
+      </div>
+      <p class="legend" data-value="peer-stage">Similar peers selected within each eligible group</p>
+      <div class="cohort-plot" data-peer-plot>
+        <div class="meter-label"><strong>Peers with A: 96%, 97%, 98%</strong><span>Mean <span data-value="existing-mean">97.0%</span></span></div>
+        <div class="cohort-track" data-cohort="existing" aria-hidden="true"><i class="cohort-target"></i><div class="cohort-range"><span data-range style="left:73.333%;width:13.334%"></span><i data-dot style="left:73.333%"></i><i data-dot style="left:80%"></i><i data-dot style="left:86.667%"></i></div></div>
+        <div class="meter-label"><strong>Peers with B: <span data-value="proposed-values">90%, 92%, 94%</span></strong><span>Mean <span data-value="proposed-mean">92.0%</span></span></div>
+        <div class="cohort-track" data-cohort="proposed" aria-hidden="true"><i class="cohort-target"></i><div class="cohort-range"><span data-range style="left:33.333%;width:26.667%"></span><i data-dot style="left:33.333%"></i><i data-dot style="left:46.667%"></i><i data-dot style="left:60%"></i></div></div>
+        <div class="cohort-scale" aria-hidden="true"><span>85%</span><span>90%</span><span>95%</span><span>100%</span></div>
+        <p class="experiment-caption">Each dot is one illustrative peer. Lines span the observed examples, not confidence intervals. The dashed marker is the target’s 97%. Both rows use the same 85–100% axis.</p>
+        <p class="legend" data-value="comparison">Target: 97%. Existing-setting peers average 97.0%; proposed-setting peers average 92.0%. Higher access success is better.</p>
+      </div>
+      <div class="scenario-decision reject" data-decision data-value="risk-decision">Flag possible access degradation</div>
+      <p class="experiment-status" data-value="status" role="status" aria-live="polite">The proposed-setting peers have worse access success than the target cell. Report possible degradation to the proposing rApp; it decides whether the tradeoff is acceptable.</p>
+      <p class="experiment-caption">The numerical values and three-peer groups are constructed for this explanation. The <a href="https://doi.org/10.1109/IAICT62357.2024.10617647">paper’s method</a> compares KPI evidence from similar cells; this small mean comparison is not a fitted predictor or a reproduced experiment.</p>
+      <noscript><p>The static view shows the warning case: A peers average 97%, B peers average 92%. In the other illustrative scenario, B peers have values 97%, 98% and 99%, averaging 98%; this comparison raises no access-degradation warning.</p></noscript>
+    </div>
+  </section>
+  <section class="section" id="result">
+    <h2>What we implemented and observed</h2>
+    <p>The prototype used simulated rApps to generate configuration-change proposals and a conflict-detection rApp to assess them. It consumed performance, configuration and KPI data from a telecommunications network segment of approximately 800 cells. The functions were implemented in Python and developed in Jupyter notebooks.</p>
+    <p>For each proposal, we first group cells by the value of the parameter being changed. Within the current-value and proposed-value groups, similarity uses time-series performance behaviour and the remaining configuration parameters. Leaving the changed parameter out of that second comparison allows us to find otherwise comparable cells across the two groups.</p>
+    <p>The paper shows KPI-distribution comparisons with and without predicted degradation, and a table reporting expected effects across several KPI categories. This supplies evidence for a decision; the method does not assess the importance of one KPI relative to another.</p>
+  </section>
+  <section class="section" id="scope">
+    <h2>A warning is evidence for a decision</h2>
+    <p>These comparisons depend on observed associations and on the quality of the peer matches. They do not establish that changing the parameter causes the difference, or guarantee the outcome in a new cell. A lack of sufficiently comparable observations limits what can be inferred.</p>
+    <p>An rApp may still apply a proposal after a warning if the predicted tradeoff serves the operator’s goals. Confidence estimates for the predictions and integration with operator intent are identified as further work. The reported examples do not establish a production-wide detection accuracy or a universal safety guarantee.</p>
+  </section>
+  <section class="section" id="connections">
+    <h2>From comparison to contextual decisions</h2>
+    <p>The <a href="/works/cell-similarity/">cell-similarity paper</a> explains how to inspect the evidence for choosing comparable cells. <a href="/works/camino/">CAMINO</a> develops the use of operator intent and external context when assessing a proposed change.</p>
+    <p><a href="/works/tacit/">TACIT</a> addresses arbitration through prediction reputation, while <a href="/works/oracle/">ORACLE</a> addresses a verifiable workflow. These papers contribute different mechanisms and evaluations within my <a href="/research/#networks">autonomous network-management research</a>.</p>
+  </section>
+
+  <section class="section citation" id="citation"><h2>Paper and citation</h2><p>J. Armstrong, E. Fallon, S. Fallon, “Pre-Emptive Conflict Detection Architecture for O-RAN Service Management and Orchestration,” <cite>2024 IEEE International Conference on Industry 4.0, Artificial Intelligence, and Communications Technology (IAICT)</cite>, pp. 335–340, 2024. DOI: <a href="https://doi.org/10.1109/IAICT62357.2024.10617647">10.1109/IAICT62357.2024.10617647</a>.</p><p><a href="/works/pecdafs/citation.bib" download>Download BibTeX citation</a></p></section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>

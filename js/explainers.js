@@ -1,4 +1,5 @@
 import { ibExample, redistribute, allocationExample } from './explainer-math.mjs';
+import { setupTacit, setupOracle, setupPecdafs, setupSimilarity } from './network-explainers.mjs';
 
 const fixed = (x, places = 3) => x.toFixed(places);
 const setText = (root, field, value) => {
@@ -208,7 +209,9 @@ function setupCamino(root) {
   });
 }
 
-const setups = { ib: setupIB, menger: setupMenger, allocation: setupAllocation, camino: setupCamino };
+const setups = { ib: setupIB, menger: setupMenger, allocation: setupAllocation, camino: setupCamino,
+  tacit: setupTacit, oracle: root => setupOracle(root, setupPlayer),
+  pecdafs: root => setupPecdafs(root, setupPlayer), similarity: setupSimilarity };
 document.querySelectorAll('[data-explainer]').forEach(root => {
   const setup = setups[root.dataset.explainer];
   if (setup) setup(root);

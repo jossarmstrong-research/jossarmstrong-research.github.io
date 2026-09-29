@@ -8,6 +8,8 @@
   <link rel="canonical" href="https://jossarmstrong.org/works/oracle/">
   <link rel="stylesheet" href="/css/site.css">
   <link rel="stylesheet" href="/css/paper.css">
+  <link rel="stylesheet" href="/css/explainers.css">
+  <script type="module" src="/js/explainers.js"></script>
   <meta name="citation_title" content="ORACLE: Open RAN Arbitration via Consensus Ledger Enforcement">
   <meta name="citation_author" content="Joss Armstrong">
   <meta name="citation_publication_date" content="2026/06/02">
@@ -46,7 +48,7 @@
       <a href="#citation">Cite this paper</a>
     </div>
     <nav class="paper-contents" aria-label="On this page">
-      <a href="#problem">The problem</a><a href="#method">How it works</a><a href="#results">Results</a><a href="#scope">Scope</a><a href="#connections">Related research</a>
+      <a href="#problem">The problem</a><a href="#method">How it works</a><a href="#explore">Visual explanation</a><a href="#results">Results</a><a href="#scope">Scope</a><a href="#connections">Related research</a>
     </nav>
   </header>
 
@@ -71,6 +73,35 @@
     <p>The design uses three contracts: a Registry Contract for rApp registration, a Proposal Contract for proposals and prediction collection, and a Decision Contract for evaluation and outcome recording. Lightweight adapters connect rApps to contract events and transactions.</p>
     <p>Decision-critical records are kept on the ledger. Detailed telemetry can remain outside it, with hashes or references connecting that data to the recorded outcome. Those links support later integrity checks; the measurement pipeline still determines whether the original observations were correct.</p>
     <p>I use a simple majority selector in the reference implementation so that workflow enforcement can be evaluated separately from the quality of a particular arbitration policy. More elaborate policies, including reputation weighting, are possible extensions.</p>
+  </section>
+
+
+  <section class="section" id="explore">
+    <h2>Follow a proposal through the shared record</h2>
+    <p>Step through collection, an invalid early decision attempt, majority evaluation and outcome recording. The rApps express views about a proposal. Separately, validators maintain agreement on the recorded contract execution.</p>
+    <div class="explainer" data-explainer="oracle">
+      <div class="experiment-label">Schematic workflow · illustrative seven-rApp vote</div>
+      <h3>A decision needs a valid history</h3>
+      <div class="experiment-controls" data-controls hidden>
+      <button class="primary" type="button" data-action="play" aria-pressed="false">Play explanation</button>
+      <button type="button" data-action="next">Next step</button>
+      <button type="button" data-action="reset">Start again</button>
+      <span class="step-count" data-value="step"></span>
+    </div><div class="round-progress" data-progress aria-hidden="true"></div>
+      <p class="scenario-proposal">Registry Contract: seven registered rApps. Permissioned ledger: four validators, as in the evaluated prototype.</p>
+      <div class="ledger">
+        <div class="ledger-record recorded" data-record-step="1"><span class="contract-name">Proposal Contract</span><h4>01 · Proposal</h4><p data-value="proposal">P1 recorded</p></div>
+        <div class="ledger-record recorded" data-record-step="4"><span class="contract-name">Proposal Contract</span><h4>02 · Predictions</h4><p data-value="predictions">7 / 7 recorded</p></div>
+        <div class="ledger-record recorded" data-record-step="5"><span class="contract-name">Decision Contract</span><h4>03 · Policy result</h4><p data-value="ledger-decision">Accept · majority 4–3</p></div>
+        <div class="ledger-record recorded" data-record-step="6"><span class="contract-name">Decision Contract</span><h4>04 · Observations</h4><p data-value="outcome">P1 observations recorded</p></div>
+      </div>
+      <p class="legend">Illustrative rApp assessments, simplified to support or oppose:</p>
+      <div class="ballots" aria-label="Seven illustrative rApp assessments"><span class="ballot support" data-ballot>Support</span><span class="ballot support" data-ballot>Support</span><span class="ballot support" data-ballot>Support</span><span class="ballot support" data-ballot>Support</span><span class="ballot oppose" data-ballot>Oppose</span><span class="ballot oppose" data-ballot>Oppose</span><span class="ballot oppose" data-ballot>Oppose</span></div>
+      <div class="scenario-decision" data-guard data-value="guard">Workflow checks apply before every state change</div>
+      <p class="experiment-status" data-value="status" role="status" aria-live="polite">The completed history contains P1, seven responses, a majority acceptance and the later observations. An earlier decision attempt before quorum would be rejected without creating a decision record.</p>
+      <p class="experiment-caption">Based on the <a href="https://doi.org/10.1109/EuCNC/6GSummit68295.2026.11577222">paper’s four-phase architecture and workflow-enforcement tests</a>. Response thresholds and collection periods are configurable. The 4–3 vote illustrates the reference majority policy; it is not a recorded experimental decision. Playback time does not represent measured latency.</p>
+      <noscript><p>Sequence: register participants → record P1 → collect three responses → reject an attempt before quorum → finish collection → record majority acceptance → record observations. The diagram shows the completed sequence.</p></noscript>
+    </div>
   </section>
 
   <section class="section" id="results">

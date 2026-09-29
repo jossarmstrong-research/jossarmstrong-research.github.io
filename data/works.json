@@ -94,7 +94,8 @@
       "O-RAN",
       "conflict detection",
       "network orchestration"
-    ]
+    ],
+    "page_url": "https://jossarmstrong.org/works/pecdafs/"
   },
   {
     "id": "work-2023-rbs-dimensionality",
@@ -120,7 +121,8 @@
       "explainable AI",
       "autonomous networks",
       "cell similarity"
-    ]
+    ],
+    "page_url": "https://jossarmstrong.org/works/cell-similarity/"
   },
   {
     "id": "work-2026-ib-reduction",

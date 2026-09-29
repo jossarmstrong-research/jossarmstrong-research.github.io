@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cell Similarity: Explaining the Choice of a Comparison | Joss Armstrong</title>
+  <meta name="description" content="An interactive explanation of cell similarity: compare performance-counter patterns, Pearson correlation and operating levels, with scope and evidence from the published paper.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/cell-similarity/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <link rel="stylesheet" href="/css/explainers.css">
+  <meta name="citation_title" content="Exploiting Cell Similarities in a Radio Access Network to Enhance Explainability for Autonomic Network Management Systems">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_author" content="Sheila Fallon">
+  <meta name="citation_author" content="Enda Fallon">
+  <meta name="citation_publication_date" content="2023-11-27">
+  <meta name="citation_doi" content="10.1109/ICCAIS59597.2023.10382371">
+  <meta name="citation_conference_title" content="2023 12th International Conference on Control, Automation and Information Sciences (ICCAIS)">
+  <meta name="citation_firstpage" content="775">
+  <meta name="citation_lastpage" content="780">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Cell Similarity: Explaining the Choice of a Comparison">
+  <meta property="og:description" content="An interactive explanation of cell similarity: compare performance-counter patterns, Pearson correlation and operating levels, with scope and evidence from the published paper.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/cell-similarity/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/works/cell-similarity/", "url": "https://jossarmstrong.org/works/cell-similarity/", "name": "Cell Similarity: Explaining the Choice of a Comparison", "description": "An interactive explanation of cell similarity: compare performance-counter patterns, Pearson correlation and operating levels, with scope and evidence from the published paper.", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "ScholarlyArticle", "name": "Exploiting Cell Similarities in a Radio Access Network to Enhance Explainability for Autonomic Network Management Systems", "author": [{"@type": "Person", "name": "Joss Armstrong"}, {"@type": "Person", "name": "Sheila Fallon"}, {"@type": "Person", "name": "Enda Fallon"}], "datePublished": "2023-11-27", "identifier": "10.1109/ICCAIS59597.2023.10382371", "url": "https://doi.org/10.1109/ICCAIS59597.2023.10382371", "isPartOf": {"@type": "CreativeWork", "name": "2023 12th International Conference on Control, Automation and Information Sciences (ICCAIS)"}, "pageStart": "775", "pageEnd": "780"}}</script>
+  <script type="module" src="/js/explainers.js"></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/">Joss Armstrong</a><a href="/research/">Research</a><a href="/works/" aria-current="true">Works</a><a href="/about/">About</a></nav></header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / Cell similarity</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author companion · Explainable network management</div>
+    <h1>Exploiting Cell Similarities in a Radio Access Network to Enhance Explainability for Autonomic Network Management Systems</h1>
+    <p class="byline">Joss Armstrong, Sheila Fallon and Enda Fallon</p>
+    <p class="meta">Published · IEEE ICCAIS 2023 · Pages 775–780 · 2023</p>
+    <p class="lede">A better-performing cell is useful as a guide only if the comparison makes sense. Inspect the patterns behind cell similarity, and see what a high correlation can leave out.</p>
+    <div class="paper-actions"><a class="paper-link" href="https://doi.org/10.1109/ICCAIS59597.2023.10382371">Read the published paper</a><a href="#explore">Explore the explanation</a><a href="#citation">Cite this paper</a></div>
+    <nav class="paper-contents" aria-label="On this page"><a href="#idea">The question</a><a href="#explore">Visual explanation</a><a href="#result">The result</a><a href="#scope">Scope</a><a href="#connections">Related research</a></nav>
+  </header>
+
+  <section class="section" id="idea">
+    <h2>Why is this cell a useful comparison?</h2>
+    <p>An autonomic network-management system may propose copying a configuration from a better-performing cell. That raises a prior question: are the two cells meaningfully similar in how they are used?</p>
+    <p>We examine time-series performance patterns across multiple counters and make that comparison inspectable. The Similarity Explainability Service also uses model explanations to show how individual counters relate to a target KPI prediction.</p>
+  </section>
+  <section class="section" id="explore">
+    <h2>A matching pattern can hide a different operating level</h2>
+    <p>Compare the target with two constructed cells across two counters. Cell A follows the target’s throughput pattern exactly, at a different level, but its modulation pattern runs in the opposite direction. Cell B is a close match on both counters.</p>
+    <div class="explainer" data-explainer="similarity">
+      <div class="experiment-label">Constructed time series · Pearson correlation</div>
+      <h3>Inspect the similarity, counter by counter</h3>
+      <div class="experiment-controls" data-controls hidden>
+        <div class="feedback-controls" role="group" aria-label="Comparison cell"><button type="button" data-peer="a" aria-pressed="true">Cell A</button><button type="button" data-peer="b" aria-pressed="false">Cell B</button></div>
+        <div class="feedback-controls" role="group" aria-label="Performance counter"><button type="button" data-counter="throughput" aria-pressed="true">Throughput counter</button><button type="button" data-counter="modulation" aria-pressed="false">Modulation counter</button></div>
+      </div>
+      <p class="legend"><span><span class="trace-key"></span>Target cell</span><span><span class="trace-key peer"></span><span data-value="peer-name">Cell A</span></span></p>
+      <svg class="counter-chart" viewBox="0 0 600 255" role="img" aria-labelledby="similarity-chart-title similarity-chart-description">
+        <title id="similarity-chart-title" data-value="counter-name">Throughput counter</title><desc id="similarity-chart-description" data-value="chart-description">Twelve constructed samples on a 0–100 arbitrary-unit scale. Cell A equals 1.8 times the target plus 10, so Pearson correlation is 1 despite a different level.</desc>
+        <path class="grid" d="M45 25H565 M45 120H565 M45 215H565 M45 25V215"/><text x="8" y="30">100</text><text x="16" y="125">50</text><text x="24" y="220">0</text><text x="43" y="240">1</text><text x="540" y="240">12</text><text x="205" y="240">Observation window</text>
+        <polyline class="target-trace" data-trace="target" points="45,192.20 91,196.00 137,199.80 183,197.90 229,180.80 275,154.20 321,131.40 367,139.00 413,158.00 459,169.40 505,177.00 551,188.40"/><polyline class="peer-trace" data-trace="peer" points="45,154.96 91,161.80 137,168.64 183,165.22 229,134.44 275,86.56 321,45.52 367,59.20 413,93.40 459,113.92 505,127.60 551,148.12"/>
+        <g data-points="target"></g><g data-points="peer"></g>
+      </svg>
+      <p class="experiment-caption">Twelve equal observation windows, arbitrary counter units. The vertical scale stays at 0–100 in every view. Colours and solid/dashed lines distinguish the two cells.</p>
+      <dl class="readout"><div><dt>Pearson correlation r</dt><dd data-value="correlation">1.000</dd></div><div><dt>Target mean</dt><dd data-value="target-mean">21.75</dd></div><div><dt>Comparison mean</dt><dd data-value="peer-mean">49.15</dd></div></dl>
+      <table class="correlation-table"><caption>Correlation with the target in each dimension</caption><thead><tr><th scope="col">Counter</th><th scope="col">Cell A</th><th scope="col">Cell B</th></tr></thead><tbody><tr><th scope="row">Throughput</th><td data-correlation="throughput:a">1.000</td><td data-correlation="throughput:b">0.990</td></tr><tr><th scope="row">Modulation</th><td class="inverse" data-correlation="modulation:a">−1.000</td><td data-correlation="modulation:b">0.993</td></tr></tbody></table>
+      <p class="experiment-status" data-value="status" role="status" aria-live="polite">Cell A’s throughput correlation is exactly 1 because A = 1.8 × target + 10. Its modulation correlation is −1. Cell B follows both patterns closely. One matching counter is not enough to establish similarity across the operating environment.</p>
+      <details class="math-details"><summary>Read the plotted values</summary><div class="results-scroll" role="region" aria-label="Values for the selected example traces" tabindex="0"><table class="results"><caption>Constructed values in arbitrary units</caption><thead><tr><th scope="col">Window</th><th scope="col">Target</th><th scope="col">Comparison</th></tr></thead><tbody><tr><th scope="row">1</th><td data-value="sample-target-0">12</td><td data-value="sample-peer-0">31.6</td></tr><tr><th scope="row">2</th><td data-value="sample-target-1">10</td><td data-value="sample-peer-1">28.0</td></tr><tr><th scope="row">3</th><td data-value="sample-target-2">8</td><td data-value="sample-peer-2">24.4</td></tr><tr><th scope="row">4</th><td data-value="sample-target-3">9</td><td data-value="sample-peer-3">26.2</td></tr><tr><th scope="row">5</th><td data-value="sample-target-4">18</td><td data-value="sample-peer-4">42.4</td></tr><tr><th scope="row">6</th><td data-value="sample-target-5">32</td><td data-value="sample-peer-5">67.6</td></tr><tr><th scope="row">7</th><td data-value="sample-target-6">44</td><td data-value="sample-peer-6">89.2</td></tr><tr><th scope="row">8</th><td data-value="sample-target-7">40</td><td data-value="sample-peer-7">82.0</td></tr><tr><th scope="row">9</th><td data-value="sample-target-8">30</td><td data-value="sample-peer-8">64.0</td></tr><tr><th scope="row">10</th><td data-value="sample-target-9">24</td><td data-value="sample-peer-9">53.2</td></tr><tr><th scope="row">11</th><td data-value="sample-target-10">20</td><td data-value="sample-peer-10">46.0</td></tr><tr><th scope="row">12</th><td data-value="sample-target-11">14</td><td data-value="sample-peer-11">35.2</td></tr></tbody></table></div></details>
+      <p class="experiment-caption">The <a href="https://doi.org/10.1109/ICCAIS59597.2023.10382371">paper</a> uses Pearson correlations across 35 performance counters. The two counters and all values here are constructed to explain that measure; they are not extracted network traces or SHAP results.</p>
+      <noscript><p>The static chart shows Cell A’s throughput comparison. The table of correlations also shows its opposite modulation pattern and Cell B’s close agreement on both counters.</p></noscript>
+    </div>
+  </section>
+  <section class="section" id="result">
+    <h2>What the service adds</h2>
+    <p>The research used three weeks of performance data from 700 LTE FDD cells, together with a configuration snapshot. We selected 35 performance counters in 11 categories, including throughput, bearer usage, resource-block usage, modulation and sleep behaviour.</p>
+    <p>The Similarity Explainability Service stores pairwise, per-counter Pearson correlations. Category summaries help users inspect which aspects of operation make another cell a relevant comparison. Scalar averages provide additional context about operating levels.</p>
+    <p>A separate explanation step uses SHAP to examine each counter’s contribution to a model’s target-KPI prediction. The paper presents a directional summary alongside the similarity results. Correlation describes pattern agreement; SHAP explains the prediction model. The visual above calculates the former.</p>
+  </section>
+  <section class="section" id="scope">
+    <h2>Similarity is specific to the measurements</h2>
+    <p>Pearson correlation measures linear co-variation. It is unchanged by a positive rescaling and an offset, as Cell A illustrates. Equal correlations therefore do not establish equal traffic volume or capacity. A constant trace has undefined Pearson correlation.</p>
+    <p>Agreement across observed counters does not prove that copying a configuration will cause the same outcome. The relevance of the measurements, the target KPI and the observation period still matter. SHAP attributes a model’s predictions; it does not turn those attributions into causal effects. Mean absolute SHAP values describe magnitude, with direction requiring separate information.</p>
+    <p>The paper demonstrates similarity reports and explanatory views. It does not establish that these comparisons guarantee safe reconfiguration or improve every autonomic controller.</p>
+  </section>
+  <section class="section" id="connections">
+    <h2>Making comparisons useful for action</h2>
+    <p><a href="/works/pecdafs/">PECDAFs</a> develops the use of comparable cells to flag likely KPI degradation before a proposed configuration change. <a href="/works/camino/">CAMINO</a> brings intent and environmental context into the assessment.</p>
+    <p>These works form part of my <a href="/research/#networks">autonomous network-management research</a>. Their connections concern the practical use of evidence; they do not imply that each paper validates a single integrated deployment.</p>
+  </section>
+
+  <section class="section citation" id="citation"><h2>Paper and citation</h2><p>J. Armstrong, S. Fallon, E. Fallon, “Exploiting Cell Similarities in a Radio Access Network to Enhance Explainability for Autonomic Network Management Systems,” <cite>2023 12th International Conference on Control, Automation and Information Sciences (ICCAIS)</cite>, pp. 775–780, 2023. DOI: <a href="https://doi.org/10.1109/ICCAIS59597.2023.10382371">10.1109/ICCAIS59597.2023.10382371</a>.</p><p><a href="/works/cell-similarity/citation.bib" download>Download BibTeX citation</a></p></section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>
