@@ -1,70 +1,5 @@
 [
   {
-    "id": "work-2023-rbs-dimensionality",
-    "title": "Dimensionality Reduction for Optimization of Radio Base Station Transmission Based on Energy Efficiency",
-    "year": 2023,
-    "status": "Published",
-    "venue": "IEEE ITMS 2023",
-    "url": "https://doi.org/10.1109/ITMS59786.2023.10317744",
-    "topics": [
-      "energy efficiency",
-      "network management",
-      "dimensionality reduction"
-    ]
-  },
-  {
-    "id": "work-2023-cell-similarity",
-    "title": "Exploiting Cell Similarities in a Radio Access Network to Enhance Explainability for Autonomic Network Management Systems",
-    "year": 2023,
-    "status": "Published",
-    "venue": "IEEE ICCAIS 2023",
-    "url": "https://doi.org/10.1109/ICCAIS59597.2023.10382371",
-    "topics": [
-      "explainable AI",
-      "autonomous networks",
-      "cell similarity"
-    ]
-  },
-  {
-    "id": "work-2024-pecdafs",
-    "title": "Pre-Emptive Conflict Detection Architecture for O-RAN Service Management and Orchestration",
-    "year": 2024,
-    "status": "Published",
-    "venue": "IEEE IAICT 2024",
-    "url": "https://doi.org/10.1109/IAICT62357.2024.10617647",
-    "topics": [
-      "O-RAN",
-      "conflict detection",
-      "network orchestration"
-    ]
-  },
-  {
-    "id": "work-2025-begreen-demo",
-    "title": "Demo: BeGREEN Intelligence Plane for AI-driven Energy Efficient O-RAN management",
-    "year": 2025,
-    "status": "Published",
-    "venue": "IEEE INFOCOM Workshops 2025",
-    "url": "https://doi.org/10.1109/INFOCOMWKSHPS65812.2025.11152833",
-    "topics": [
-      "O-RAN",
-      "energy efficiency",
-      "AI-driven network management"
-    ]
-  },
-  {
-    "id": "work-2025-camino",
-    "title": "CAMINO - Contextually Aware Mediation of Intent for Network Orchestration",
-    "year": 2025,
-    "status": "Published",
-    "venue": "Telecommunication Systems",
-    "url": "https://doi.org/10.1007/s11235-025-01324-9",
-    "topics": [
-      "intent-based networking",
-      "O-RAN",
-      "conflict mediation"
-    ]
-  },
-  {
     "id": "work-2026-tacit",
     "title": "TACIT: Trustworthy Arbitration Through Calibrated Inference Tracking for rApp Conflict Resolution in O-RAN",
     "year": 2026,
@@ -122,6 +57,72 @@
     ]
   },
   {
+    "id": "work-2025-begreen-demo",
+    "title": "Demo: BeGREEN Intelligence Plane for AI-driven Energy Efficient O-RAN management",
+    "year": 2025,
+    "status": "Published",
+    "venue": "IEEE INFOCOM Workshops 2025",
+    "url": "https://doi.org/10.1109/INFOCOMWKSHPS65812.2025.11152833",
+    "topics": [
+      "O-RAN",
+      "energy efficiency",
+      "AI-driven network management"
+    ]
+  },
+  {
+    "id": "work-2025-camino",
+    "title": "CAMINO - Contextually Aware Mediation of Intent for Network Orchestration",
+    "year": 2025,
+    "status": "Published",
+    "venue": "Telecommunication Systems",
+    "url": "https://doi.org/10.1007/s11235-025-01324-9",
+    "topics": [
+      "intent-based networking",
+      "O-RAN",
+      "conflict mediation"
+    ],
+    "page_url": "https://jossarmstrong.org/works/camino/"
+  },
+  {
+    "id": "work-2024-pecdafs",
+    "title": "Pre-Emptive Conflict Detection Architecture for O-RAN Service Management and Orchestration",
+    "year": 2024,
+    "status": "Published",
+    "venue": "IEEE IAICT 2024",
+    "url": "https://doi.org/10.1109/IAICT62357.2024.10617647",
+    "topics": [
+      "O-RAN",
+      "conflict detection",
+      "network orchestration"
+    ]
+  },
+  {
+    "id": "work-2023-rbs-dimensionality",
+    "title": "Dimensionality Reduction for Optimization of Radio Base Station Transmission Based on Energy Efficiency",
+    "year": 2023,
+    "status": "Published",
+    "venue": "IEEE ITMS 2023",
+    "url": "https://doi.org/10.1109/ITMS59786.2023.10317744",
+    "topics": [
+      "energy efficiency",
+      "network management",
+      "dimensionality reduction"
+    ]
+  },
+  {
+    "id": "work-2023-cell-similarity",
+    "title": "Exploiting Cell Similarities in a Radio Access Network to Enhance Explainability for Autonomic Network Management Systems",
+    "year": 2023,
+    "status": "Published",
+    "venue": "IEEE ICCAIS 2023",
+    "url": "https://doi.org/10.1109/ICCAIS59597.2023.10382371",
+    "topics": [
+      "explainable AI",
+      "autonomous networks",
+      "cell similarity"
+    ]
+  },
+  {
     "id": "work-2026-ib-reduction",
     "title": "Source-Side Sufficiency for the Information Bottleneck: Exact Reduction and Finite-Block Equivalence",
     "year": 2026,
@@ -132,7 +133,8 @@
       "information bottleneck",
       "sufficiency",
       "rate-distortion"
-    ]
+    ],
+    "page_url": "https://jossarmstrong.org/works/ib/"
   },
   {
     "id": "work-2026-mises",
@@ -146,7 +148,8 @@
       "allocation",
       "verification"
     ],
-    "note": "Previously titled MISES: Minimal Information Sufficiency for Effective Service. This record represents the single MISES/JAVIC manuscript lineage."
+    "note": "Previously titled MISES: Minimal Information Sufficiency for Effective Service. This record represents the single MISES/JAVIC manuscript lineage.",
+    "page_url": "https://jossarmstrong.org/works/allocation-verification/"
   },
   {
     "id": "work-2026-menger",
@@ -159,7 +162,8 @@
       "hierarchical selection",
       "minimal feedback",
       "mechanism design"
-    ]
+    ],
+    "page_url": "https://jossarmstrong.org/works/menger/"
   },
   {
     "id": "work-2026-bohm",
@@ -229,6 +233,21 @@
     ]
   },
   {
+    "id": "work-2026-strata",
+    "title": "Task-Relative Information Contracts: Sufficiency, Evidence, and Hierarchical Preservation in Multi-Agent Systems",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "Zenodo",
+    "url": "https://doi.org/10.5281/zenodo.22819849",
+    "topics": [
+      "multi-agent systems",
+      "task-relative information",
+      "finite evidence",
+      "hierarchical preservation"
+    ],
+    "note": "Public preprint on Zenodo."
+  },
+  {
     "id": "work-2026-price-formation",
     "title": "Price Formation Without Communication: A Constructive Illustration of Mises and Hayek",
     "year": 2026,
@@ -268,21 +287,6 @@
       "information theory",
       "economic coordination"
     ]
-  },
-  {
-    "id": "work-2026-strata",
-    "title": "Task-Relative Information Contracts: Sufficiency, Evidence, and Hierarchical Preservation in Multi-Agent Systems",
-    "year": 2026,
-    "status": "Preprint",
-    "venue": "Zenodo",
-    "url": "https://doi.org/10.5281/zenodo.22819849",
-    "topics": [
-      "multi-agent systems",
-      "task-relative information",
-      "finite evidence",
-      "hierarchical preservation"
-    ],
-    "note": "Public preprint on Zenodo."
   },
   {
     "id": "work-2025-begreen-white-paper",

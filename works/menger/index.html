@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MENGER: Learning from Changes in Allocation | Joss Armstrong</title>
+  <meta name="description" content="An animated explanation of how a selected component can recover a one-bit outcome from its allocation change, using the exact two-round example in the MENGER preprint.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/menger/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <link rel="stylesheet" href="/css/explainers.css">
+  <meta name="citation_title" content="Implicit Evaluation Under Minimal Information: Hierarchical Component Selection from One-Bit Feedback">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_publication_date" content="2026-04-30">
+  <meta name="citation_doi" content="10.48550/arXiv.2605.00921">
+  <meta name="citation_arxiv_id" content="2605.00921">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2605.00921v2">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="MENGER: Learning from Changes in Allocation">
+  <meta property="og:description" content="An animated explanation of how a selected component can recover a one-bit outcome from its allocation change, using the exact two-round example in the MENGER preprint.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/menger/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/works/menger/", "url": "https://jossarmstrong.org/works/menger/", "name": "MENGER: Learning from Changes in Allocation", "description": "An animated explanation of how a selected component can recover a one-bit outcome from its allocation change, using the exact two-round example in the MENGER preprint.", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "ScholarlyArticle", "name": "Implicit Evaluation Under Minimal Information: Hierarchical Component Selection from One-Bit Feedback", "author": [{"@type": "Person", "name": "Joss Armstrong"}], "datePublished": "2026-04-30", "identifier": "10.48550/arXiv.2605.00921", "url": "https://arxiv.org/abs/2605.00921", "version": "2", "dateModified": "2026-08-26", "creativeWorkStatus": "Preprint"}}</script>
+  <script type="module" src="/js/explainers.js"></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/">Joss Armstrong</a><a href="/research/">Research</a><a href="/works/" aria-current="true">Works</a><a href="/about/">About</a></nav></header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / MENGER</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author companion · Hierarchical coordination</div>
+    <h1>Implicit Evaluation Under Minimal Information: Hierarchical Component Selection from One-Bit Feedback</h1>
+    <p class="byline">Joss Armstrong</p>
+    <p class="meta">Preprint · arXiv:2605.00921 · Version 2, revised 2026-08-26</p>
+    <p class="lede">A component can receive an evaluation through a change in its share of work. Follow two rounds to see how the sign carries one bit through a hierarchy, and why selection matters.</p>
+    <div class="paper-actions"><a class="paper-link" href="https://arxiv.org/abs/2605.00921">Read the public preprint</a><a href="#explore">Explore the explanation</a><a href="#citation">Cite this paper</a></div>
+    <nav class="paper-contents" aria-label="On this page"><a href="#idea">The question</a><a href="#explore">Visual explanation</a><a href="#result">The result</a><a href="#scope">Scope</a><a href="#connections">Related research</a></nav>
+  </header>
+
+  <section class="section" id="idea">
+    <h2>Can a component learn from the work it receives?</h2>
+    <p>A selector routes work among components whose internal operation it cannot inspect. Once an outcome is observed, it changes the share of work allocated to the selected component. That component can already observe its own allocation.</p>
+    <p>I study a protocol in which the direction of that change carries the evaluation. On a round when a component was selected, an increase means success and a decrease means failure. A selected component that is itself a selector can decode this bit and use it to update its own children.</p>
+  </section>
+  <section class="section" id="explore">
+    <h2>Follow one outcome through two levels</h2>
+    <div class="explainer" data-explainer="menger">
+      <div class="experiment-label">An animated reading of Table 2</div>
+      <h3>The allocation change carries the bit</h3>
+      <div class="experiment-controls" data-controls hidden>
+      <button class="primary" type="button" data-action="play" aria-pressed="false">Play explanation</button>
+      <button type="button" data-action="next">Next step</button>
+      <button type="button" data-action="reset">Start again</button>
+      <span class="step-count" data-value="step"></span>
+    </div><div class="round-progress" data-progress aria-hidden="true"></div>
+      <div class="tree diagram" data-tree data-active="true">
+        <div class="tree-root"><strong>Root selector</strong><span data-value="root-outcome">Observes failure: 0</span></div>
+        <svg class="tree-connectors" viewBox="0 0 100 34" preserveAspectRatio="none" aria-hidden="true"><line class="active-link" x1="50" y1="0" x2="25" y2="34"/><line x1="50" y1="0" x2="75" y2="34"/></svg>
+        <div class="branches">
+          <div class="branch active" data-branch="v1"><strong>Selector 1</strong><span class="incoming" data-value="v1">0.495</span><span class="incoming-label">incoming share from root</span><span class="signal decoded" data-signal data-value="signal">Decoded: 0</span>
+            <div class="leaves"><div class="leaf" data-leaf="a"><strong>a</strong><span data-value="a">0.595</span></div><div class="leaf selected" data-leaf="b"><strong>b</strong><span data-value="b">0.405</span></div></div>
+          </div>
+          <div class="branch"><strong>Selector 2</strong><span class="incoming" data-value="v2">0.505</span><span class="incoming-label">incoming share from root</span><span class="signal">Inactive: no decoding</span>
+            <div class="leaves"><div class="leaf"><strong>c</strong><span>0.500</span></div><div class="leaf"><strong>d</strong><span>0.500</span></div></div>
+          </div>
+        </div>
+        <div class="path-label" data-value="path">Round 2 · Root → Selector 1 → b</div>
+      </div>
+      <p class="experiment-status" data-value="status" role="status" aria-live="polite">After the second round, Selector 1 has decoded failure and reduced b’s local share to 0.405. Selector 2 remains inactive, so c and d keep equal local shares.</p>
+      <p class="experiment-caption">Exact two-round example from <a href="https://arxiv.org/html/2605.00921v2#S3.SS4">Section 3.4</a>, with update rate η = 0.1. The two numbers in each local allocation vector sum to one. Child weights are local shares, not shares of all root traffic.</p>
+      <noscript><p>The diagram shows the end of round 2. The table below gives the initial state and both rounds.</p></noscript>
+    </div>
+    <div class="results-scroll" role="region" aria-label="Exact two-round allocation values" tabindex="0"><table class="results">
+      <caption>The same example, without motion</caption><thead><tr><th scope="col">Allocation</th><th scope="col">Initial</th><th scope="col">Round 1: success, select a</th><th scope="col">Round 2: failure, select b</th></tr></thead>
+      <tbody><tr><th scope="row">Root → Selector 1</th><td>0.500</td><td>0.550</td><td>0.495</td></tr><tr><th scope="row">Root → Selector 2</th><td>0.500</td><td>0.450</td><td>0.505</td></tr><tr><th scope="row">Selector 1 → a</th><td>0.500</td><td>0.550</td><td>0.595</td></tr><tr><th scope="row">Selector 1 → b</th><td>0.500</td><td>0.450</td><td>0.405</td></tr></tbody>
+    </table></div>
+  </section>
+  <section class="section" id="result">
+    <h2>Selection is part of the information</h2>
+    <p>The inactive branch matters. Its incoming allocation also changes, but in the opposite direction. If it decoded that change as an evaluation of its own work, it would read the wrong outcome. Every node therefore checks whether it was selected before decoding or updating its children.</p>
+    <p>Under the specified redistribution rule, positive initial weights remain positive and each local vector continues to sum to one. Conditional on selection, the sign of the incoming allocation change identifies the root outcome at every depth. No separate evaluation message is required; the observable allocation still conveys information.</p>
+    <details class="math-details"><summary>The redistribution rule</summary>
+      <p>Let <var>w</var> be the selected child’s current weight and let <var>η</var> be the update rate, strictly between zero and one. After success its new weight is <code>(1 − η)w + η</code>; each sibling’s weight is multiplied by <code>1 − η</code>.</p>
+      <p>After failure the selected weight becomes <code>(1 − η)w</code>. Every sibling’s weight is multiplied by <code>(1 − w + ηw) / (1 − w)</code>. This redistributes the removed share proportionally and requires <var>w &lt; 1</var>, ensured by positive weights with at least two children.</p>
+    </details>
+    <p>The paper also analyses single-selector equilibria and stability under its stated conditions. The example here isolates signal propagation, so the arithmetic remains visible at each boundary.</p>
+  </section>
+  <section class="section" id="scope">
+    <h2>One selected path per round</h2>
+    <p>The model follows one root-to-leaf path. It does not divide a shared outcome among several simultaneous contributors or infer how an unselected alternative would have performed.</p>
+    <p>Nodes must follow the protocol and observe their own allocation accurately enough to determine its change. The animated shares are exact; estimating them from noisy traffic counts is a different observation problem.</p>
+    <p>The hierarchical result preserves the realised signal and local update law. It does not establish joint convergence of a hierarchy whose levels adapt simultaneously. The two-round animation is an exact worked example, not evidence for that stronger claim.</p>
+  </section>
+  <section class="section" id="connections">
+    <h2>Minimal feedback and hierarchical systems</h2>
+    <p>This paper, also known as MENGER, contributes to my work on <a href="/research/#hierarchies">adaptive and hierarchical systems</a>. <a href="/works/ib/">Source-side sufficiency for IB</a> asks a separate question about preserving task information when reducing a source. Here the task is to recover a selected round’s evaluation from an observable change in allocation.</p>
+    <p><a href="/works/#work-2026-bohm">Multi-Resolution Attribution from Adaptive Routing State</a> examines related questions about attribution. Sharing a hierarchical setting does not make these results interchangeable with attribution among simultaneous contributors.</p>
+  </section>
+
+  <section class="section citation" id="citation"><h2>Paper and citation</h2><p>J. Armstrong, “Implicit Evaluation Under Minimal Information: Hierarchical Component Selection from One-Bit Feedback,” arXiv:2605.00921, 2026. This explanation follows v2, revised 2026-08-26. <a href="https://arxiv.org/abs/2605.00921">Current public record</a>.</p><p><a href="/works/menger/citation.bib" download>Download BibTeX citation</a> · <a href="https://arxiv.org/abs/2605.00921v2">Version explained here: v2</a></p></section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>

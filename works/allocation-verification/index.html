@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Allocation and Verification: Enough Detail, Enough Evidence | Joss Armstrong</title>
+  <meta name="description" content="Explore the exact 96-agent allocation and verification example: see why 7 to 32 categories meet both allocation and detection targets under the stated assumptions.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/allocation-verification/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <link rel="stylesheet" href="/css/explainers.css">
+  <meta name="citation_title" content="Information Requirements for Service Allocation and Aggregate Verification">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_publication_date" content="2026-04-29">
+  <meta name="citation_doi" content="10.48550/arXiv.2604.26808">
+  <meta name="citation_arxiv_id" content="2604.26808">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2604.26808v3">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Allocation and Verification: Enough Detail, Enough Evidence">
+  <meta property="og:description" content="Explore the exact 96-agent allocation and verification example: see why 7 to 32 categories meet both allocation and detection targets under the stated assumptions.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/allocation-verification/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/works/allocation-verification/", "url": "https://jossarmstrong.org/works/allocation-verification/", "name": "Allocation and Verification: Enough Detail, Enough Evidence", "description": "Explore the exact 96-agent allocation and verification example: see why 7 to 32 categories meet both allocation and detection targets under the stated assumptions.", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "ScholarlyArticle", "name": "Information Requirements for Service Allocation and Aggregate Verification", "author": [{"@type": "Person", "name": "Joss Armstrong"}], "datePublished": "2026-04-29", "identifier": "10.48550/arXiv.2604.26808", "url": "https://arxiv.org/abs/2604.26808", "version": "3", "dateModified": "2026-09-14", "creativeWorkStatus": "Preprint"}}</script>
+  <script type="module" src="/js/explainers.js"></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/">Joss Armstrong</a><a href="/research/">Research</a><a href="/works/" aria-current="true">Works</a><a href="/about/">About</a></nav></header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / Allocation and verification</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author companion · Information and finite evidence</div>
+    <h1>Information Requirements for Service Allocation and Aggregate Verification</h1>
+    <p class="byline">Joss Armstrong</p>
+    <p class="meta">Preprint · arXiv:2604.26808 · Version 3, revised 2026-09-14</p>
+    <p class="lede">Finer service categories can improve allocations while leaving fewer observations for checking each promise. Explore an exact example of the range where both requirements can be met.</p>
+    <div class="paper-actions"><a class="paper-link" href="https://arxiv.org/abs/2604.26808">Read the public preprint</a><a href="#explore">Explore the explanation</a><a href="#citation">Cite this paper</a></div>
+    <nav class="paper-contents" aria-label="On this page"><a href="#idea">The question</a><a href="#explore">Visual explanation</a><a href="#result">The result</a><a href="#scope">Scope</a><a href="#connections">Related research</a></nav>
+  </header>
+
+  <section class="section" id="idea">
+    <h2>A category serves two purposes</h2>
+    <p>A provider offers a fixed menu of service configurations. Participants select categories that fit their needs, and the provider uses each category’s aggregate outcomes to check whether the promised service was delivered.</p>
+    <p>Finer categories can improve the fit between needs and allocations. They also divide a finite population into smaller monitoring pools. I study the conditions under which the same categories can support both tasks.</p>
+  </section>
+  <section class="section" id="explore">
+    <h2>Find the range that supports both tasks</h2>
+    <p>This is the paper’s exact 96-agent construction. Demands are equally spaced, and each category provides its members’ mean demand. Move the number of categories to see allocation error fall while the smallest monitoring pool shrinks.</p>
+    <div class="explainer" data-explainer="allocation">
+      <div class="experiment-label">96 agents · one fixed observation period</div>
+      <h3>Enough detail. Enough evidence.</h3>
+      <div class="experiment-controls" data-controls hidden>
+        <div class="slider-control"><label for="allocation-k">Number of categories <output for="allocation-k" data-value="categories">8 categories</output></label><input id="allocation-k" name="categories" type="range" min="1" max="48" step="1" value="8"></div>
+        <div class="experiment-controls" role="group" aria-label="Example category counts"><button type="button" data-preset="6" aria-label="Show 6 categories" aria-pressed="false">6</button><button type="button" data-preset="7" aria-label="Show 7 categories" aria-pressed="false">7</button><button type="button" data-preset="8" aria-label="Show 8 categories" aria-pressed="true">8</button><button type="button" data-preset="32" aria-label="Show 32 categories" aria-pressed="false">32</button><button type="button" data-preset="33" aria-label="Show 33 categories" aria-pressed="false">33</button></div>
+      </div>
+      <div class="range-band" role="img" aria-label="At the stated targets, 1 to 6 categories fail allocation; 7 to 32 are feasible; more than 32 fail verification. The display shows counts up to 48."><div class="band-position" aria-hidden="true"><i data-position></i></div><div class="band-segments" aria-hidden="true"><span></span><span></span><span></span></div><div class="band-labels"><span>1–6: too coarse</span><span>7–32: feasible</span><span>33+: too sparse</span></div></div>
+      <dl class="readout"><div><dt>Mean squared allocation error</dt><dd><span class="pass" data-value="loss">0.00129304</span><small data-value="allocation-check">Pass: loss ≤ 0.002</small></dd></div><div><dt>Smallest monitoring pool</dt><dd><span data-value="smallest">12</span><small>agents</small></dd></div><div><dt>Detection power in that pool</dt><dd><span class="pass" data-value="power">99.95%</span><small data-value="verification-check">Pass: power ≥ 80%</small></dd></div></dl>
+      <div class="pool-grid" data-pools aria-hidden="true"><div class="pool"><span class="pool-label">#1 · 12</span><span class="pool-members"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="pool"><span class="pool-label">#2 · 12</span><span class="pool-members"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="pool"><span class="pool-label">#3 · 12</span><span class="pool-members"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="pool"><span class="pool-label">#4 · 12</span><span class="pool-members"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="pool"><span class="pool-label">#5 · 12</span><span class="pool-members"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="pool"><span class="pool-label">#6 · 12</span><span class="pool-members"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="pool"><span class="pool-label">#7 · 12</span><span class="pool-members"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="pool"><span class="pool-label">#8 · 12</span><span class="pool-members"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div></div>
+      <p class="experiment-caption">Each dot is one agent. Each box is one category. Groups are balanced in size and consecutive in demand, and are recomputed for each count; successive designs need not be nested.</p>
+      <p class="experiment-status" data-value="status" role="status" aria-live="polite">Eight categories of twelve agents meet both targets. The mean squared allocation error is 0.00129304 and detection power in each pool is approximately 99.95%.</p>
+      <p class="experiment-caption">Computed from <a href="https://arxiv.org/html/2604.26808v3#S6">Section 6 and Appendix C</a> of the public preprint. These are a constructed population and specified statistical hypotheses, not measured service performance.</p>
+      <noscript><p>The static example uses eight categories. The boundary cases are shown in the table below.</p></noscript>
+    </div>
+    <div class="results-scroll" role="region" aria-label="Allocation and verification boundary examples" tabindex="0"><table class="results"><caption>Why the endpoints are 7 and 32</caption><thead><tr><th scope="col">Categories</th><th scope="col">Smallest pool</th><th scope="col">Allocation error</th><th scope="col">Detection power</th><th scope="col">Result</th></tr></thead><tbody>
+      <tr><th scope="row">6</th><td>16</td><td>0.00230577</td><td>99.997%</td><td>Allocation fails</td></tr><tr><th scope="row">7</th><td>13</td><td>0.00169712</td><td>99.983%</td><td>Both pass</td></tr><tr><th scope="row">32</th><td>3</td><td>0.00007234</td><td>88%</td><td>Both pass</td></tr><tr><th scope="row">33</th><td>2</td><td>0.00006951</td><td>70%</td><td>Verification fails</td></tr>
+    </tbody></table></div>
+    <details class="math-details"><summary>The assumptions and calculation behind the visual</summary>
+      <p>The demands are <code>tᵢ = (i + ½) / 96</code> for <var>i = 0, …, 95</var>, with utility <code>1 − (t − r)²</code>. At a chosen category count, adjacent groups differ in size by at most one and use their mean demand as the service profile. The resulting global minimum loss is <code>Σ(m³ − m) / (12 × 96³)</code>, where the sum runs over category sizes <var>m</var>.</p>
+      <p>Each agent supplies one independent binary failure observation. Failure probabilities are 0.2 under fulfilled service and 0.8 under a category-wide degradation. The test allows a 10% false-alarm probability per category and requires at least 80% detection power. The most powerful count test randomises at its boundary. One, two and three agents give powers of 40%, 70% and 88%, so each monitored category needs at least three agents.</p>
+    </details>
+  </section>
+  <section class="section" id="result">
+    <h2>An existence result with two boundaries</h2>
+    <p>For this population and the stated targets, a suitable design exists exactly when there are between 7 and 32 categories. Fewer than 7 cannot achieve the allocation tolerance, even with the best partition and profiles. More than 32 cannot place at least three agents in every category.</p>
+    <p>Inside that range, a balanced consecutive design attains the minimum allocation loss and meets the verification requirement. The claim is that a suitable design exists at each count. Arbitrary partitions with the same number of categories can still fail.</p>
+    <p>The paper also derives constraints on declaration entropy. At a tighter allocation tolerance equal to the eight-category optimum, three bits of category entropy are necessary and sufficient for this construction. This is a source- and tolerance-dependent result.</p>
+  </section>
+  <section class="section" id="scope">
+    <h2>What changes the feasible range?</h2>
+    <p>The range depends on the population, utility, observation model, observation period and detection target. The per-category false-alarm allowance in the example is not a guarantee about the probability of any false alarm across the whole system.</p>
+    <p>Small groups are a problem because evidence is finite, not because fine categories are inherently undesirable. More observations or different verification requirements can change the upper boundary. The general theory states the assumptions needed to relate allocation loss and aggregate verification; the exact 7–32 range belongs to this construction.</p>
+  </section>
+  <section class="section" id="connections">
+    <h2>Information sufficient for a task, evidence sufficient for a claim</h2>
+    <p><a href="/works/ib/">Source-side sufficiency for the Information Bottleneck</a> studies when reducing a source preserves the relevance–rate tradeoff. Here I study categories used for both allocation and verification. These are complementary questions within my <a href="/research/#information">information requirements research</a>.</p>
+    <p>This is the manuscript previously titled <cite>MISES: Minimal Information Sufficiency for Effective Service</cite>, also referred to as the MISES/JAVIC lineage. The link and citation below identify the current public version.</p>
+  </section>
+
+  <section class="section citation" id="citation"><h2>Paper and citation</h2><p>J. Armstrong, “Information Requirements for Service Allocation and Aggregate Verification,” arXiv:2604.26808, 2026. This explanation follows v3, revised 2026-09-14. <a href="https://arxiv.org/abs/2604.26808">Current public record</a>.</p><p><a href="/works/allocation-verification/citation.bib" download>Download BibTeX citation</a> · <a href="https://arxiv.org/abs/2604.26808v3">Version explained here: v3</a></p></section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>

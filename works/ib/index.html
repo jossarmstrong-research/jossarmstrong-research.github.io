@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>IB: Keeping the Information a Task Needs | Joss Armstrong</title>
+  <meta name="description" content="An interactive explanation of source-side sufficiency for the Information Bottleneck: remove irrelevant source information while preserving target relevance.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/ib/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <link rel="stylesheet" href="/css/explainers.css">
+  <meta name="citation_title" content="Source-Side Sufficiency for the Information Bottleneck: Exact Reduction and Finite-Block Equivalence">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_publication_date" content="2026-04-29">
+  <meta name="citation_doi" content="10.48550/arXiv.2604.26744">
+  <meta name="citation_arxiv_id" content="2604.26744">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2604.26744v2">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="IB: Keeping the Information a Task Needs">
+  <meta property="og:description" content="An interactive explanation of source-side sufficiency for the Information Bottleneck: remove irrelevant source information while preserving target relevance.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/ib/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/works/ib/", "url": "https://jossarmstrong.org/works/ib/", "name": "IB: Keeping the Information a Task Needs", "description": "An interactive explanation of source-side sufficiency for the Information Bottleneck: remove irrelevant source information while preserving target relevance.", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "ScholarlyArticle", "name": "Source-Side Sufficiency for the Information Bottleneck: Exact Reduction and Finite-Block Equivalence", "author": [{"@type": "Person", "name": "Joss Armstrong"}], "datePublished": "2026-04-29", "identifier": "10.48550/arXiv.2604.26744", "url": "https://arxiv.org/abs/2604.26744", "version": "2", "dateModified": "2026-08-03", "creativeWorkStatus": "Preprint"}}</script>
+  <script type="module" src="/js/explainers.js"></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/">Joss Armstrong</a><a href="/research/">Research</a><a href="/works/" aria-current="true">Works</a><a href="/about/">About</a></nav></header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / IB</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author companion · Information theory</div>
+    <h1>Source-Side Sufficiency for the Information Bottleneck: Exact Reduction and Finite-Block Equivalence</h1>
+    <p class="byline">Joss Armstrong</p>
+    <p class="meta">Preprint · arXiv:2604.26744 · Version 2, revised 2026-08-03</p>
+    <p class="lede">How much of a rich source can we discard without changing what its best compressed representation can achieve? A sufficient summary preserves the tradeoff exactly.</p>
+    <div class="paper-actions"><a class="paper-link" href="https://arxiv.org/abs/2604.26744">Read the public preprint</a><a href="#explore">Explore the explanation</a><a href="#citation">Cite this paper</a></div>
+    <nav class="paper-contents" aria-label="On this page"><a href="#idea">The question</a><a href="#explore">Visual explanation</a><a href="#result">The result</a><a href="#scope">Scope</a><a href="#connections">Related research</a></nav>
+  </header>
+
+  <section class="section" id="idea">
+    <h2>Some source detail costs information without helping the task</h2>
+    <p>The Information Bottleneck asks how much information a representation must retain about a source to preserve useful information about a target. A rich source may contain many distinctions that have no bearing on that target.</p>
+    <p>I ask when those distinctions can be removed before solving the bottleneck problem. If a deterministic summary preserves the full conditional distribution of the target, I prove that working from the summary preserves the entire optimal relevance–rate tradeoff.</p>
+  </section>
+  <section class="section" id="explore">
+    <h2>Watch the irrelevant information disappear</h2>
+    <p>Take a fair signal bit <var>Z</var> and <var>d</var> independent nuisance bits <var>W</var>. The target <var>C</var> is a noisy copy of <var>Z</var>, flipped with probability 10%. The representation <var>X</var> is another noisy copy of <var>Z</var>. Copying <var>W</var> alongside <var>X</var> increases the source information retained, while adding nothing about <var>C</var>.</p>
+    <div class="explainer" data-explainer="ib" data-reduced="false">
+      <div class="experiment-label">Explore the paper’s exact binary example</div>
+      <h3>Same relevance. Less source information.</h3>
+      <div class="experiment-controls" data-controls hidden>
+        <div class="slider-control"><label for="ib-d">Irrelevant source bits <output for="ib-d" data-value="dimension">4 bits</output></label><input id="ib-d" name="nuisance" type="range" min="0" max="8" step="1" value="4"></div>
+        <div class="slider-control"><label for="ib-noise">Encoder flip probability <output for="ib-noise" data-value="noise">10%</output></label><input id="ib-noise" name="encoder-noise" type="range" min="0" max="50" step="1" value="10"></div>
+        <button class="primary" type="button" data-action="reduce" aria-pressed="false">Show the reduction</button>
+      </div>
+      <div class="legend"><span><i></i>Signal Z</span><span><i class="nuisance-key"></i>Independent nuisance W</span></div>
+      <div class="comparison">
+        <div class="comparison-card full-source">
+          <h4>Encode the full source</h4>
+          <div class="bit-strip" data-bits aria-hidden="true"><span class="bit">Z</span><span class="bit nuisance">W</span><span class="bit nuisance">W</span><span class="bit nuisance">W</span><span class="bit nuisance">W</span></div>
+          <p class="subtle">Source (Z, W). Representation (X, W) copies the nuisance.</p>
+          <div class="meter-label"><span>Information about the source</span><strong><span data-value="fullRate">4.531</span> bits</strong></div>
+          <div class="meter-track" aria-hidden="true"><span class="meter-fill" data-meter="fullRate" style="width:50.344%"></span></div>
+          <div class="meter-label"><span>Information about the target</span><strong><span data-value="relevance">0.320</span> bits</strong></div>
+          <div class="meter-track" aria-hidden="true"><span class="meter-fill relevance" data-meter="relevance" style="width:31.992%"></span></div>
+        </div>
+        <div class="comparison-card reduced-source">
+          <h4>Encode the sufficient summary</h4>
+          <div class="bit-strip" aria-hidden="true"><span class="bit">Z</span></div>
+          <p class="subtle">Source Z. Representation X keeps the same target information.</p>
+          <div class="meter-label"><span>Information about the source</span><strong><span data-value="reducedRate">0.531</span> bits</strong></div>
+          <div class="meter-track" aria-hidden="true"><span class="meter-fill" data-meter="reducedRate" style="width:5.900%"></span></div>
+          <div class="meter-label"><span>Information about the target</span><strong><span data-value="relevance">0.320</span> bits</strong></div>
+          <div class="meter-track" aria-hidden="true"><span class="meter-fill relevance" data-meter="relevance" style="width:31.992%"></span></div>
+        </div>
+      </div>
+      <dl class="readout"><div><dt>Rate removed</dt><dd><span data-value="removed">4.000</span><small>bits</small></dd></div><div><dt>Source states</dt><dd data-value="states">32 → 2</dd></div><div><dt>Relevance retained</dt><dd><span data-value="relevance">0.320</span><small>bits in both cases</small></dd></div></dl>
+      <p class="experiment-status" data-value="status" role="status" aria-live="polite">With four nuisance bits and 10% encoder noise, source information falls from 4.531 to 0.531 bits. Target information stays at 0.320 bits.</p>
+      <p class="experiment-caption">Calculated from Section 8 of the <a href="https://arxiv.org/html/2604.26744v2#S8">public preprint</a>, using base-two logarithms. Source bars share a 0–9 bit scale; relevance bars share a 0–1 bit scale. Each symbol represents a source coordinate, not a measured data packet.</p>
+      <noscript><p>The static example above uses d = 4 and an encoder flip probability of 10%. The explanation and equations remain available below.</p></noscript>
+    </div>
+    <details class="math-details"><summary>The calculation behind the visual</summary>
+      <p>Write <var>h₂</var> for binary entropy in bits, <var>δ</var> for encoder noise and <var>ε = 0.1</var> for target noise. The reduced source rate is <code>1 − h₂(δ)</code>. The full representation that copies the nuisance has rate <code>1 − h₂(δ) + d</code>. Both have target relevance <code>1 − h₂(ε + δ − 2εδ)</code>.</p>
+      <p>The theorem’s averaging operation replaces the copied nuisance coordinate with independent noise. That independent coordinate can then be omitted without changing either information value. The visual compares the original representation with this simpler equivalent reduced representation.</p>
+    </details>
+  </section>
+  <section class="section" id="result">
+    <h2>The result extends beyond this binary example</h2>
+    <p>Let <var>T</var> be the full source and <var>Z = φ(T)</var> a deterministic summary sufficient for the target <var>C</var>. Sufficiency means that knowing <var>T</var> adds no information about <var>C</var> once <var>Z</var> is known.</p>
+    <p>For any full-source encoder <var>p(X|T)</var>, average its behaviour over source values with the same summary. The resulting encoder <var>q(X|Z)</var> preserves the joint distribution of <var>X</var> and <var>C</var>. Its rate saving is exact:</p>
+    <div class="equation"><code>I<sub>p</sub>(X; T) − I<sub>q</sub>(X; Z) = I<sub>p</sub>(X; T | Z)</code></div>
+    <p>This gives equal optimal IB curves and equal Lagrangian infima at every tradeoff parameter. Where an optimum is attained, the minimisers also correspond. For a finite target with logarithmic loss and independent, identically distributed source blocks, the best remote distortion is preserved at every blocklength and message budget.</p>
+  </section>
+  <section class="section" id="scope">
+    <h2>What the reduction requires</h2>
+    <p>The summary must be exactly sufficient for the named target. A representation that works for one task can discard information needed by another. Approximate sufficiency does not establish the exact equalities shown here.</p>
+    <p>The theorem characterises what an appropriate summary preserves. It does not supply a universal procedure for discovering or certifying that summary from limited data. The animation illustrates one finite construction; it is not a benchmark of learned encoders or a claim that arbitrary dimensionality reduction is lossless.</p>
+  </section>
+  <section class="section" id="connections">
+    <h2>From relevance to coordination</h2>
+    <p>This is part of my research on <a href="/research/#information">information requirements for coordination</a>. The <a href="/works/allocation-verification/">allocation and verification paper</a> studies a related practical tension: a finer description can improve allocations while leaving too little evidence in each category. The papers address distinct questions about what information is useful and what observations can support.</p>
+  </section>
+
+  <section class="section citation" id="citation"><h2>Paper and citation</h2><p>J. Armstrong, “Source-Side Sufficiency for the Information Bottleneck: Exact Reduction and Finite-Block Equivalence,” arXiv:2604.26744, 2026. This explanation follows v2, revised 2026-08-03. <a href="https://arxiv.org/abs/2604.26744">Current public record</a>.</p><p><a href="/works/ib/citation.bib" download>Download BibTeX citation</a> · <a href="https://arxiv.org/abs/2604.26744v2">Version explained here: v2</a></p></section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>

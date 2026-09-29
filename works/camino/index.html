@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CAMINO: Network Decisions in Context | Joss Armstrong</title>
+  <meta name="description" content="An animated author explanation of CAMINO: how operator intent, predicted KPI effects, weather and traffic inform a network configuration decision.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/camino/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <link rel="stylesheet" href="/css/explainers.css">
+  <meta name="citation_title" content="CAMINO - Contextually Aware Mediation of Intent for Network Orchestration">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_author" content="Enda Fallon">
+  <meta name="citation_author" content="Sheila Fallon">
+  <meta name="citation_publication_date" content="2025-07-03">
+  <meta name="citation_doi" content="10.1007/s11235-025-01324-9">
+  <meta name="citation_journal_title" content="Telecommunication Systems">
+  <meta name="citation_volume" content="88">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CAMINO: Network Decisions in Context">
+  <meta property="og:description" content="An animated author explanation of CAMINO: how operator intent, predicted KPI effects, weather and traffic inform a network configuration decision.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/camino/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/works/camino/", "url": "https://jossarmstrong.org/works/camino/", "name": "CAMINO: Network Decisions in Context", "description": "An animated author explanation of CAMINO: how operator intent, predicted KPI effects, weather and traffic inform a network configuration decision.", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "ScholarlyArticle", "name": "CAMINO - Contextually Aware Mediation of Intent for Network Orchestration", "author": [{"@type": "Person", "name": "Joss Armstrong"}, {"@type": "Person", "name": "Enda Fallon"}, {"@type": "Person", "name": "Sheila Fallon"}], "datePublished": "2025-07-03", "identifier": "10.1007/s11235-025-01324-9", "url": "https://doi.org/10.1007/s11235-025-01324-9", "isPartOf": {"@type": "PublicationVolume", "volumeNumber": "88", "isPartOf": {"@type": "Periodical", "name": "Telecommunication Systems"}}, "pagination": "Article 96"}}</script>
+  <script type="module" src="/js/explainers.js"></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/">Joss Armstrong</a><a href="/research/">Research</a><a href="/works/" aria-current="true">Works</a><a href="/about/">About</a></nav></header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / CAMINO</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author companion · Intent and network management</div>
+    <h1>CAMINO - Contextually Aware Mediation of Intent for Network Orchestration</h1>
+    <p class="byline">Joss Armstrong, Enda Fallon and Sheila Fallon</p>
+    <p class="meta">Published · Telecommunication Systems · Volume 88, article 96 · 3 July 2025</p>
+    <p class="lede">A network configuration change has to make sense for the operator’s goals and the conditions around the network. CAMINO brings that context into the assessment of each proposed action.</p>
+    <div class="paper-actions"><a class="paper-link" href="https://doi.org/10.1007/s11235-025-01324-9">Read the published paper</a><a href="#explore">Explore the explanation</a><a href="#citation">Cite this paper</a></div>
+    <nav class="paper-contents" aria-label="On this page"><a href="#idea">The question</a><a href="#explore">Visual explanation</a><a href="#result">The result</a><a href="#scope">Scope</a><a href="#connections">Related research</a></nav>
+  </header>
+
+  <section class="section" id="idea">
+    <h2>The same action can have a different meaning in context</h2>
+    <p>Autonomous network applications can pursue sensible goals while proposing incompatible changes. A prediction that one performance indicator will improve does not settle whether the action serves the operator’s current priorities.</p>
+    <p>In CAMINO, we assess individual configuration proposals using predicted network effects, operator intent and information about the surrounding environment. The architecture can reject a particular action while leaving the proposing application available to make other useful changes.</p>
+  </section>
+  <section class="section" id="explore">
+    <h2>See why a favourable prediction can lead to rejection</h2>
+    <div class="explainer" data-explainer="camino">
+      <div class="experiment-label">A qualitative walkthrough of Figure 7</div>
+      <h3>Read the proposal in context</h3>
+      <div class="experiment-controls" data-controls hidden>
+      <button class="primary" type="button" data-action="play" aria-pressed="false">Play explanation</button>
+      <button type="button" data-action="next">Next step</button>
+      <button type="button" data-action="reset">Start again</button>
+      <span class="step-count" data-value="step"></span>
+    </div><div class="round-progress" data-progress aria-hidden="true"></div>
+      <div class="scenario-proposal"><strong>Proposed action:</strong> increase the cell’s maximum target block error rate (BLER).</div>
+      <div class="context-cards diagram">
+        <div class="context-card" data-reveal-step="1"><span class="effect-symbol" aria-hidden="true">+</span><h4>Predicted KPI effects</h4><span class="effect">Favourable overall</span><p>Assess predicted changes against the operator’s targets and KPI priorities.</p></div>
+        <div class="context-card" data-reveal-step="2"><span class="effect-symbol" aria-hidden="true">+</span><h4>Traffic context</h4><span class="effect">Small favourable contribution</span><p>Local traffic conditions contribute to the assessment of this action.</p></div>
+        <div class="context-card adverse" data-reveal-step="3"><span class="effect-symbol" aria-hidden="true">−</span><h4>Weather context</h4><span class="effect">Substantial adverse contribution</span><p>Anomalous weather adds a negative effect on accessibility KPIs.</p></div>
+      </div>
+      <div class="scenario-decision reject" data-decision data-value="decision">Decision: reject this proposal</div>
+      <p class="experiment-status" data-value="status" role="status" aria-live="polite">In the published example, the adverse weather contribution leads to rejection despite favourable overall KPI predictions and a small positive traffic contribution.</p>
+      <p class="experiment-caption">Based on the explanation accompanying <a href="https://link.springer.com/article/10.1007/s11235-025-01324-9#Sec8">Figure 7 of the published paper</a>. The cards show the direction and qualitative significance of reported contributions; they are not numerical scores or a live implementation.</p>
+      <noscript><p>The complete assessment is shown above. The sequence considers the proposed action, predicted KPIs, traffic and weather before deciding.</p></noscript>
+    </div>
+  </section>
+  <section class="section" id="result">
+    <h2>From a proposal to a contextual decision</h2>
+    <figure class="process"><ol>
+      <li><span class="step">01</span><strong>Compare similar cells</strong><p>Group network entities by configuration and operating conditions.</p></li>
+      <li><span class="step">02</span><strong>Predict KPI effects</strong><p>Estimate the effects associated with the proposed parameter change.</p></li>
+      <li><span class="step">03</span><strong>Apply intent and context</strong><p>Consider targets, priorities, weather, traffic and relevant operating information.</p></li>
+      <li><span class="step">04</span><strong>Assess the action</strong><p>Use the contextual assessment to approve or reject the individual proposal.</p></li>
+    </ol><figcaption>The architecture combines predicted effects with information about what the operator is trying to achieve.</figcaption></figure>
+    <p>The KPI Degradation Prediction Layer supplies predictions. The Intent-Aware Conflict Detection component considers them alongside operator targets and contextual inputs. An intent interface supports targets that vary by area and time. The demonstrated decision rules use domain knowledge about how particular changes interact with the environment.</p>
+    <p>We illustrated the architecture using proposed configuration changes for an 800-cell LTE network and weather and traffic data collected through external APIs. The examples include power settings, target BLER and cell radius. They show how the different contributions produce a decision that can be explained to the operator.</p>
+  </section>
+  <section class="section" id="scope">
+    <h2>Architecture and scenario evidence</h2>
+    <p>The paper presents an architectural proposal and scenario-based assessments. It does not report verified gains from a production deployment or a head-to-head prediction-accuracy benchmark against other conflict-management schemes.</p>
+    <p>The demonstrated rules are manually defined. Their quality depends on the predictions and contextual data supplied to them. External data can be delayed or missing, clustering can change, and a deployment must account for the time needed to ingest data and assess a proposal. Adaptive rule learning and production validation are further work.</p>
+  </section>
+  <section class="section" id="connections">
+    <h2>Conflict detection, arbitration and enforcement</h2>
+    <p>CAMINO extends the trajectory of <a href="/works/#work-2024-pecdafs">pre-emptive conflict detection</a> and <a href="/works/#work-2023-cell-similarity">cell similarity</a>. <a href="/works/tacit/">TACIT</a> later examines how prediction accuracy can determine an application’s influence during arbitration.</p>
+    <p><a href="/works/oracle/">ORACLE</a> addresses verification of the arbitration workflow through a shared ledger. These pages describe related approaches with different mechanisms and evaluations. They do not establish the performance of a combined CAMINO–TACIT–ORACLE system.</p>
+  </section>
+
+  <section class="section citation" id="citation"><h2>Paper and citation</h2><p>J. Armstrong, E. Fallon and S. Fallon, “CAMINO - Contextually Aware Mediation of Intent for Network Orchestration,” <cite>Telecommunication Systems</cite>, vol. 88, article 96, 2025. DOI: <a href="https://doi.org/10.1007/s11235-025-01324-9">10.1007/s11235-025-01324-9</a>.</p><p><a href="/works/camino/citation.bib" download>Download BibTeX citation</a></p></section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>
