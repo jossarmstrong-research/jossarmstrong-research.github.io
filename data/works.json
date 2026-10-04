@@ -247,7 +247,41 @@
       "finite evidence",
       "hierarchical preservation"
     ],
-    "note": "Public preprint on Zenodo."
+    "note": "First posted on Zenodo on 17 September 2026, under the earlier title “Coordination Has a Capacity: Task-Relative Information Contracts in Multi-Agent Systems”. Version 1 DOI: 10.5281/zenodo.22819850.",
+    "first_posted": "2026-09-17",
+    "first_version_doi": "10.5281/zenodo.22819850"
+  },
+  {
+    "id": "work-2026-tsc",
+    "title": "Task-Sufficient Contraction: Source Selection for Machine Information Interfaces",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "Zenodo",
+    "url": "https://doi.org/10.5281/zenodo.22834531",
+    "topics": [
+      "task sufficiency",
+      "source selection",
+      "machine information interfaces"
+    ],
+    "first_posted": "2026-09-19",
+    "first_version_doi": "10.5281/zenodo.22834532",
+    "note": "First posted on Zenodo on 19 September 2026. Version 1 DOI: 10.5281/zenodo.22834532."
+  },
+  {
+    "id": "work-2026-rcit",
+    "title": "Recursive Coordination Information Theory: Decision Sufficiency, Consequence Sufficiency, and Recursive Closure",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "Zenodo",
+    "url": "https://doi.org/10.5281/zenodo.23091408",
+    "topics": [
+      "decision sufficiency",
+      "consequence sufficiency",
+      "recursive closure"
+    ],
+    "first_posted": "2026-10-01",
+    "first_version_doi": "10.5281/zenodo.23091409",
+    "note": "First posted on Zenodo on 1 October 2026. Version 1 DOI: 10.5281/zenodo.23091409."
   },
   {
     "id": "work-2026-price-formation",
