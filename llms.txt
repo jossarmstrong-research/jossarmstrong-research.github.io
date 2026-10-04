@@ -6,6 +6,7 @@ Canonical site: https://jossarmstrong.org/
 
 ## Primary pages
 - Research overview: https://jossarmstrong.org/research/
+- Coordination Information Theory (CIT) and Recursive Coordination Information Theory (RCIT): https://jossarmstrong.org/research/cit/
 - Public works: https://jossarmstrong.org/works/
 - About and identifiers: https://jossarmstrong.org/about/
 - Machine-readable works catalogue: https://jossarmstrong.org/data/works.json
@@ -27,7 +28,7 @@ Works are ordered by descending year within each publication category. Ties reta
 TACIT, ORACLE, PECDAFs and cell similarity include constructed teaching examples, explicitly distinguished from the papers' empirical data. TACIT uses the paper's exact aggregation and reputation-update rules. ORACLE distinguishes rApp policy voting from validator consensus. PECDAFs illustrates observational cohort comparison, not causal identification. Cell similarity separates Pearson correlation, operating levels and SHAP model explanations; the visual contains no synthetic SHAP results.
 
 ## Research structure
-A central strand studies task-relative information requirements for coordination: what information a decision requires, what can be discarded, and how those requirements change with finite evidence, hierarchy and recursion. The wider portfolio includes related and independently motivated work in mechanism design, economic institutions, cognition, multi-agent systems, autonomous networks, privacy, auditability, resource allocation and distributed AI.
+A central strand studies task-relative information requirements for coordination: what information a decision requires, what can be discarded, and how those requirements change with finite evidence, hierarchy and recursion. Task-relative information contracts and Task-Sufficient Contraction (TSC) were the culmination of earlier results in allocation/verification and MENGER. The later Recursive Coordination Information Theory (RCIT) paper named their common framework Coordination Information Theory (CIT) and extended it. RCIT separates the information a current decision needs from the information needed to evaluate the circumstances that decision creates. See https://jossarmstrong.org/research/cit/ The wider portfolio includes related and independently motivated work in mechanism design, economic institutions, cognition, multi-agent systems, autonomous networks, privacy, auditability, resource allocation and distributed AI.
 
 Relationships among works should not be inferred as formal dependence merely because two works share a topic. The site distinguishes motivation, formal dependence, application, empirical evidence, independent development and later conceptual connection.
 

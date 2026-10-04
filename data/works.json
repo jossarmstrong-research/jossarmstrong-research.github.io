@@ -249,7 +249,8 @@
     ],
     "note": "First posted on Zenodo on 17 September 2026, under the earlier title “Coordination Has a Capacity: Task-Relative Information Contracts in Multi-Agent Systems”. Version 1 DOI: 10.5281/zenodo.22819850.",
     "first_posted": "2026-09-17",
-    "first_version_doi": "10.5281/zenodo.22819850"
+    "first_version_doi": "10.5281/zenodo.22819850",
+    "framework_url": "https://jossarmstrong.org/research/cit/#tri-contracts"
   },
   {
     "id": "work-2026-tsc",
@@ -265,7 +266,8 @@
     ],
     "first_posted": "2026-09-19",
     "first_version_doi": "10.5281/zenodo.22834532",
-    "note": "First posted on Zenodo on 19 September 2026. Version 1 DOI: 10.5281/zenodo.22834532."
+    "note": "First posted on Zenodo on 19 September 2026. Version 1 DOI: 10.5281/zenodo.22834532.",
+    "framework_url": "https://jossarmstrong.org/research/cit/#tsc"
   },
   {
     "id": "work-2026-rcit",
@@ -281,7 +283,8 @@
     ],
     "first_posted": "2026-10-01",
     "first_version_doi": "10.5281/zenodo.23091409",
-    "note": "First posted on Zenodo on 1 October 2026. Version 1 DOI: 10.5281/zenodo.23091409."
+    "note": "First posted on Zenodo on 1 October 2026. Version 1 DOI: 10.5281/zenodo.23091409.",
+    "framework_url": "https://jossarmstrong.org/research/cit/#rcit"
   },
   {
     "id": "work-2026-price-formation",

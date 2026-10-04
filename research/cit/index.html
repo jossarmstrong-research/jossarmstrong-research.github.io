@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Coordination Information Theory (CIT) and Recursive Coordination Information Theory (RCIT) | Joss Armstrong</title>
+  <meta name="description" content="Coordination Information Theory (CIT) studies the information an interface must preserve for a named task. It covers task-relative information contracts, task-sufficient contraction (TSC) and Recursive Coordination Information Theory (RCIT).">
+  <link rel="canonical" href="https://jossarmstrong.org/research/cit/">
+  <link rel="stylesheet" href="/css/site.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Coordination Information Theory (CIT) and RCIT">
+  <meta property="og:description" content="Coordination Information Theory (CIT) studies the information an interface must preserve for a named task. It covers task-relative information contracts, task-sufficient contraction (TSC) and Recursive Coordination Information Theory (RCIT).">
+  <meta property="og:url" content="https://jossarmstrong.org/research/cit/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/research/cit/", "url": "https://jossarmstrong.org/research/cit/", "name": "Coordination Information Theory (CIT) and Recursive Coordination Information Theory (RCIT)", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "DefinedTermSet", "@id": "https://jossarmstrong.org/research/cit/#terms", "name": "Coordination Information Theory", "alternateName": "CIT", "hasDefinedTerm": [{"@type": "DefinedTerm", "@id": "https://jossarmstrong.org/research/cit/#cit", "name": "Coordination Information Theory", "alternateName": "CIT", "description": "A framework for the information an interface must preserve for a named downstream task to remain fully usable. Named in the RCIT paper as the common framework of task-relative information contracts and task-sufficient contraction."}, {"@type": "DefinedTerm", "@id": "https://jossarmstrong.org/research/cit/#tri-contracts", "name": "Task-relative information contract", "alternateName": "TRI contract", "description": "An interface on a raw state, judged by the information it loses about a named receiving criterion.", "subjectOf": {"@type": "ScholarlyArticle", "name": "Task-Relative Information Contracts: Sufficiency, Evidence, and Hierarchical Preservation in Multi-Agent Systems", "identifier": "10.5281/zenodo.22819849", "url": "https://doi.org/10.5281/zenodo.22819849"}}, {"@type": "DefinedTerm", "@id": "https://jossarmstrong.org/research/cit/#tsc", "name": "Task-Sufficient Contraction", "alternateName": "TSC", "description": "A reduction of a source, fixed by a declared task, that preserves the complete downstream problem family.", "subjectOf": {"@type": "ScholarlyArticle", "name": "Task-Sufficient Contraction: Source Selection for Machine Information Interfaces", "identifier": "10.5281/zenodo.22834531", "url": "https://doi.org/10.5281/zenodo.22834531"}}, {"@type": "DefinedTerm", "@id": "https://jossarmstrong.org/research/cit/#rcit", "name": "Recursive Coordination Information Theory", "alternateName": "RCIT", "description": "The part of CIT that separates the information a current decision needs from the information needed to evaluate the circumstances that decision creates.", "subjectOf": {"@type": "ScholarlyArticle", "name": "Recursive Coordination Information Theory: Decision Sufficiency, Consequence Sufficiency, and Recursive Closure", "identifier": "10.5281/zenodo.23091408", "url": "https://doi.org/10.5281/zenodo.23091408"}}]}}</script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3f8d3cbfac9c4c3eb080976e43f671c6"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="/">Joss Armstrong</a>
+    <a href="/research/" aria-current="true">Research</a>
+    <a href="/works/">Works</a>
+    <a href="/about/">About</a>
+  </nav>
+</header>
+
+<main>
+  <div class="eyebrow"><a href="/research/">Research</a></div>
+  <h1 id="cit">Coordination Information Theory (CIT)</h1>
+  <p class="lede">Coordination Information Theory (CIT) studies the information an interface must preserve for a named downstream task to remain fully usable.</p>
+  <p>Agents, machines and organisations often hold more information internally than a receiving task needs. CIT asks what must cross an interface, where a protocol can lose it, what a task can discard before later design choices are made, and what more is needed once decisions create new circumstances.</p>
+  <p>The name comes from the RCIT paper. Task-relative information contracts and task-sufficient contraction came first and do not use it. Those two papers were the culmination of an earlier line of results in <a href="/works/allocation-verification/">allocation and aggregate verification</a> and in <a href="/works/menger/">MENGER</a>. RCIT named their common framework CIT and extended it to recursive settings.</p>
+
+  <section class="section" id="tri-contracts">
+    <h2>Task-relative information contracts</h2>
+    <p>A task-relative information contract, or TRI contract, is an interface T = t(X) on a raw state X, judged against a named receiving criterion Y. Its deficit, D<sub>TRI</sub>(T; Y) = I(Y; X | T), measures how much information about Y is lost at the interface. Zero deficit means that the full posterior P(Y | X) is preserved. The paper identifies the smallest deterministic contract with zero deficit.</p>
+    <p>In a distributed protocol, the total deficit separates exactly into information lost during reporting and information lost during aggregation. A finite-evidence result shows that finer representations can need more distinctions than the available observations support. Conservative internal refinement can add structure while keeping the same parent-facing contract.</p>
+    <p class="muted">Paper: <a href="https://doi.org/10.5281/zenodo.22819849">Task-Relative Information Contracts: Sufficiency, Evidence, and Hierarchical Preservation in Multi-Agent Systems</a> (2026).</p>
+  </section>
+
+  <section class="section" id="tsc">
+    <h2>Task-Sufficient Contraction (TSC)</h2>
+    <p>Task-Sufficient Contraction (TSC) asks when a declared task can fix a reduced source before a downstream encoder, codebook, rate, distortion target or optimiser is chosen. An exact contraction lets the later problem be solved on the reduced source with the same result as on the full source.</p>
+    <p>For a machine with a fixed set of possible actions and a fixed loss, the reduced source merges two states only when every available action has the same regret in both. For finite action sets, this reduction preserves the complete one-step rate-regret curve. For quadratic loss on affine feasible-action sets, the reduced source is the projection onto the directions in which feasible actions can differ. The framework suggests a way for heterogeneous machines to exchange what a receiving task needs without first aligning their full internal representations.</p>
+    <p class="muted">Paper: <a href="https://doi.org/10.5281/zenodo.22834531">Task-Sufficient Contraction: Source Selection for Machine Information Interfaces</a> (2026).</p>
+  </section>
+
+  <section class="section" id="rcit">
+    <h2>Recursive Coordination Information Theory (RCIT)</h2>
+    <p>Recursive Coordination Information Theory (RCIT) names CIT and extends it from current decisions to the circumstances those decisions create. An interface can preserve every relative action cost a current decision needs and still omit distinctions needed to evaluate what follows the action.</p>
+    <p>RCIT separates two requirements. Decision sufficiency concerns the current queries, which induce a decision interface. Consequence sufficiency concerns action-conditioned successor queries, which induce an evaluation interface. Decision information supports evaluation exactly when the evaluation interface is a function of the decision interface. For finite deterministic interfaces, the conditional entropy of the evaluation interface given the decision interface is the minimum information a supplement must carry to permit evaluation.</p>
+    <p>Recursive completion refines a contract until successor evaluation is supported. Its conditional entropy measures the information added beyond the starting contract. Exact examples separate current sufficiency, recursive closure and reward-preserving abstraction, and show that individually closed contracts can need further information when they are joined.</p>
+    <p class="muted">Paper: <a href="https://doi.org/10.5281/zenodo.23091408">Recursive Coordination Information Theory: Decision Sufficiency, Consequence Sufficiency, and Recursive Closure</a> (2026).</p>
+  </section>
+
+  <section class="section" id="related">
+    <h2>Earlier results</h2>
+    <p>The finite-evidence structure in TRI contracts also appears in <a href="/works/allocation-verification/">allocation and aggregate verification</a> and in the one-bit evaluation hierarchy of <a href="/works/menger/">MENGER</a>. Each derives it independently, and the two systems solve different problems. The <a href="/research/">Research overview</a> places CIT among the other lines of work.</p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div>Joss Armstrong · Researcher · Ericsson Ireland</div>
+</footer>
+
+</body>
+</html>
