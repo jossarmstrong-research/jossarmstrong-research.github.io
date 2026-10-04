@@ -101,7 +101,7 @@ function setupPlayer(root, frames, draw) {
   root.querySelector('[data-controls]').hidden = false;
 }
 
-function setupMenger(root) {
+function setupHierarchical(root) {
   const initial = [0.5, 0.5];
   const firstRoot = redistribute(initial, 0, true);
   const firstLocal = redistribute(initial, 0, true);
@@ -209,7 +209,7 @@ function setupCamino(root) {
   });
 }
 
-const setups = { ib: setupIB, menger: setupMenger, allocation: setupAllocation, camino: setupCamino,
+const setups = { ib: setupIB, hierarchical: setupHierarchical, allocation: setupAllocation, camino: setupCamino,
   tacit: setupTacit, oracle: root => setupOracle(root, setupPlayer),
   pecdafs: root => setupPecdafs(root, setupPlayer), similarity: setupSimilarity };
 document.querySelectorAll('[data-explainer]').forEach(root => {
