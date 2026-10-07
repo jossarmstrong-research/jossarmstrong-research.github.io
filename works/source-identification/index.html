@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Source Identification Is Not Fitness Testing | Joss Armstrong</title>
+  <meta name="description" content="Author record for the synthetic-data attribution preprint: how reliably the source of generated text can be recovered, and whether provenance helps select training data across rounds of generation and retraining.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/source-identification/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <meta name="citation_title" content="Source Identification Is Not Fitness Testing: Measuring the Limits of Synthetic-Data Attribution">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_publication_date" content="2026-09-30">
+  <meta name="citation_online_date" content="2026-09-30">
+  <meta name="citation_doi" content="10.48550/arXiv.2610.00417">
+  <meta name="citation_arxiv_id" content="2610.00417">
+  <meta name="citation_abstract_html_url" content="https://jossarmstrong.org/works/source-identification/">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2610.00417v1">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Source Identification Is Not Fitness Testing">
+  <meta property="og:description" content="How reliably the source of generated text can be recovered, and whether provenance helps select training data across rounds of generation and retraining.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/source-identification/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/works/source-identification/", "url": "https://jossarmstrong.org/works/source-identification/", "name": "Source Identification Is Not Fitness Testing", "description": "Author record for the synthetic-data attribution preprint.", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "ScholarlyArticle", "name": "Source Identification Is Not Fitness Testing: Measuring the Limits of Synthetic-Data Attribution", "author": [{"@type": "Person", "name": "Joss Armstrong"}], "datePublished": "2026-09-30", "identifier": "10.48550/arXiv.2610.00417", "url": "https://arxiv.org/abs/2610.00417", "version": "1", "creativeWorkStatus": "Preprint", "isPartOf": {"@type": "CreativeWork", "name": "Coordination Information Theory", "url": "https://jossarmstrong.org/research/cit/"}}}</script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3f8d3cbfac9c4c3eb080976e43f671c6"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/">Joss Armstrong</a><a href="/research/">Research</a><a href="/works/" aria-current="true">Works</a><a href="/about/">About</a></nav></header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / Source identification</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author record · Machine learning</div>
+    <h1>Source Identification Is Not Fitness Testing: Measuring the Limits of Synthetic-Data Attribution</h1>
+    <p class="byline">Joss Armstrong</p>
+    <p class="meta">Preprint · arXiv:2610.00417 · Version 1, submitted 2026-09-30</p>
+    <p class="lede">Knowing where a generated example came from and knowing whether it is worth training on are two different questions. This experiment measures the gap between them.</p>
+    <div class="paper-actions"><a class="paper-link" href="https://arxiv.org/abs/2610.00417">Read the public preprint</a><a href="https://arxiv.org/pdf/2610.00417v1">Download the PDF</a><a href="#citation">Cite this paper</a></div>
+    <nav class="paper-contents" aria-label="On this page"><a href="#idea">The question</a><a href="#result">The results</a><a href="#scope">Scope</a><a href="#connections">Related research</a></nav>
+  </header>
+
+  <section class="section" id="idea">
+    <h2>Provenance as a selection rule</h2>
+    <p>Repeated training on model-generated data can degrade later models. One possible response is to use provenance when deciding which generated examples to reuse. This paper tests both how reliably that provenance can be recovered and whether it helps identify better training data.</p>
+    <p>The study uses financial-risk text. It first identifies the source of generated passages, then repeats the test after rewriting them, and then compares two ways of selecting generated examples over three rounds of generation and retraining.</p>
+  </section>
+  <section class="section" id="result">
+    <h2>Attribution degrades under rewriting, and selection rules do not separate</h2>
+    <p>Generator attribution is 98.7% accurate on the original passages. It falls to 53.1% after paraphrasing and to 29.0% after style rewriting. Generated-versus-human detection remains close to perfect against the tested human comparison set.</p>
+    <p>Of the two selection rules, one uses source information and the other uses a score from a separate reference model. The two rules select different examples, but the planned comparison does not detect a stable difference in the degradation of the resulting models.</p>
+    <p>The results show that identifying where data came from and identifying which data are useful for training are separate problems. The experiment separates source identity, criterion-facing selection, and recursive training outcome. Neither the provenance score nor the tested criterion-facing proxy is established as sufficient for future recursive behaviour.</p>
+  </section>
+  <section class="section" id="scope">
+    <h2>What the paper does and does not claim</h2>
+    <p>The attribution and detection figures are for the tested generators, rewriting operations and human comparison set. The selection comparison is a null result under the planned design, not evidence that the two rules are equivalent in general. The experiment uses financial-risk text and does not test network data or a deployed telecommunications system.</p>
+  </section>
+  <section class="section" id="connections">
+    <h2>Place in the research programme</h2>
+    <p>The paper's closing question is how to identify measurements that are justified by what selected data actually do during training. It points to a separate theoretical treatment of the same issue in terms of <a href="/works/tri-contracts/">task-relative information contracts</a>, where an information summary is judged by what it preserves for a named downstream criterion. That treatment sits within <a href="/research/cit/">Coordination Information Theory</a>.</p>
+    <p>The <a href="/works/rcit/">Recursive Coordination Information Theory</a> paper studies a related question, what an interface must retain for a decision to be evaluated after the fact, and reports its own recursive-learning experiment on training and evaluation provenance. The two papers are independent investigations in the same programme. Neither depends on the other's results.</p>
+  </section>
+
+  <section class="section citation" id="citation"><h2>Paper and citation</h2><p>J. Armstrong, “Source Identification Is Not Fitness Testing: Measuring the Limits of Synthetic-Data Attribution,” arXiv:2610.00417, 2026. Submitted 30 September 2026. <a href="https://arxiv.org/abs/2610.00417">Current public record</a>.</p><p><a href="/works/source-identification/citation.bib" download>Download BibTeX citation</a> · <a href="https://arxiv.org/abs/2610.00417v1">Version recorded here: v1</a></p></section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>

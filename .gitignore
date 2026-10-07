@@ -1,0 +1,7 @@
+# Local credentials, never commit
+github_token.txt
+website_PAT.txt
+*.token
+*_PAT*
+*.pem
+.env

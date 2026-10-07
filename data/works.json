@@ -241,6 +241,7 @@
     "status": "Preprint",
     "venue": "Zenodo",
     "url": "https://doi.org/10.5281/zenodo.22819849",
+    "page_url": "https://jossarmstrong.org/works/tri-contracts/",
     "topics": [
       "multi-agent systems",
       "task-relative information",
@@ -259,6 +260,7 @@
     "status": "Preprint",
     "venue": "Zenodo",
     "url": "https://doi.org/10.5281/zenodo.22834531",
+    "page_url": "https://jossarmstrong.org/works/tsc/",
     "topics": [
       "task sufficiency",
       "source selection",
@@ -276,6 +278,7 @@
     "status": "Preprint",
     "venue": "Zenodo",
     "url": "https://doi.org/10.5281/zenodo.23091408",
+    "page_url": "https://jossarmstrong.org/works/rcit/",
     "topics": [
       "decision sufficiency",
       "consequence sufficiency",
@@ -285,6 +288,21 @@
     "first_version_doi": "10.5281/zenodo.23091409",
     "note": "First posted on Zenodo on 1 October 2026. Version 1 DOI: 10.5281/zenodo.23091409.",
     "framework_url": "https://jossarmstrong.org/research/cit/#rcit"
+  },
+  {
+    "id": "work-2026-source-identification",
+    "title": "Source Identification Is Not Fitness Testing: Measuring the Limits of Synthetic-Data Attribution",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "arXiv:2610.00417",
+    "url": "https://arxiv.org/abs/2610.00417",
+    "page_url": "https://jossarmstrong.org/works/source-identification/",
+    "topics": [
+      "synthetic data",
+      "source attribution",
+      "recursive training",
+      "data selection"
+    ]
   },
   {
     "id": "work-2026-price-formation",

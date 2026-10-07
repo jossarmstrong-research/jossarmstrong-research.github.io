@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Task-Sufficient Contraction | Joss Armstrong</title>
+  <meta name="description" content="Author record for the Task-Sufficient Contraction preprint: when a declared task can fix a reduced source before the encoder, rate, distortion target or optimiser is chosen, with the complete downstream problem family preserved.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/tsc/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <meta name="citation_title" content="Task-Sufficient Contraction: Source Selection for Machine Information Interfaces">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_publication_date" content="2026-09-19">
+  <meta name="citation_online_date" content="2026-09-19">
+  <meta name="citation_doi" content="10.5281/zenodo.22834531">
+  <meta name="citation_technical_report_institution" content="Zenodo">
+  <meta name="citation_abstract_html_url" content="https://jossarmstrong.org/works/tsc/">
+  <meta name="citation_pdf_url" content="https://jossarmstrong.org/works/tsc/task-sufficient-contraction.pdf">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Task-Sufficient Contraction">
+  <meta property="og:description" content="When a declared task can fix a reduced source before the encoder, rate, distortion target or optimiser is chosen, with the complete downstream problem family preserved.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/tsc/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/works/tsc/", "url": "https://jossarmstrong.org/works/tsc/", "name": "Task-Sufficient Contraction", "description": "Author record for the Task-Sufficient Contraction preprint.", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "ScholarlyArticle", "name": "Task-Sufficient Contraction: Source Selection for Machine Information Interfaces", "author": [{"@type": "Person", "name": "Joss Armstrong"}], "datePublished": "2026-09-19", "dateModified": "2026-10-01", "identifier": "10.5281/zenodo.22834531", "url": "https://doi.org/10.5281/zenodo.22834531", "version": "2", "creativeWorkStatus": "Preprint", "license": "https://creativecommons.org/licenses/by/4.0/", "encoding": {"@type": "MediaObject", "contentUrl": "https://jossarmstrong.org/works/tsc/task-sufficient-contraction.pdf", "encodingFormat": "application/pdf"}, "isPartOf": {"@type": "CreativeWork", "name": "Coordination Information Theory", "url": "https://jossarmstrong.org/research/cit/"}}}</script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3f8d3cbfac9c4c3eb080976e43f671c6"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/">Joss Armstrong</a><a href="/research/">Research</a><a href="/works/" aria-current="true">Works</a><a href="/about/">About</a></nav></header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / Task-Sufficient Contraction</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author record · Information theory</div>
+    <h1>Task-Sufficient Contraction: Source Selection for Machine Information Interfaces</h1>
+    <p class="byline">Joss Armstrong</p>
+    <p class="meta">Preprint · Zenodo DOI 10.5281/zenodo.22834531 · Version 2 (manuscript v2.10), posted 2026-10-01 · First posted 2026-09-19</p>
+    <p class="lede">When can a declared task fix a reduced source before the encoder, rate or distortion target is chosen, with nothing lost downstream?</p>
+    <div class="paper-actions"><a class="paper-link" href="https://doi.org/10.5281/zenodo.22834531">Read the public preprint</a><a href="/works/tsc/task-sufficient-contraction.pdf">Download the PDF</a><a href="#citation">Cite this paper</a></div>
+    <nav class="paper-contents" aria-label="On this page"><a href="#idea">The question</a><a href="#result">The results</a><a href="#scope">Scope</a><a href="#connections">Related research</a></nav>
+  </header>
+
+  <section class="section" id="idea">
+    <h2>Fix the source by the task, before the operating point</h2>
+    <p>A declared task can sometimes certify a reduced source before a downstream encoder, codebook, rate, distortion target, or optimiser is chosen. This paper studies when one such reduction preserves the complete downstream problem family, a property termed Task-Sufficient Contraction.</p>
+    <p>The reduced source is fixed by the task before the later operating point is selected. An exact contraction allows the later problem to be solved on that source with the same result as if the full source had been retained.</p>
+  </section>
+  <section class="section" id="result">
+    <h2>A regret-complete source and an exact quadratic case</h2>
+    <p>For a machine with a fixed set of possible actions and a fixed loss, the paper identifies a consumer-specific source by merging states only when every available action has the same regret in both. For finite action sets, replacing the richer source by this reduced source preserves the complete one-step rate-regret curve, even though the reduction is fixed before the distortion target is chosen.</p>
+    <p>A second result gives an exact characterisation for quadratic loss on affine feasible-action sets. The canonical reduced source is the projection onto the directions in which feasible actions can differ. Under a fixed energy budget this becomes centred load, while retaining only the optimal water-filled action is too coarse.</p>
+    <p>Earlier Information Bottleneck, semantic rate-distortion, and goal-oriented quantisation results are then used to distinguish exact, architecture-conditioned, approximate, failed, and corrected contractions.</p>
+  </section>
+  <section class="section" id="scope">
+    <h2>What the paper does and does not claim</h2>
+    <p>The guarantee is for a fixed action set and a fixed loss, and the finite-action theorem is a one-step statement. The framework suggests a way for heterogeneous machines to exchange what a receiving task needs without first aligning their full internal representations. It does not supply a learning procedure for discovering the contraction from data.</p>
+  </section>
+  <section class="section" id="connections">
+    <h2>Place in Coordination Information Theory</h2>
+    <p>This paper and <a href="/works/tri-contracts/">Task-Relative Information Contracts</a> came first and do not use the name. The later <a href="/works/rcit/">Recursive Coordination Information Theory</a> paper named their common framework <a href="/research/cit/#tsc">Coordination Information Theory (CIT)</a> and extended it to recursive settings.</p>
+    <p>The Information Bottleneck comparison builds on the <a href="/works/ib/">source-side sufficiency</a> result, and the quadratic scheduling case connects to the <a href="https://arxiv.org/abs/2609.20882">task-oriented quantisation</a> preprint.</p>
+  </section>
+
+  <section class="section citation" id="citation"><h2>Paper and citation</h2><p>J. Armstrong, “Task-Sufficient Contraction: Source Selection for Machine Information Interfaces,” Zenodo preprint, 2026. All-versions DOI <a href="https://doi.org/10.5281/zenodo.22834531">10.5281/zenodo.22834531</a>. First posted on 19 September 2026 (version 1 DOI <a href="https://doi.org/10.5281/zenodo.22834532">10.5281/zenodo.22834532</a>). The PDF on this page is version 2, manuscript v2.10, posted 1 October 2026 (version DOI <a href="https://doi.org/10.5281/zenodo.23091513">10.5281/zenodo.23091513</a>), identical to the Zenodo file. Licence CC BY 4.0.</p><p><a href="/works/tsc/citation.bib" download>Download BibTeX citation</a> · <a href="/works/tsc/task-sufficient-contraction.pdf">PDF, 19 pages</a></p></section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>

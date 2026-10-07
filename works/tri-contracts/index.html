@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Task-Relative Information Contracts | Joss Armstrong</title>
+  <meta name="description" content="Author record for the task-relative information contracts preprint: what information must cross an interface for a named downstream criterion to stay fully usable, where a protocol loses it, and what finite evidence can support.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/tri-contracts/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <meta name="citation_title" content="Task-Relative Information Contracts: Sufficiency, Evidence, and Hierarchical Preservation in Multi-Agent Systems">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_publication_date" content="2026-09-17">
+  <meta name="citation_online_date" content="2026-09-17">
+  <meta name="citation_doi" content="10.5281/zenodo.22819849">
+  <meta name="citation_technical_report_institution" content="Zenodo">
+  <meta name="citation_abstract_html_url" content="https://jossarmstrong.org/works/tri-contracts/">
+  <meta name="citation_pdf_url" content="https://jossarmstrong.org/works/tri-contracts/task-relative-information-contracts.pdf">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Task-Relative Information Contracts">
+  <meta property="og:description" content="What information must cross an interface for a named downstream criterion to stay fully usable, where a protocol loses it, and what finite evidence can support.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/tri-contracts/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/works/tri-contracts/", "url": "https://jossarmstrong.org/works/tri-contracts/", "name": "Task-Relative Information Contracts", "description": "Author record for the task-relative information contracts preprint.", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "ScholarlyArticle", "name": "Task-Relative Information Contracts: Sufficiency, Evidence, and Hierarchical Preservation in Multi-Agent Systems", "author": [{"@type": "Person", "name": "Joss Armstrong"}], "datePublished": "2026-09-17", "dateModified": "2026-10-01", "identifier": "10.5281/zenodo.22819849", "url": "https://doi.org/10.5281/zenodo.22819849", "version": "3", "creativeWorkStatus": "Preprint", "license": "https://creativecommons.org/licenses/by/4.0/", "encoding": {"@type": "MediaObject", "contentUrl": "https://jossarmstrong.org/works/tri-contracts/task-relative-information-contracts.pdf", "encodingFormat": "application/pdf"}, "isPartOf": {"@type": "CreativeWork", "name": "Coordination Information Theory", "url": "https://jossarmstrong.org/research/cit/"}}}</script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3f8d3cbfac9c4c3eb080976e43f671c6"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/">Joss Armstrong</a><a href="/research/">Research</a><a href="/works/" aria-current="true">Works</a><a href="/about/">About</a></nav></header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / Task-relative information contracts</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author record · Information theory</div>
+    <h1>Task-Relative Information Contracts: Sufficiency, Evidence, and Hierarchical Preservation in Multi-Agent Systems</h1>
+    <p class="byline">Joss Armstrong</p>
+    <p class="meta">Preprint · Zenodo DOI 10.5281/zenodo.22819849 · Version 3, posted 2026-10-01 · First posted 2026-09-17</p>
+    <p class="lede">What must cross an interface for a named downstream criterion to stay fully usable, and where does a protocol lose it?</p>
+    <div class="paper-actions"><a class="paper-link" href="https://doi.org/10.5281/zenodo.22819849">Read the public preprint</a><a href="/works/tri-contracts/task-relative-information-contracts.pdf">Download the PDF</a><a href="#citation">Cite this paper</a></div>
+    <nav class="paper-contents" aria-label="On this page"><a href="#idea">The question</a><a href="#result">The results</a><a href="#scope">Scope</a><a href="#connections">Related research</a></nav>
+  </header>
+
+  <section class="section" id="idea">
+    <h2>Systems know more internally than they need to expose</h2>
+    <p>Multi-agent systems often know more internally than they need to expose. This paper asks what information must cross an interface if a named receiving criterion is to remain fully usable downstream. It calls such an interface a task-relative information contract, or TRI contract.</p>
+    <p>For raw state <var>X</var> and candidate contract <var>T = t(X)</var>, the TRI deficit measures how much information about the criterion <var>Y</var> is lost at the interface:</p>
+    <div class="equation"><code>D<sub>TRI</sub>(T; Y) = I(Y; X | T)</code></div>
+    <p>Zero deficit means that the full posterior <var>P(Y | X)</var> is preserved.</p>
+  </section>
+  <section class="section" id="result">
+    <h2>Four results, one framework</h2>
+    <p>The TRI Contract Theorem identifies the smallest deterministic contract that loses none of this information. In finite discrete systems, that contract also has minimum entropy among deterministic zero-deficit contracts.</p>
+    <p>In a distributed protocol, the total TRI deficit separates exactly into information lost during reporting and information lost during aggregation.</p>
+    <p>A separate finite-evidence result shows that finer representations can require more distinctions than the available observations can support, producing a resolution–evidence band under nested refinement. The same finite-evidence structure appears independently in categorical allocation and verification, and reappears when a one-bit evaluation hierarchy is used to attribute learned routing preferences at multiple levels, although the two systems solve different problems.</p>
+    <p>Conservative internal refinement can also add structure while preserving the same parent-facing TRI contract.</p>
+    <p>The resulting framework separates what a criterion requires, where a protocol can lose it, what resolution the evidence can support, and when the same external contract survives internal composition.</p>
+  </section>
+  <section class="section" id="scope">
+    <h2>What the paper does and does not claim</h2>
+    <p>The contract is defined relative to a named receiving criterion. A contract with zero deficit for one criterion can lose information needed by another. The entropy-minimality statement is for finite discrete systems and deterministic contracts.</p>
+    <p>The finite-evidence result bounds what resolution the available observations can support. It does not supply a procedure for learning a contract from data.</p>
+  </section>
+  <section class="section" id="connections">
+    <h2>Place in Coordination Information Theory</h2>
+    <p>This paper and <a href="/works/tsc/">Task-Sufficient Contraction</a> came first and do not use the name. The later <a href="/works/rcit/">Recursive Coordination Information Theory</a> paper named their common framework <a href="/research/cit/#tri-contracts">Coordination Information Theory (CIT)</a> and extended it to recursive settings.</p>
+    <p>The finite-evidence structure here was first met in the <a href="/works/allocation-verification/">allocation and verification</a> paper, and the one-bit evaluation hierarchy is the subject of the <a href="/works/hierarchical-selection/">hierarchical component selection</a> paper. Those are separate results on separate problems, and this paper records where the same structure reappears.</p>
+  </section>
+
+  <section class="section citation" id="citation"><h2>Paper and citation</h2><p>J. Armstrong, “Task-Relative Information Contracts: Sufficiency, Evidence, and Hierarchical Preservation in Multi-Agent Systems,” Zenodo preprint, 2026. All-versions DOI <a href="https://doi.org/10.5281/zenodo.22819849">10.5281/zenodo.22819849</a>. First posted on 17 September 2026 under the earlier title “Coordination Has a Capacity: Task-Relative Information Contracts in Multi-Agent Systems” (version 1 DOI <a href="https://doi.org/10.5281/zenodo.22819850">10.5281/zenodo.22819850</a>). The PDF on this page is version 3, posted 1 October 2026 (version DOI <a href="https://doi.org/10.5281/zenodo.23091569">10.5281/zenodo.23091569</a>), identical to the Zenodo file. Licence CC BY 4.0.</p><p><a href="/works/tri-contracts/citation.bib" download>Download BibTeX citation</a> · <a href="/works/tri-contracts/task-relative-information-contracts.pdf">PDF, 16 pages</a></p></section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>

@@ -27,6 +27,14 @@ Works are ordered by descending year within each publication category. Ties reta
 
 TACIT, ORACLE, PECDAFs and cell similarity include constructed teaching examples, explicitly distinguished from the papers' empirical data. TACIT uses the paper's exact aggregation and reputation-update rules. ORACLE distinguishes rApp policy voting from validator consensus. PECDAFs illustrates observational cohort comparison, not causal identification. Cell similarity separates Pearson correlation, operating levels and SHAP model explanations; the visual contains no synthetic SHAP results.
 
+## Preprint records with hosted PDFs
+- Task-relative information contracts (Zenodo preprint, PDF and BibTeX): https://jossarmstrong.org/works/tri-contracts/
+- Task-Sufficient Contraction (Zenodo preprint, PDF and BibTeX): https://jossarmstrong.org/works/tsc/
+- Recursive Coordination Information Theory (Zenodo preprint, PDF and BibTeX): https://jossarmstrong.org/works/rcit/
+- Source identification is not fitness testing (arXiv preprint, BibTeX): https://jossarmstrong.org/works/source-identification/
+
+These pages are author records, not interactive explanations. The three Zenodo pages each host the PDF byte-identical to the Zenodo version they name and state the all-versions DOI and the first-posted date. The arXiv page links the arXiv record and version. All summarise the paper from its own abstract.
+
 ## Research structure
 A central strand studies task-relative information requirements for coordination: what information a decision requires, what can be discarded, and how those requirements change with finite evidence, hierarchy and recursion. Task-relative information contracts and Task-Sufficient Contraction (TSC) were the culmination of earlier results in allocation/verification and hierarchical component selection. The later Recursive Coordination Information Theory (RCIT) paper named their common framework Coordination Information Theory (CIT) and extended it. RCIT separates the information a current decision needs from the information needed to evaluate the circumstances that decision creates. See https://jossarmstrong.org/research/cit/ The wider portfolio includes related and independently motivated work in mechanism design, economic institutions, cognition, multi-agent systems, autonomous networks, privacy, auditability, resource allocation and distributed AI.
 
