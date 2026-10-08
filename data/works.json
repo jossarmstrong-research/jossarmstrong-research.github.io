@@ -258,8 +258,8 @@
     "title": "Task-Sufficient Contraction: Source Selection for Machine Information Interfaces",
     "year": 2026,
     "status": "Preprint",
-    "venue": "Zenodo",
-    "url": "https://doi.org/10.5281/zenodo.22834531",
+    "venue": "arXiv",
+    "url": "https://arxiv.org/abs/2610.08884",
     "page_url": "https://jossarmstrong.org/works/tsc/",
     "topics": [
       "task sufficiency",
@@ -268,7 +268,7 @@
     ],
     "first_posted": "2026-09-19",
     "first_version_doi": "10.5281/zenodo.22834532",
-    "note": "First posted on Zenodo on 19 September 2026. Version 1 DOI: 10.5281/zenodo.22834532.",
+    "note": "First posted on Zenodo on 19 September 2026. Version 1 DOI: 10.5281/zenodo.22834532. Also available as arXiv:2610.08884, submitted 6 October 2026.",
     "framework_url": "https://jossarmstrong.org/research/cit/#tsc"
   },
   {

@@ -43,3 +43,8 @@ a:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--accent); ou
   .process ol { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .results-scroll { overflow: visible; }
 }
+
+.tsc-figure { margin: 28px 0; }
+.tsc-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
+.tsc-figure figcaption { margin-top: 14px; color: var(--muted); font-size: .9rem; }
+.figure-downloads { font-size: .9rem; }

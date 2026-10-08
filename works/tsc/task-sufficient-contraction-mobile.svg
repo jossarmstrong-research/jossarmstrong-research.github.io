@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1600" viewBox="0 0 600 1600" role="img" aria-labelledby="title desc">
+<title id="title">Reduce once. Choose the operating point later.</title>
+<desc id="desc">Constructed two-action example. States x1 and x2 merge because their regret profiles match. State x3 has the same best action but different regret and stays separate. The resulting source preserves the complete one-step rate-regret curve for finite action sets.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="#173f5f"/></marker></defs>
+<rect width="600" height="1600" fill="#fbfbf8"/>
+<text x="36" y="44" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#173f5f" text-anchor="start">TASK-SUFFICIENT CONTRACTION</text>
+<text x="36" y="92" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700" fill="#172b3a" text-anchor="start">Reduce once.</text>
+<text x="36" y="138" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700" fill="#172b3a" text-anchor="start">Choose the operating point later.</text>
+<text x="36" y="180" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#596772" text-anchor="start">Fix the source law, action set and loss.</text>
+<rect x="36" y="214" width="528" height="288" rx="12" fill="#ffffff" stroke="#d9dfe2"/>
+<text x="56" y="248" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#173f5f" text-anchor="start">01  FULL SOURCE X</text>
+<text x="56" y="286" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#172b3a" text-anchor="start">Regret for each action</text>
+<text x="58" y="321" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#596772" text-anchor="start">State</text>
+<text x="436" y="321" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#596772" text-anchor="start">A</text>
+<text x="510" y="321" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#596772" text-anchor="start">B</text>
+<rect x="50" y="328" width="500" height="34" rx="5" fill="#e9f2f5" stroke="none"/>
+<text x="58" y="351" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#172b3a" text-anchor="start">x₁</text>
+<text x="436" y="351" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#172b3a" text-anchor="start">0</text>
+<text x="510" y="351" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#172b3a" text-anchor="start">2</text>
+<rect x="50" y="367" width="500" height="34" rx="5" fill="#e9f2f5" stroke="none"/>
+<text x="58" y="390" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#172b3a" text-anchor="start">x₂</text>
+<text x="436" y="390" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#172b3a" text-anchor="start">0</text>
+<text x="510" y="390" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#172b3a" text-anchor="start">2</text>
+<rect x="50" y="406" width="500" height="34" rx="5" fill="#f4f3ef" stroke="none"/>
+<text x="58" y="429" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#172b3a" text-anchor="start">x₃</text>
+<text x="436" y="429" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#172b3a" text-anchor="start">0</text>
+<text x="510" y="429" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#172b3a" text-anchor="start">5</text>
+<rect x="50" y="445" width="500" height="34" rx="5" fill="#f4f3ef" stroke="none"/>
+<text x="58" y="468" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#172b3a" text-anchor="start">x₄</text>
+<text x="436" y="468" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#172b3a" text-anchor="start">4</text>
+<text x="510" y="468" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#172b3a" text-anchor="start">0</text>
+<rect x="36" y="548" width="528" height="260" rx="12" fill="#edf4f6" stroke="#9ab4c5"/>
+<text x="56" y="582" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#173f5f" text-anchor="start">02  REDUCED SOURCE G</text>
+<text x="56" y="620" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#172b3a" text-anchor="start">Merge matching profiles</text>
+<rect x="50" y="644" width="500" height="41" rx="5" fill="#fff" stroke="none"/>
+<text x="60" y="674" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="#172b3a" text-anchor="start">{x₁, x₂}</text>
+<text x="459" y="674" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="#173f5f" text-anchor="start">(0, 2)</text>
+<rect x="50" y="692" width="500" height="41" rx="5" fill="#fff" stroke="none"/>
+<text x="60" y="722" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="#172b3a" text-anchor="start">{x₃}</text>
+<text x="459" y="722" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="#173f5f" text-anchor="start">(0, 5)</text>
+<rect x="50" y="740" width="500" height="41" rx="5" fill="#fff" stroke="none"/>
+<text x="60" y="770" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="#172b3a" text-anchor="start">{x₄}</text>
+<text x="459" y="770" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="#173f5f" text-anchor="start">(4, 0)</text>
+<rect x="36" y="854" width="528" height="330" rx="12" fill="#ffffff" stroke="#d9dfe2"/>
+<text x="56" y="888" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#173f5f" text-anchor="start">03  CHOOSE LATER</text>
+<text x="56" y="926" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#172b3a" text-anchor="start">Downstream regret target</text>
+<rect x="56" y="956" width="488" height="38" rx="5" fill="#f4f3ef" stroke="none"/>
+<text x="70" y="982" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#172b3a" text-anchor="start">Strict target</text>
+<rect x="56" y="1004" width="488" height="38" rx="5" fill="#f4f3ef" stroke="none"/>
+<text x="70" y="1030" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#172b3a" text-anchor="start">Intermediate target</text>
+<rect x="56" y="1052" width="488" height="38" rx="5" fill="#f4f3ef" stroke="none"/>
+<text x="70" y="1078" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#172b3a" text-anchor="start">Relaxed target</text>
+<text x="56" y="1139" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#596772" text-anchor="start">Optimise the encoder for</text>
+<text x="56" y="1166" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#596772" text-anchor="start">each target on the same source.</text>
+<path d="M300 510 L300 538" fill="none" stroke="#173f5f" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M300 816 L300 844" fill="none" stroke="#173f5f" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="36" y="1210" width="528" height="133" rx="12" fill="#173f5f" stroke="none"/>
+<text x="58" y="1245" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="start">SAME COMPLETE ONE-STEP RATE–REGRET CURVE</text>
+<text x="58" y="1287" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="700" fill="#ffffff" text-anchor="start">Rₓ(D) = Rɢ(D)</text>
+<text x="58" y="1322" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#e0edf4" text-anchor="start">For every feasible target D; finite action sets.</text>
+<text x="36" y="1371" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#172b3a" text-anchor="start">Why not keep only the best action?</text>
+<text x="36" y="1406" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#596772" text-anchor="start">x₁ and x₃ both favour A. But choosing B costs</text>
+<text x="36" y="1437" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#596772" text-anchor="start">2 in one and 5 in the other. They must stay separate.</text>
+<text x="36" y="1482" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#596772" text-anchor="start">Constructed example · Joss Armstrong · CC BY 4.0</text>
+<text x="36" y="1511" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#596772" text-anchor="start">arXiv:2610.08884 · jossarmstrong.org/works/tsc/</text>
+</svg>
