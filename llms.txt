@@ -30,6 +30,7 @@ TACIT, ORACLE, PECDAFs and cell similarity include constructed teaching examples
 ## Preprint records with hosted PDFs
 - Task-relative information contracts (Zenodo preprint, PDF and BibTeX): https://jossarmstrong.org/works/tri-contracts/
 - Task-Sufficient Contraction (arXiv:2610.08884, explanatory figure, PDF and BibTeX): https://jossarmstrong.org/works/tsc/
+- MARGIN: Runtime Confidence Calibration for Multi-Agent Foundation Model Coordination (arXiv:2605.22949, method, results, limitations and BibTeX): https://jossarmstrong.org/works/margin/
 - Recursive Coordination Information Theory (Zenodo preprint, PDF and BibTeX): https://jossarmstrong.org/works/rcit/
 - Source identification is not fitness testing (arXiv preprint, BibTeX): https://jossarmstrong.org/works/source-identification/
 

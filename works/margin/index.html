@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MARGIN: Runtime Confidence Calibration for Multi-Agent Coordination | Joss Armstrong</title>
+  <meta name="description" content="How MARGIN corrects the stated confidence of heterogeneous foundation models from observed outcomes, so a coordinator can weigh their answers. Method, results, limitations and preprint.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/margin/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <link rel="stylesheet" href="/css/explainers.css">
+  <meta name="citation_title" content="MARGIN: Runtime Confidence Calibration for Multi-Agent Foundation Model Coordination">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_publication_date" content="2026-05-21">
+  <meta name="citation_online_date" content="2026-05-21">
+  <meta name="citation_doi" content="10.48550/arXiv.2605.22949">
+  <meta name="citation_arxiv_id" content="2605.22949">
+  <meta name="citation_technical_report_institution" content="arXiv">
+  <meta name="citation_abstract_html_url" content="https://jossarmstrong.org/works/margin/">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2605.22949v4">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="MARGIN: Runtime Confidence Calibration for Multi-Agent Coordination">
+  <meta property="og:description" content="An author’s guide to correcting foundation-model confidence from observed outcomes, with results, limitations and a link to the preprint.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/margin/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/works/margin/", "url": "https://jossarmstrong.org/works/margin/", "name": "MARGIN: Runtime Confidence Calibration for Multi-Agent Coordination", "description": "Author companion page explaining MARGIN, its results and limitations.", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "ScholarlyArticle", "name": "MARGIN: Runtime Confidence Calibration for Multi-Agent Foundation Model Coordination", "author": [{"@type": "Person", "name": "Joss Armstrong", "sameAs": "https://orcid.org/0009-0009-3462-9679"}], "datePublished": "2026-05-21", "dateModified": "2026-10-08", "identifier": "10.48550/arXiv.2605.22949", "url": "https://arxiv.org/abs/2605.22949", "version": "4", "creativeWorkStatus": "Preprint", "encoding": {"@type": "MediaObject", "contentUrl": "https://arxiv.org/pdf/2605.22949v4", "encodingFormat": "application/pdf"}, "sameAs": ["https://huggingface.co/papers/2605.22949"]}}</script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3f8d3cbfac9c4c3eb080976e43f671c6"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="/">Joss Armstrong</a>
+    <a href="/research/">Research</a>
+    <a href="/works/" aria-current="true">Works</a>
+    <a href="/about/">About</a>
+  </nav>
+</header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / MARGIN</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author companion · Multi-agent AI</div>
+    <h1>MARGIN: Runtime Confidence Calibration for Multi-Agent Foundation Model Coordination</h1>
+    <p class="byline">Joss Armstrong</p>
+    <p class="meta">Preprint · arXiv:2605.22949 · Version 4, 8 October 2026 · First posted 21 May 2026</p>
+    <p class="lede">When several AI models answer the same question, should the most confident one win? Only if their confidence means the same thing. MARGIN learns what each model’s confidence actually means from the outcomes it observes.</p>
+    <div class="paper-actions">
+      <a class="paper-link" href="https://arxiv.org/abs/2605.22949">Read on arXiv</a>
+      <a href="https://arxiv.org/pdf/2605.22949v4">Download the PDF</a>
+      <a href="https://huggingface.co/papers/2605.22949">Discuss on Hugging Face</a>
+      <a href="#citation">Cite this paper</a>
+    </div>
+    <nav class="paper-contents" aria-label="On this page">
+      <a href="#problem">The problem</a><a href="#method">How it works</a><a href="#example">Worked example</a><a href="#results">Results</a><a href="#scope">Scope</a><a href="#connections">Related research</a>
+    </nav>
+  </header>
+
+  <section class="section" id="problem">
+    <h2>Confidence does not mean the same thing across models</h2>
+    <p>A coordinator that combines answers from several foundation models has to decide how much weight each answer gets. Self-reported confidence is the obvious signal. But the same number can mean different things for different models. A model that says 90% may be less reliable than one that says 70%.</p>
+    <p>On the hard subset of BigCodeBench, this goes beyond noise. Across an 18-model pool, models with higher average stated confidence had lower pass rates (correlation −0.69). Among pairs of answers where exactly one was correct, picking the more confident model chose the correct answer only 42.4% of the time, worse than a coin toss.</p>
+    <p>A second difficulty is that the workload changes. A correction learned on one kind of task may not suit the next one, even though the models themselves have not changed.</p>
+  </section>
+
+  <section class="section" id="method">
+    <h2>Correct each model’s confidence from its own record</h2>
+    <figure class="process">
+      <ol>
+        <li><span class="step">01</span><strong>Answer</strong><p>Each model returns an answer and a stated confidence.</p></li>
+        <li><span class="step">02</span><strong>Correct</strong><p>MARGIN rescales each confidence using that model’s record in the same confidence band.</p></li>
+        <li><span class="step">03</span><strong>Weigh</strong><p>The corrected confidences weight a vote over the candidate answers.</p></li>
+        <li><span class="step">04</span><strong>Learn</strong><p>When correctness is known, it updates the record for each model that answered.</p></li>
+      </ol>
+      <figcaption>The MARGIN loop. Each answer is scored before its own outcome updates any record.</figcaption>
+    </figure>
+    <p>MARGIN divides stated confidence into a few bands, three in the main experiments. For each model and band it keeps two running averages, one of observed accuracy and one of stated confidence. Their ratio gives the correction.</p>
+    <div class="equation"><code>corrected confidence = (recent accuracy ÷ recent stated confidence) × stated confidence</code></div>
+    <p>A model that is right 60% of the time when it states about 90% gets a factor of about 0.67. A new answer at 90% is then counted at about 60%. A model whose stated confidence already matches its accuracy keeps a factor near 1.</p>
+    <p>A band with few observations borrows from the same model’s other bands, and relies on its own record as evidence accumulates. It never borrows another model’s history. The averages weight recent outcomes more heavily, so the correction can follow a change in workload.</p>
+    <p>MARGIN needs only the answers, their stated confidence and later correctness feedback. It does not retrain the models, read their internals or need a separate calibration dataset.</p>
+    <p>Successes and failures update the record at the same rate. The paper proves that, for outcomes with a fixed success probability, unequal rates bias the tracked accuracy, and equal rates are the only setting in that family that avoids it.</p>
+  </section>
+
+  <section class="section" id="example">
+    <h2>Watch the correction change the decision</h2>
+    <p>Two models disagree. Model A states 90% confidence and Model B states 70%. A raw confidence vote picks Model A’s answer.</p>
+    <div class="results-scroll" role="region" aria-label="Worked example of MARGIN correction" tabindex="0">
+      <table class="results">
+        <caption>Constructed example · one confidence band per model</caption>
+        <thead><tr><th scope="col">Model</th><th scope="col">Stated confidence</th><th scope="col">Recent accuracy in band</th><th scope="col">Recent stated confidence in band</th><th scope="col">Factor</th><th scope="col">Corrected confidence</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">A</th><td>0.90</td><td>0.60</td><td>0.90</td><td>0.67</td><td>0.60</td></tr>
+          <tr><th scope="row">B</th><td>0.70</td><td>0.70</td><td>0.70</td><td>1.00</td><td class="highlight">0.70</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>After correction, Model B’s answer carries more weight and wins the vote. Nothing about either model changed. Only the coordinator’s reading of their confidence did.</p>
+    <p class="source-note">Illustrative numbers. Model A’s figures are the illustration used in the paper’s method section. The example ignores the blending toward each model’s overall record, which matters only for sparsely observed bands.</p>
+  </section>
+
+  <section class="section" id="results">
+    <h2>What I evaluated</h2>
+    <p>The experiments cover code generation, question answering and mathematics. The pool has 18 models, nine cloud-served and nine served locally, and a fixed nine-model cloud subset is used for the workload-change experiments. Calibration error is measured as expected calibration error (ECE) on a 0 to 100 scale, where lower is better.</p>
+    <h3>Adapting when the workload changes</h3>
+    <p>Each method first learns on one workload, keeps what it learned, and continues on a different one. All methods receive the same feedback. Online Platt scaling was the strongest of the five online alternatives.</p>
+    <div class="results-scroll" role="region" aria-label="Calibration error after a workload change" tabindex="0">
+      <table class="results">
+        <caption>Calibration error after the change (ECE ↓)</caption>
+        <thead><tr><th scope="col">Transition</th><th scope="col">Online Platt</th><th scope="col">MARGIN</th><th scope="col">Outcome against the five alternatives</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">HumanEval → BigCodeBench</th><td>15.32</td><td class="highlight">12.99</td><td>Lower than all five</td></tr>
+          <tr><th scope="row">MBPP → BigCodeBench</th><td>13.42</td><td class="highlight">11.89</td><td>Lower than all five</td></tr>
+          <tr><th scope="row">MMLU STEM → MMLU-Pro business</th><td>3.17</td><td>2.85</td><td>Lower than four, with the Platt comparison inconclusive</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source-note">Source: the paper’s matched-feedback comparison on the nine-model cloud subset. The histogram and windowed-accuracy alternatives were 13 to 31 points worse on the coding transitions and about 4 points worse on the question-answering transition.</p>
+    <h3>Choosing better answers</h3>
+    <p>A separate set of experiments starts without any history and asks whether corrected confidence improves the coordinator’s choice. Raw and corrected confidence use the same voting rule.</p>
+    <div class="results-scroll" role="region" aria-label="Answer selection with raw and corrected confidence" tabindex="0">
+      <table class="results">
+        <caption>18-model pool, code generation</caption>
+        <thead><tr><th scope="col">Benchmark</th><th scope="col">Answer selection, raw (%)</th><th scope="col">Answer selection, MARGIN (%)</th><th scope="col">More confident is correct, raw (%)</th><th scope="col">More confident is correct, MARGIN (%)</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">HumanEval</th><td>94.51</td><td>95.33</td><td>46.53</td><td class="highlight">81.66</td></tr>
+          <tr><th scope="row">MBPP</th><td>87.94</td><td class="highlight">92.26</td><td>49.94</td><td class="highlight">81.25</td></tr>
+          <tr><th scope="row">BigCodeBench</th><td>13.89</td><td class="highlight">27.87</td><td>42.37</td><td class="highlight">63.36</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source-note">Source: the paper’s coordination experiments. “More confident is correct” counts pairs in which exactly one of two answers was correct, so 50% is chance. Highlighted cells are differences with a 95% interval above zero. The HumanEval selection difference is inconclusive.</p>
+  </section>
+
+  <section class="section" id="scope">
+    <h2>Where the claims stop</h2>
+    <p>MARGIN needs correctness feedback. The main experiments provide it for every model that answered, which suits tasks with executable tests. If only the chosen model’s answer is ever checked, the rarely chosen models stop updating, and calibration error rose by roughly 30 points in that diagnostic.</p>
+    <p>When calibration starts with no history at all, MARGIN holds no general advantage. On BigCodeBench, four of the five online alternatives reached lower calibration error. The advantage reported above concerns adapting a correction that already exists.</p>
+    <p>The gains in answer selection are relative to uncalibrated confidence weighting. They do not show that combining several models beats deploying the single strongest model, and they say nothing about cost. The responders answer independently. Debate, planning and multi-step agents are outside the evaluated setting.</p>
+  </section>
+
+  <section class="section" id="connections">
+    <h2>From one model’s record to collective decisions</h2>
+    <p>I place MARGIN within my work on <a href="/research/#coordination">multi-agent coordination and institutional design</a>, which asks how evidence about past performance should affect an actor’s influence over a decision.</p>
+    <p><a href="/works/tacit/">TACIT</a> applies the same principle to network applications that arbitrate configuration changes. Its reputation deliberately falls faster after a wrong prediction than it rises after a right one. MARGIN has a different job. It estimates how often a model is right at a given stated confidence, and for that estimate equal update rates are what keep it unbiased.</p>
+  </section>
+
+  <section class="section citation" id="citation">
+    <h2>Paper and citation</h2>
+    <p>J. Armstrong, “MARGIN: Runtime Confidence Calibration for Multi-Agent Foundation Model Coordination,” arXiv:2605.22949, 2026. DOI <a href="https://doi.org/10.48550/arXiv.2605.22949">10.48550/arXiv.2605.22949</a>.</p>
+    <p><a href="/works/margin/citation.bib" download>Download BibTeX citation</a> · <a href="https://arxiv.org/abs/2605.22949v4">Version described here: arXiv v4</a></p>
+  </section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>
