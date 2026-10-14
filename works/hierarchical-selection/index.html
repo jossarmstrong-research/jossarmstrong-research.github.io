@@ -4,23 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Hierarchical Selection: Learning from Changes in Allocation | Joss Armstrong</title>
-  <meta name="description" content="An animated explanation of how a selected component can recover a one-bit outcome from its allocation change, using the exact two-round example in the preprint.">
+  <meta name="description" content="An animated explanation of how a selected automaton can recover the environment response from the change in its own action probability, using the exact two-round example in the preprint.">
   <link rel="canonical" href="https://jossarmstrong.org/works/hierarchical-selection/">
   <link rel="stylesheet" href="/css/site.css">
   <link rel="stylesheet" href="/css/paper.css">
   <link rel="stylesheet" href="/css/explainers.css">
-  <meta name="citation_title" content="Implicit Evaluation Under Minimal Information: Hierarchical Component Selection from One-Bit Feedback">
+  <meta name="citation_title" content="Hierarchical Learning Automata Without a Shared Reinforcement Signal: Recovering the Environment Response From Action-Probability Changes">
   <meta name="citation_author" content="Joss Armstrong">
   <meta name="citation_publication_date" content="2026-04-30">
   <meta name="citation_doi" content="10.48550/arXiv.2605.00921">
   <meta name="citation_arxiv_id" content="2605.00921">
-  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2605.00921v2">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2605.00921v3">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Hierarchical Selection: Learning from Changes in Allocation">
-  <meta property="og:description" content="An animated explanation of how a selected component can recover a one-bit outcome from its allocation change, using the exact two-round example in the preprint.">
+  <meta property="og:description" content="An animated explanation of how a selected automaton can recover the environment response from the change in its own action probability, using the exact two-round example in the preprint.">
   <meta property="og:url" content="https://jossarmstrong.org/works/hierarchical-selection/">
   <meta property="og:site_name" content="Joss Armstrong">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/works/hierarchical-selection/", "url": "https://jossarmstrong.org/works/hierarchical-selection/", "name": "Hierarchical Selection: Learning from Changes in Allocation", "description": "An animated explanation of how a selected component can recover a one-bit outcome from its allocation change, using the exact two-round example in the preprint.", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "ScholarlyArticle", "name": "Implicit Evaluation Under Minimal Information: Hierarchical Component Selection from One-Bit Feedback", "author": [{"@type": "Person", "name": "Joss Armstrong"}], "datePublished": "2026-04-30", "identifier": "10.48550/arXiv.2605.00921", "url": "https://arxiv.org/abs/2605.00921", "version": "2", "dateModified": "2026-08-26", "creativeWorkStatus": "Preprint"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/works/hierarchical-selection/", "url": "https://jossarmstrong.org/works/hierarchical-selection/", "name": "Hierarchical Selection: Learning from Changes in Allocation", "description": "An animated explanation of how a selected automaton can recover the environment response from the change in its own action probability, using the exact two-round example in the preprint.", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "ScholarlyArticle", "name": "Hierarchical Learning Automata Without a Shared Reinforcement Signal: Recovering the Environment Response From Action-Probability Changes", "author": [{"@type": "Person", "name": "Joss Armstrong"}], "datePublished": "2026-04-30", "identifier": "10.48550/arXiv.2605.00921", "url": "https://arxiv.org/abs/2605.00921", "version": "3", "dateModified": "2026-10-13", "creativeWorkStatus": "Preprint"}}</script>
   <script type="module" src="/js/explainers.js"></script>
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3f8d3cbfac9c4c3eb080976e43f671c6"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
@@ -29,19 +29,19 @@
 <main class="paper">
   <p class="breadcrumb"><a href="/works/">All works</a> / Hierarchical selection</p>
   <header class="paper-header">
-    <div class="eyebrow">Author companion · Hierarchical coordination</div>
-    <h1>Implicit Evaluation Under Minimal Information: Hierarchical Component Selection from One-Bit Feedback</h1>
+    <div class="eyebrow">Author companion · Learning automata</div>
+    <h1>Hierarchical Learning Automata Without a Shared Reinforcement Signal: Recovering the Environment Response From Action-Probability Changes</h1>
     <p class="byline">Joss Armstrong</p>
-    <p class="meta">Preprint · arXiv:2605.00921 · Version 2, revised 2026-08-26</p>
-    <p class="lede">A component can receive an evaluation through a change in its share of work. Follow two rounds to see how the sign carries one bit through a hierarchy, and why selection matters.</p>
+    <p class="meta">Preprint · arXiv:2605.00921 · Version 3, revised 2026-10-13</p>
+    <p class="lede">In a hierarchy of learning automata, only the root may see whether a decision succeeded. Follow two rounds to see how the sign of a share change carries that response to every level, and why selection matters.</p>
     <div class="paper-actions"><a class="paper-link" href="https://arxiv.org/abs/2605.00921">Read the public preprint</a><a href="#explore">Explore the explanation</a><a href="#citation">Cite this paper</a></div>
     <nav class="paper-contents" aria-label="On this page"><a href="#idea">The question</a><a href="#explore">Visual explanation</a><a href="#result">The result</a><a href="#scope">Scope</a><a href="#connections">Related research</a></nav>
   </header>
 
   <section class="section" id="idea">
-    <h2>Can a component learn from the work it receives?</h2>
-    <p>A selector routes work among components whose internal operation it cannot inspect. Once an outcome is observed, it changes the share of work allocated to the selected component. That component can already observe its own allocation.</p>
-    <p>I study a protocol in which the direction of that change carries the evaluation. On a round when a component was selected, an increase means success and a decrease means failure. A selected component that is itself a selector can decode this bit and use it to update its own children.</p>
+    <h2>Can a level learn without being told the outcome?</h2>
+    <p>Hierarchies of learning automata select one root-to-leaf path per round, and the classical analyses deliver the environment response to every automaton on that path. Many deployed hierarchies cannot do that. The response is measured at the root, and the interfaces below carry requests but no feedback channel, because the levels belong to different parties, the interface is fixed, or the channel was never built.</p>
+    <p>What every level can still observe is whether its parent raised or lowered the probability of choosing it. The paper shows that this sign is enough. An active child reads the response from the direction of its own share change and updates its own children with it.</p>
   </section>
   <section class="section" id="explore">
     <h2>Follow one outcome through two levels</h2>
@@ -68,7 +68,7 @@
         <div class="path-label" data-value="path">Round 2 · Root → Selector 1 → b</div>
       </div>
       <p class="experiment-status" data-value="status" role="status" aria-live="polite">After the second round, Selector 1 has decoded failure and reduced b’s local share to 0.405. Selector 2 remains inactive, so c and d keep equal local shares.</p>
-      <p class="experiment-caption">Exact two-round example from <a href="https://arxiv.org/html/2605.00921v2#S3.SS4">Section 3.4</a>, with update rate η = 0.1. The two numbers in each local allocation vector sum to one. Child weights are local shares, not shares of all root traffic.</p>
+      <p class="experiment-caption">Exact two-round example from <a href="https://arxiv.org/html/2605.00921v3#S4.SS1">Section 4.1</a>, using the proportional reward-penalty rule with update rate η = 0.1. The two numbers in each local allocation vector sum to one. Child weights are local shares, not shares of all root traffic.</p>
       <noscript><p>The diagram shows the end of round 2. The table below gives the initial state and both rounds.</p></noscript>
     </div>
     <div class="results-scroll" role="region" aria-label="Exact two-round allocation values" tabindex="0"><table class="results">
@@ -77,20 +77,19 @@
     </table></div>
   </section>
   <section class="section" id="result">
-    <h2>Selection is part of the information</h2>
-    <p>The inactive branch matters. Its incoming allocation also changes, but in the opposite direction. If it decoded that change as an evaluation of its own work, it would read the wrong outcome. Every node therefore checks whether it was selected before decoding or updating its children.</p>
-    <p>Under the specified redistribution rule, positive initial weights remain positive and each local vector continues to sum to one. Conditional on selection, the sign of the incoming allocation change identifies the root outcome at every depth. No separate evaluation message is required; the observable allocation still conveys information.</p>
-    <details class="math-details"><summary>The redistribution rule</summary>
-      <p>Let <var>w</var> be the selected child’s current weight and let <var>η</var> be the update rate, strictly between zero and one. After success its new weight is <code>(1 − η)w + η</code>; each sibling’s weight is multiplied by <code>1 − η</code>.</p>
-      <p>After failure the selected weight becomes <code>(1 − η)w</code>. Every sibling’s weight is multiplied by <code>(1 − w + ηw) / (1 − w)</code>. This redistributes the removed share proportionally and requires <var>w &lt; 1</var>, ensured by positive weights with at least two children.</p>
+    <h2>The sign recovers the response at every depth</h2>
+    <p>The inactive branch matters. Its incoming share also changes, but in the opposite direction. If it decoded that change as an evaluation of its own choice, it would read the wrong response. Every node therefore checks whether it was on the selected path before decoding or updating its children.</p>
+    <p>The result covers a whole class of update rules. Whenever the selected action's probability rises on reward and does not rise on penalty, the decoded bit equals the root response at every depth. Linear reward-penalty, reward-inaction and reward-epsilon-penalty all qualify. The hierarchy that decodes signs and the hierarchy that broadcasts the response therefore produce identical sample paths, so convergence results proved for broadcast hierarchies under these rules carry over without the broadcast.</p>
+    <details class="math-details"><summary>The proportional reward-penalty rule</summary>
+      <p>Let <var>w</var> be the selected child’s current weight and let <var>η</var> be the update rate, strictly between zero and one. After a reward its new weight is <code>(1 − η)w + η</code>, and each sibling’s weight is multiplied by <code>1 − η</code>.</p>
+      <p>After a penalty the selected weight becomes <code>(1 − η)w</code>. Every sibling’s weight is multiplied by <code>(1 − w + ηw) / (1 − w)</code>. This returns the removed share to the other children in proportion to their weights, so the allocation stays interior.</p>
     </details>
-    <p>The paper also analyses single-selector equilibria and stability under its stated conditions. The example here isolates signal propagation, so the arithmetic remains visible at each boundary.</p>
+    <p>For two actions this rule coincides with symmetric linear reward-penalty. For three or more it lies outside the classical schemes. Its mean flow converges globally to a closed-form allocation and drops actions below a computable threshold. High-precision replays on hierarchies of up to 16,384 leaves record zero decoding errors.</p>
   </section>
   <section class="section" id="scope">
     <h2>One selected path per round</h2>
-    <p>The model follows one root-to-leaf path. It does not divide a shared outcome among several simultaneous contributors or infer how an unselected alternative would have performed.</p>
-    <p>Nodes must follow the protocol and observe their own allocation accurately enough to determine its change. The animated shares are exact; estimating them from noisy traffic counts is a different observation problem.</p>
-    <p>The hierarchical result preserves the realised signal and local update law. It does not establish joint convergence of a hierarchy whose levels adapt simultaneously. The two-round animation is an exact worked example, not evidence for that stronger claim.</p>
+    <p>The model selects one child per selector and one path per round. It does not divide a shared outcome among several simultaneous contributors or infer how an unselected alternative would have performed.</p>
+    <p>The protocol needs the exact sign of the parent's update. A child that estimates its share from a noisy traffic count is not covered. The proportional rule's convergence is proved for a single selector with fixed child response probabilities. Joint convergence of a hierarchy whose levels adapt at once remains open, and the rule is not claimed to track a changing environment better than reward-inaction. The two-round animation is an exact worked example, not evidence for those stronger claims.</p>
   </section>
   <section class="section" id="connections">
     <h2>Minimal feedback and hierarchical systems</h2>
@@ -98,7 +97,7 @@
     <p><a href="/works/#work-2026-bohm">Multi-Resolution Attribution from Adaptive Routing State</a> examines related questions about attribution. Sharing a hierarchical setting does not make these results interchangeable with attribution among simultaneous contributors.</p>
   </section>
 
-  <section class="section citation" id="citation"><h2>Paper and citation</h2><p>J. Armstrong, “Implicit Evaluation Under Minimal Information: Hierarchical Component Selection from One-Bit Feedback,” arXiv:2605.00921, 2026. This explanation follows v2, revised 2026-08-26. <a href="https://arxiv.org/abs/2605.00921">Current public record</a>.</p><p><a href="/works/hierarchical-selection/citation.bib" download>Download BibTeX citation</a> · <a href="https://arxiv.org/abs/2605.00921v2">Version explained here: v2</a></p></section>
+  <section class="section citation" id="citation"><h2>Paper and citation</h2><p>J. Armstrong, “Hierarchical Learning Automata Without a Shared Reinforcement Signal: Recovering the Environment Response From Action-Probability Changes,” arXiv:2605.00921, 2026. This explanation follows v3, revised 2026-10-13. <a href="https://arxiv.org/abs/2605.00921">Current public record</a>.</p><p><a href="/works/hierarchical-selection/citation.bib" download>Download BibTeX citation</a> · <a href="https://arxiv.org/abs/2605.00921v3">Version explained here: v3</a></p></section>
 </main>
 <footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
 </body>

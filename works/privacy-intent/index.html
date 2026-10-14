@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Privacy-Preserving Intent Fulfilment and Assurance for 6G RAN | Joss Armstrong</title>
+  <meta name="description" content="Author record for the 6G intent-management preprint: provisioning from declared intent categories without traffic inspection, verification from cell-level PM counters, and a log2 K bound on what the allocation reveals about traffic content.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/privacy-intent/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <meta name="citation_title" content="Privacy-Preserving Intent Fulfilment and Assurance for 6G RAN">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_publication_date" content="2026-07-09">
+  <meta name="citation_online_date" content="2026-07-09">
+  <meta name="citation_doi" content="10.48550/arXiv.2607.08809">
+  <meta name="citation_arxiv_id" content="2607.08809">
+  <meta name="citation_abstract_html_url" content="https://jossarmstrong.org/works/privacy-intent/">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2607.08809v2">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Privacy-Preserving Intent Fulfilment and Assurance for 6G RAN">
+  <meta property="og:description" content="Provisioning from declared intent categories without traffic inspection, verification from cell-level PM counters, and a log2 K bound on what the allocation reveals about traffic content.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/privacy-intent/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://jossarmstrong.org/works/privacy-intent/", "url": "https://jossarmstrong.org/works/privacy-intent/", "name": "Privacy-Preserving Intent Fulfilment and Assurance for 6G RAN", "description": "Author record for the 6G intent-management preprint.", "author": {"@type": "Person", "name": "Joss Armstrong", "url": "https://jossarmstrong.org/"}, "mainEntity": {"@type": "ScholarlyArticle", "name": "Privacy-Preserving Intent Fulfilment and Assurance for 6G RAN", "author": [{"@type": "Person", "name": "Joss Armstrong"}], "datePublished": "2026-07-09", "identifier": "10.48550/arXiv.2607.08809", "url": "https://arxiv.org/abs/2607.08809", "version": "2", "dateModified": "2026-10-09", "creativeWorkStatus": "Preprint"}}</script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3f8d3cbfac9c4c3eb080976e43f671c6"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/">Joss Armstrong</a><a href="/research/">Research</a><a href="/works/" aria-current="true">Works</a><a href="/about/">About</a></nav></header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / Privacy-preserving intent</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author record · Autonomous networks</div>
+    <h1>Privacy-Preserving Intent Fulfilment and Assurance for 6G RAN</h1>
+    <p class="byline">Joss Armstrong</p>
+    <p class="meta">Preprint · arXiv:2607.08809 · Version 2, revised 2026-10-09</p>
+    <p class="lede">An intent-based management system can provision and verify a 6G service without inspecting traffic. It works from declared intent categories and standard cell-level counters, and a single bound says how much the allocation can reveal.</p>
+    <div class="paper-actions"><a class="paper-link" href="https://arxiv.org/abs/2607.08809">Read the public preprint</a><a href="https://arxiv.org/pdf/2607.08809v2">Download the PDF</a><a href="#citation">Cite this paper</a></div>
+    <nav class="paper-contents" aria-label="On this page"><a href="#idea">The question</a><a href="#result">The results</a><a href="#scope">Scope</a><a href="#connections">Related research</a></nav>
+  </header>
+
+  <section class="section" id="idea">
+    <h2>Fulfilment and assurance without traffic inspection</h2>
+    <p>Intent-based management lets an operator state a service objective and leaves translation, provisioning and assurance to the system. Existing fulfilment and assurance approaches assume full observability: traffic classification, deep packet inspection, per-flow tracking or vendor-internal telemetry. Those requirements clash with data-protection rules in multi-tenant networks, with vendor opacity in multi-vendor O-RAN, and with traffic that is now mostly encrypted.</p>
+    <p>The architecture in this paper restricts what the coordinator sees. It provisions from a declared intent category, one of <var>K</var> classes, and verifies fulfilment using only cell-level standardised performance-management counters at the O1 interface. It never reads payloads, per-user traces or node-internal state.</p>
+  </section>
+  <section class="section" id="result">
+    <h2>A leakage ceiling set by the architecture</h2>
+    <p>Because the allocation is a function of the category alone, a data-processing inequality bounds what it reveals about traffic content by <var>log<sub>2</sub> K</var> bits for <var>K</var> equally likely categories. Intent-traffic unlinkability and node-opaque verification then hold by construction. Privacy comes from not collecting the data, not from protecting it after collection.</p>
+    <p>Detection and privacy pull the same way. If verification needs at least <var>q</var> cells per category among <var>M</var> cells, the ceiling becomes <var>log<sub>2</sub> ⌊M/q⌋</var> bits, so the detection requirement fixes the leakage ceiling without a separate privacy parameter. When individual records add state-independent noise to the category aggregate, a verifier on the category mean is at least as powerful as any verifier on individual records.</p>
+    <p>The paper maps the architecture onto the 3GPP intent lifecycle and the O-RAN Non-RT RIC. On production counters from four operator networks, detection recall plateaus beyond moderate numbers of categories while the leakage ceiling keeps rising. Under category-wide replacement the category-mean score has higher AUC on three networks and comparable AUC on the fourth. Per-cell screening suits sparse faults.</p>
+  </section>
+  <section class="section" id="scope">
+    <h2>What the bound covers</h2>
+    <p>The bound covers the category and resource channel. It does not bound everything a coordinator could infer from the PM counters themselves. The adversary is an honest-but-curious coordinator that follows the protocol. Side channels below the cell level, auxiliary data correlated with traffic, and a coordinator that bypasses the architecture are outside the model.</p>
+    <p>The evaluation uses injection-based ground truth, because the operator datasets carry no fault labels. These experiments do not establish the theorem's observation premise. Within-period co-movement of cells limits a category mean to the evidence of 6 to 14 independent cells, and category-level verifiers need per-category calibration.</p>
+  </section>
+  <section class="section" id="connections">
+    <h2>Place in the research programme</h2>
+    <p>The formal properties used here come from <a href="/works/allocation-verification/">Information Requirements for Service Allocation and Aggregate Verification</a>, which bounds the welfare cost of category-level provisioning and shows when verification on the aggregate loses nothing. This paper develops the privacy consequences of that restriction and places it in 6G intent management, part of my work on <a href="/research/#networks">autonomous network management</a>.</p>
+  </section>
+
+  <section class="section citation" id="citation"><h2>Paper and citation</h2><p>J. Armstrong, “Privacy-Preserving Intent Fulfilment and Assurance for 6G RAN,” arXiv:2607.08809, 2026. Version 2, revised 9 October 2026. <a href="https://arxiv.org/abs/2607.08809">Current public record</a>.</p><p><a href="/works/privacy-intent/citation.bib" download>Download BibTeX citation</a> · <a href="https://arxiv.org/abs/2607.08809v2">Version recorded here: v2</a></p></section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>

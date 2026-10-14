@@ -15,7 +15,7 @@ Canonical site: https://jossarmstrong.org/
 - TACIT, reputation-weighted O-RAN arbitration: https://jossarmstrong.org/works/tacit/
 - ORACLE, verifiable O-RAN arbitration workflows: https://jossarmstrong.org/works/oracle/
 - IB, interactive source-side information reduction: https://jossarmstrong.org/works/ib/
-- Hierarchical selection, animated one-bit feedback along a selected path: https://jossarmstrong.org/works/hierarchical-selection/
+- Hierarchical learning automata without a shared reinforcement signal, animated one-bit feedback along a selected path: https://jossarmstrong.org/works/hierarchical-selection/
 - Allocation and verification, the exact 96-agent feasibility example: https://jossarmstrong.org/works/allocation-verification/
 - CAMINO, an animated contextual network assessment: https://jossarmstrong.org/works/camino/
 - PECDAFs, a visual comparison before a proposed network change: https://jossarmstrong.org/works/pecdafs/
@@ -33,6 +33,7 @@ TACIT, ORACLE, PECDAFs and cell similarity include constructed teaching examples
 - MARGIN: Runtime Confidence Calibration for Multi-Agent Foundation Model Coordination (arXiv:2605.22949, method, results, limitations and BibTeX): https://jossarmstrong.org/works/margin/
 - Recursive Coordination Information Theory (Zenodo preprint, PDF and BibTeX): https://jossarmstrong.org/works/rcit/
 - Source identification is not fitness testing (arXiv preprint, BibTeX): https://jossarmstrong.org/works/source-identification/
+- Privacy-Preserving Intent Fulfilment and Assurance for 6G RAN (arXiv:2607.08809, architecture, leakage bound, operator-network results and BibTeX): https://jossarmstrong.org/works/privacy-intent/
 
 These author records link the public preprints and downloadable BibTeX. Task-Sufficient Contraction and source identification link their arXiv records and versions. The Task-Sufficient Contraction page includes a static figure with a constructed regret-profile example and preserves its earlier Zenodo history and archived PDF. The task-relative information contracts and recursive theory pages host PDFs identical to their named Zenodo versions. All retain explicit preprint status.
 

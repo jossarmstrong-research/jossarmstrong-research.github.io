@@ -155,15 +155,15 @@
   },
   {
     "id": "work-2026-hierarchical-selection",
-    "title": "Implicit Evaluation Under Minimal Information: Hierarchical Component Selection from One-Bit Feedback",
+    "title": "Hierarchical Learning Automata Without a Shared Reinforcement Signal: Recovering the Environment Response From Action-Probability Changes",
     "year": 2026,
     "status": "Preprint",
     "venue": "arXiv:2605.00921",
     "url": "https://arxiv.org/abs/2605.00921",
     "topics": [
       "hierarchical selection",
-      "minimal feedback",
-      "mechanism design"
+      "learning automata",
+      "minimal feedback"
     ],
     "page_url": "https://jossarmstrong.org/works/hierarchical-selection/"
   },
@@ -221,7 +221,8 @@
       "intent management",
       "privacy",
       "assurance"
-    ]
+    ],
+    "page_url": "https://jossarmstrong.org/works/privacy-intent/"
   },
   {
     "id": "work-2026-task-quantization",
