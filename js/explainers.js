@@ -1,4 +1,4 @@
-import { ibExample, redistribute, allocationExample } from './explainer-math.mjs';
+import { ibExample, redistribute, allocationExample, ensembleVariances, ENSEMBLE_EXAMPLE, maskSquares } from './explainer-math.mjs';
 import { setupTacit, setupOracle, setupPecdafs, setupSimilarity } from './network-explainers.mjs';
 
 const fixed = (x, places = 3) => x.toFixed(places);
@@ -209,9 +209,154 @@ function setupCamino(root) {
   });
 }
 
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
+function setupEnsembleDemo(root) {
+  const stage = root.querySelector('[data-stage]');
+  const mask = root.querySelector('[data-mask]');
+  const buttons = Object.fromEntries(['start', 'yes', 'no', 'again']
+    .map(action => [action, root.querySelector(`[data-action="${action}"]`)]));
+  const headings = { intro: 'Just look at the circles', set: 'Just look at the circles', mask: 'Just look at the circles',
+    probe: 'Was this circle in the set?', reveal: 'What you saw' };
+  const statusText = {
+    intro: 'Press “Show the circles”. Twelve circles appear for one second, followed by a mask for half a second. Just look at them.',
+    set: 'Look at the circles.',
+    mask: 'Masked.',
+    probe: 'Was this circle in the set? Choose yes or no.'
+  };
+  let timers = [];
+  let run = 0;
+  function clearTimers() { timers.forEach(timer => window.clearTimeout(timer)); timers = []; }
+  const stageLabels = {
+    intro: 'A blank area with a small cross at its centre.',
+    set: 'Twelve dark circles in four sizes.',
+    mask: 'A mask of overlapping grey squares.',
+    probe: 'A single dark circle, the test circle.',
+    reveal: 'The twelve dark circles in four sizes. On the right, the blue test circle, whose diameter is the average of the twelve.'
+  };
+  function show(phase, status = statusText[phase]) {
+    stage.setAttribute('data-phase', phase);
+    stage.setAttribute('aria-label', stageLabels[phase]);
+    root.dataset.phase = phase;
+    setText(root, 'demo-heading', headings[phase]);
+    buttons.start.hidden = phase !== 'intro';
+    buttons.yes.hidden = phase !== 'probe';
+    buttons.no.hidden = phase !== 'probe';
+    buttons.again.hidden = phase !== 'reveal';
+    setText(root, 'status', status);
+  }
+  function drawMask() {
+    run += 1;
+    mask.replaceChildren(...maskSquares(run).map(({ x, y, side, grey, angle }) => {
+      const square = document.createElementNS(SVG_NS, 'rect');
+      square.setAttribute('x', (x - side / 2).toFixed(1));
+      square.setAttribute('y', (y - side / 2).toFixed(1));
+      square.setAttribute('width', side.toFixed(1));
+      square.setAttribute('height', side.toFixed(1));
+      square.setAttribute('fill', `rgb(${grey},${grey},${grey})`);
+      square.setAttribute('transform', `rotate(${angle.toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)})`);
+      return square;
+    }));
+  }
+  function start() {
+    clearTimers();
+    drawMask();
+    show('set');
+    timers.push(window.setTimeout(() => show('mask'), 1000));
+    timers.push(window.setTimeout(() => { show('probe'); buttons.yes.focus(); }, 1500));
+  }
+  function answer(saidYes) {
+    clearTimers();
+    show('reveal', saidYes
+      ? 'You said yes. It was not in the set. Its diameter is exactly the average of the twelve, and no circle of that size was shown.'
+      : 'You said no, and you were right. It was not in the set, even though its diameter is exactly the average of the twelve.');
+    buttons.again.focus();
+  }
+  buttons.start.addEventListener('click', start);
+  buttons.again.addEventListener('click', start);
+  buttons.yes.addEventListener('click', () => answer(true));
+  buttons.no.addEventListener('click', () => answer(false));
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && ['set', 'mask'].includes(stage.getAttribute('data-phase'))) {
+      clearTimers();
+      show('intro', 'The test stopped because the page was hidden. Press “Show the circles” to try again.');
+    }
+  });
+  show('intro');
+  root.querySelector('[data-controls]').hidden = false;
+}
+
+function setupEnsembleRoutes(root) {
+  const SCALE = 10;
+  let n = 8;
+  let reading = 'subset';
+  let sigmaR2 = 1;
+  const readoutButton = root.querySelector('[data-action="readout"]');
+  const one = x => x.toFixed(1);
+  const signedOne = x => `${x >= 0 ? '+' : '−'}${Math.abs(x).toFixed(1)}`;
+  function segment(name, value) {
+    const node = root.querySelector(`[data-segment="${name}"]`);
+    node.style.width = `${value / SCALE * 100}%`;
+    node.title = one(value);
+  }
+  function render() {
+    const v = ensembleVariances(n, reading, { sigmaR2 });
+    segment('item-subset', v.itemSubset);
+    segment('item-sensory', v.itemSensory);
+    segment('pooled-subset', v.pooledSubset);
+    segment('pooled-noise', v.pooling);
+    segment('pooled-readout', v.readout);
+    setText(root, 'vi', one(v.VI));
+    setText(root, 'va', one(v.VA));
+    setText(root, 'keff', String(v.keff));
+    setText(root, 'margin', signedOne(v.margin));
+    const pooledWins = v.VA < v.VI;
+    setText(root, 'winner', pooledWins ? 'Pooled route' : 'Item route');
+    root.querySelector('[data-value="winner"]').classList.toggle('pass', pooledWins);
+    root.querySelector('[data-value="winner"]').classList.toggle('fail', !pooledWins);
+    root.querySelector('[data-bars]').setAttribute('aria-label',
+      `Item route error ${one(v.VI)}. Pooled route error ${one(v.VA)}.`);
+    root.querySelectorAll('[data-n]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.n) === n)));
+    root.querySelectorAll('[data-reading]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.reading === reading)));
+    readoutButton.setAttribute('aria-pressed', String(sigmaR2 === 8));
+    const parts = [`${n} circles shown. The pool takes in ${v.keff} effective items${n > ENSEMBLE_EXAMPLE.keffCap ? ', its limit in this example' : ''}.`];
+    if (n <= ENSEMBLE_EXAMPLE.keffCap) {
+      parts.push('Pooling is exhaustive at this set size, so both readings give the same pooled error.');
+    } else if (reading === 'subset') {
+      parts.push(`Only ${v.keff} of the ${n} circles get in, so the pooled estimate also carries subset error of (1 − ${v.keff}/${n}) × 16/${v.keff} = ${one(v.pooledSubset)}.`);
+    } else {
+      parts.push(`Every circle contributes, so there is no subset error. Overlap keeps the effective count at ${v.keff}.`);
+    }
+    if (sigmaR2 === 8) parts.push('Raising only the pooled route’s comparison noise from 1 to 8 adds 7 to its error.');
+    parts.push(pooledWins
+      ? `The pooled route has the smaller error, by ${one(v.margin)}.`
+      : `The item route now has the smaller error, by ${one(-v.margin)}. The ordering reverses.`);
+    if (n === 16 && sigmaR2 === 1) {
+      parts.push(reading === 'subset'
+        ? 'Compared with eight circles, pooled error rises by exactly 16(1/8 − 1/16) = 1, an amount set by the display with nothing fitted.'
+        : 'Compared with eight circles, pooled error does not change.');
+    }
+    if (n === 16 && sigmaR2 === 8) {
+      parts.push(reading === 'subset'
+        ? 'The margin is the same as at eight circles. Above saturation, subset pooling leaves the margin unchanged as circles are added.'
+        : 'Under this reading the margin grows as circles are added, so the pooled route wins again.');
+    }
+    setText(root, 'status', parts.join(' '));
+    root.dataset.n = String(n);
+    root.dataset.reading = reading;
+    root.dataset.readout = String(sigmaR2);
+  }
+  root.querySelectorAll('[data-n]').forEach(button => button.addEventListener('click', () => { n = Number(button.dataset.n); render(); }));
+  root.querySelectorAll('[data-reading]').forEach(button => button.addEventListener('click', () => { reading = button.dataset.reading; render(); }));
+  readoutButton.addEventListener('click', () => { sigmaR2 = sigmaR2 === 1 ? 8 : 1; render(); });
+  render();
+  root.querySelector('[data-controls]').hidden = false;
+}
+
 const setups = { ib: setupIB, hierarchical: setupHierarchical, allocation: setupAllocation, camino: setupCamino,
   tacit: setupTacit, oracle: root => setupOracle(root, setupPlayer),
-  pecdafs: root => setupPecdafs(root, setupPlayer), similarity: setupSimilarity };
+  pecdafs: root => setupPecdafs(root, setupPlayer), similarity: setupSimilarity,
+  'ensemble-demo': setupEnsembleDemo, 'ensemble-routes': setupEnsembleRoutes };
 document.querySelectorAll('[data-explainer]').forEach(root => {
   const setup = setups[root.dataset.explainer];
   if (setup) setup(root);

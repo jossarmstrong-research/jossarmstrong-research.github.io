@@ -168,7 +168,7 @@
     "page_url": "https://jossarmstrong.org/works/hierarchical-selection/"
   },
   {
-    "id": "work-2026-bohm",
+    "id": "work-2026-multi-resolution-attribution",
     "title": "Multi-Resolution Attribution from Adaptive Routing State",
     "year": 2026,
     "status": "Preprint",
@@ -321,7 +321,8 @@
       "set size"
     ],
     "first_posted": "2026-10-21",
-    "note": "Posted on PsyArXiv on 21 October 2026. Version 1 DOI: 10.31234/osf.io/uzfam_v1."
+    "note": "Posted on PsyArXiv on 21 October 2026. Version 1 DOI: 10.31234/osf.io/uzfam_v1.",
+    "page_url": "https://jossarmstrong.org/works/ensemble-perception/"
   },
   {
     "id": "work-2026-price-formation",

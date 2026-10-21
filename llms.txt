@@ -20,8 +20,9 @@ Canonical site: https://jossarmstrong.org/
 - CAMINO, an animated contextual network assessment: https://jossarmstrong.org/works/camino/
 - PECDAFs, a visual comparison before a proposed network change: https://jossarmstrong.org/works/pecdafs/
 - Cell similarity, interactive patterns and Pearson correlations: https://jossarmstrong.org/works/cell-similarity/
+- Ensemble perception, a one-second circle test and the paper's worked two-route example: https://jossarmstrong.org/works/ensemble-perception/
 
-These author companion pages explain the methods, results and limitations, and link to the public papers. IB, hierarchical selection and allocation/verification are explicitly labelled preprints, with links to the versions explained. Their interactive examples use the public papers' equations and constructions. CAMINO's animation illustrates a reported qualitative scenario, not numerical simulation. Reading the pages does not require JavaScript. ORACLE's reported prototype uses majority selection; its results do not describe a combined TACIT-on-ledger deployment.
+These author companion pages explain the methods, results and limitations, and link to the public papers. IB, hierarchical selection, allocation/verification and ensemble perception are explicitly labelled preprints, with links to the versions explained. The ensemble perception test demonstrates a known effect and records nothing. Their interactive examples use the public papers' equations and constructions. CAMINO's animation illustrates a reported qualitative scenario, not numerical simulation. Reading the pages does not require JavaScript. ORACLE's reported prototype uses majority selection; its results do not describe a combined TACIT-on-ledger deployment.
 
 Works are ordered by descending year within each publication category. Ties retain the existing order; the list does not imply a within-year chronology.
 

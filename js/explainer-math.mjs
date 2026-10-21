@@ -53,3 +53,42 @@ export function allocationExample(k, population = 96) {
   return { sizes, loss, power, smallest: size,
     allocationPass: loss <= 0.002, verificationPass: power >= 0.8 - 1e-12 };
 }
+
+// Conditional error variances for the two routes in Section 2 of the ensemble
+// perception preprint (PsyArXiv, DOI 10.31234/osf.io/uzfam_v1). Item route: Eq. (4).
+// Pooled route: Eq. (6) under the subset reading, Eq. (7) under the information-level
+// reading. Default parameters are the fixed values of the Section 2.4 worked example.
+export const ENSEMBLE_EXAMPLE = { sx2: 16, k: 2, sigmaI2: 4, rho: 0.25, keffCap: 8, sigmaP2: 8, sigmaR2: 1 };
+
+export function ensembleVariances(n, reading = 'subset', overrides = {}) {
+  const p = { ...ENSEMBLE_EXAMPLE, ...overrides };
+  const keff = Math.min(n, p.keffCap);
+  const itemSubset = (1 - p.k / n) * p.sx2 / p.k;
+  const itemSensory = p.sigmaI2 * (p.rho + (1 - p.rho) / p.k);
+  const pooledSubset = reading === 'subset' ? (1 - keff / n) * p.sx2 / keff : 0;
+  const pooling = p.sigmaP2 / keff;
+  const readout = p.sigmaR2;
+  const VI = itemSubset + itemSensory;
+  const VA = pooledSubset + pooling + readout;
+  return { n, keff, itemSubset, itemSensory, pooledSubset, pooling, readout, VI, VA, margin: VI - VA };
+}
+
+// Backward mask for the one-second test: overlapping grey squares in the 1333.33 x 750
+// stage, built as in the talk's mask figure (same-area squares for circles of radius 8 to 90).
+export function maskSquares(seed, count = 900, width = 1333.33, height = 750) {
+  let state = seed >>> 0;
+  const random = () => {
+    state = (state + 0x6d2b79f5) >>> 0;
+    let t = state;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  return Array.from({ length: count }, () => {
+    const x = random() * width, y = random() * height;
+    const side = 2 * (8 + random() * 82) * 0.886;
+    const grey = Math.round(255 * (0.05 + random() * 0.8));
+    const angle = random() * 90;
+    return { x, y, side, grey, angle };
+  });
+}
