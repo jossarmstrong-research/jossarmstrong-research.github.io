@@ -2,7 +2,7 @@
 
 Static HTML/CSS scholarly website for Joss Armstrong.
 
-The catalogue contains 25 works: 9 peer-reviewed published papers, 12 preprints (10 arXiv and 2 Zenodo), 3 SSRN working papers, and 1 published white paper. Stable IDs in `data/works.json` also identify the corresponding articles in `works/index.html`; update both files together. Within each category the works are ordered by descending year, preserving the existing order for ties.
+The catalogue contains 26 works: 9 peer-reviewed published papers, 13 preprints (10 arXiv, 2 Zenodo and 1 PsyArXiv), 3 SSRN working papers, and 1 published white paper. Stable IDs in `data/works.json` also identify the corresponding articles in `works/index.html`; update both files together. Within each category the works are ordered by descending year, preserving the existing order for ties.
 
 TACIT and ORACLE have author companion pages at `/works/tacit/` and `/works/oracle/`, including explanations, scoped evaluation results, publication metadata and downloadable BibTeX citations. For these records, `url` remains the published-paper DOI and `page_url` identifies the companion page used by the Works title link. Update each page's citation metadata, JSON-LD and `citation.bib` together when correcting bibliographic details. Shared companion-page styles are in `css/paper.css`.
 
