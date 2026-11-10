@@ -325,6 +325,23 @@
     "page_url": "https://jossarmstrong.org/works/ensemble-perception/"
   },
   {
+    "id": "work-2026-one-bit-rapp",
+    "title": "Learning From One Bit of Feedback in a Modular Hierarchical rApp",
+    "year": 2026,
+    "status": "Preprint",
+    "venue": "Zenodo",
+    "url": "https://doi.org/10.5281/zenodo.23499909",
+    "page_url": "https://jossarmstrong.org/works/one-bit-rapp/",
+    "topics": [
+      "O-RAN",
+      "hierarchical learning",
+      "one-bit feedback",
+      "energy-saving rApps"
+    ],
+    "first_posted": "2026-10-20",
+    "note": "Paper preprint. Reproduction software is a separate Zenodo record, release 2.0.0 at DOI 10.5281/zenodo.23499181."
+  },
+  {
     "id": "work-2026-price-formation",
     "title": "Price Formation Without Communication: A Constructive Illustration of Mises and Hayek",
     "year": 2026,

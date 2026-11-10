@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Learning From One Bit of Feedback in a Modular Hierarchical rApp | Joss Armstrong</title>
+  <meta name="description" content="A modular energy-saving rApp and a simulated forecast service learn through one bit per selected connection. Method, replay results, limitations, paper and reproduction package.">
+  <link rel="canonical" href="https://jossarmstrong.org/works/one-bit-rapp/">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/paper.css">
+  <link rel="stylesheet" href="/works/one-bit-rapp/one-bit-rapp.css">
+  <meta name="citation_title" content="Learning From One Bit of Feedback in a Modular Hierarchical rApp">
+  <meta name="citation_author" content="Joss Armstrong">
+  <meta name="citation_publication_date" content="2026-10-20">
+  <meta name="citation_online_date" content="2026-10-20">
+  <meta name="citation_doi" content="10.5281/zenodo.23499909">
+  <meta name="citation_abstract_html_url" content="https://jossarmstrong.org/works/one-bit-rapp/#abstract">
+  <meta name="citation_pdf_url" content="https://jossarmstrong.org/works/one-bit-rapp/one_bit_energy_rapp_provider.pdf">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Learning From One Bit of Feedback in a Modular Hierarchical rApp">
+  <meta property="og:description" content="Local choices, local contexts and one bit of feedback along the selected path. An application to modular network management, with reproducible replay results.">
+  <meta property="og:url" content="https://jossarmstrong.org/works/one-bit-rapp/">
+  <meta property="og:site_name" content="Joss Armstrong">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://jossarmstrong.org/works/one-bit-rapp/","url":"https://jossarmstrong.org/works/one-bit-rapp/","name":"Learning From One Bit of Feedback in a Modular Hierarchical rApp","description":"Author companion to a modular rApp application of hierarchical one-bit feedback.","author":{"@type":"Person","name":"Joss Armstrong","url":"https://jossarmstrong.org/"},"mainEntity":{"@type":"ScholarlyArticle","name":"Learning From One Bit of Feedback in a Modular Hierarchical rApp","author":[{"@type":"Person","name":"Joss Armstrong","sameAs":"https://orcid.org/0009-0009-3462-9679","affiliation":{"@type":"Organization","name":"Ericsson"}}],"datePublished":"2026-10-20","identifier":"10.5281/zenodo.23499909","url":"https://doi.org/10.5281/zenodo.23499909","creativeWorkStatus":"Preprint","encoding":{"@type":"MediaObject","encodingFormat":"application/pdf","contentUrl":"https://jossarmstrong.org/works/one-bit-rapp/one_bit_energy_rapp_provider.pdf"},"isBasedOn":"https://arxiv.org/abs/2605.00921","isAccessibleForFree":true}}</script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3f8d3cbfac9c4c3eb080976e43f671c6"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/">Joss Armstrong</a><a href="/research/">Research</a><a href="/works/" aria-current="true">Works</a><a href="/about/">About</a></nav></header>
+<main class="paper">
+  <p class="breadcrumb"><a href="/works/">All works</a> / One-bit feedback in a modular rApp</p>
+  <header class="paper-header">
+    <div class="eyebrow">Author companion · Autonomous networks</div>
+    <h1>Learning From One Bit of Feedback in a Modular Hierarchical rApp</h1>
+    <p class="byline">Joss Armstrong · Ericsson, Athlone, Ireland</p>
+    <p class="meta">Preprint · Zenodo · First posted 20 October 2026</p>
+    <p class="lede">An energy-saving network application can learn which strategy, threshold and context source to use while each component keeps its own choices local. One bit of feedback follows the selected path, including into a forecast service with its own internal hierarchy.</p>
+    <div class="paper-actions"><a class="paper-link" href="https://doi.org/10.5281/zenodo.23499909">Read the public preprint</a><a href="/works/one-bit-rapp/one_bit_energy_rapp_provider.pdf">Download the PDF</a><a href="https://doi.org/10.5281/zenodo.23499181">Code and reproduction</a><a href="#citation">Cite this paper</a></div>
+    <nav class="paper-contents" aria-label="On this page"><a href="#idea">The idea</a><a href="#hierarchy">The hierarchy</a><a href="#results">Main findings</a><a href="#scope">Scope</a><a href="#reproduction">Reproduction</a><a href="#abstract">Abstract</a></nav>
+  </header>
+
+  <section class="section" id="idea">
+    <h2>Learning through a common interface</h2>
+    <p>Every 15 minutes, the rApp decides whether a capacity cell can be switched off. Its components select a switching strategy, a load threshold and a source of context such as weather or road traffic. A source can become unreliable, and an accurate forecast can still be poorly suited to an operator's priorities. The application needs to learn from the consequences of its choices.</p>
+    <p>Only the root receives the binary judgement of the completed switching decision explicitly. It raises or lowers the weight of the component it selected. That component reads the direction of the change, updates its own selected option, and passes the next weight-change bit down the path. Each selector retains its own context, alternatives and learning rule.</p>
+    <p>The bit carries the outcome's information. It does not remove the need for feedback. Under the method's conditions, the direction of each selected weight change recovers the outcome, preserving the choices and weights of a hierarchy given that outcome at every level. This paper applies the <a href="/works/hierarchical-selection/">hierarchical learning method</a> to a modular rApp and evaluates its behaviour.</p>
+  </section>
+
+  <section class="section" id="hierarchy">
+    <h2>One selected path, five local choices</h2>
+    <figure class="rapp-hierarchy">
+      <p class="flow-entry">Operator's binary outcome <span aria-hidden="true">↓</span></p>
+      <div class="flow-group">
+        <h3>Inside the rApp</h3>
+        <ol class="flow-nodes">
+          <li><strong>1. Switching strategy</strong><span>Threshold rule, always on or force-off proposal</span><small>Local context: load level</small></li>
+          <li><strong>2. Load threshold</strong><span>One of five thresholds</span><small>Local context: recent load shape</small></li>
+          <li><strong>3. Context source</strong><span>One of six sources, here forecast service B</span><small>Local context: time of day</small></li>
+        </ol>
+      </div>
+      <p class="flow-boundary"><span aria-hidden="true">↓</span> One bit for this request crosses the service boundary</p>
+      <div class="flow-group flow-service">
+        <h3>Inside forecast service B</h3>
+        <ol class="flow-nodes" start="4">
+          <li><strong>4. Forecast product</strong><span>One of two simulated products</span><small>Service's own learning rule</small></li>
+          <li><strong>5. Alert threshold</strong><span>One of five thresholds for that product</span><small>Internal choice stays within the service</small></li>
+        </ol>
+      </div>
+      <figcaption>A longest path through the hierarchy. Choices are made with the weights at the start of the slot. After the slot closes, feedback follows the retained path in order, with one bit per selected connection. Other branches are omitted here. One forecast service is shared by all six rApp source selectors.</figcaption>
+    </figure>
+    <p>The base rApp has eight selectors. Adding the forecast service gives eleven selectors in total, with up to five on a selected path. The service learns product and alert-threshold choices without receiving the operator's scoring rule or the rApp's decision record. In this experiment its selectors share weights across callers and each uses a single context.</p>
+  </section>
+
+  <section class="section" id="results">
+    <h2>What the replays show</h2>
+    <p>The evaluation replays <strong>83 days of public counters from 277 capacity cells</strong>, with 2,074,760 decisions per full run. Conditions and forecast products are simulated. Comparisons use five condition timelines and four selection seeds per timeline.</p>
+    <div class="results-scroll" tabindex="0" role="region" aria-label="Replay findings">
+      <table class="results">
+        <caption>Three findings, with their respective comparison scopes</caption>
+        <thead><tr><th scope="col">Question</th><th scope="col">Result</th><th scope="col">Scope</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Can the service tune its choices to the operator?</th><td>Decision-score gains of <strong>3.72 percentage points</strong> with linear reward-ε-penalty and <strong>2.64 points</strong> with proportional reward-penalty.</td><td>On requests served by B, compared with its most accurate fixed setting, using the same upstream choices.</td></tr>
+          <tr><th scope="row">Does continued source learning help during an outage?</th><td><strong>7.05 points</strong> over frozen source weights and <strong>5.72 points</strong> over uniform weights.</td><td>Outage-period decision score in the base experiment. Root and threshold selectors keep learning in every arm.</td></tr>
+          <tr><th scope="row">Does one-bit feedback preserve explicit-outcome learning?</th><td><strong>40 paired replays</strong> have identical choices, final weights and recorded metrics, with <strong>zero mismatches in 117,773,717 decoded bits</strong>.</td><td>Forecast-service experiment, across two internal learning rules, with feedback delayed until each slot closes.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The forecast-service gains have paired 95% intervals of [2.22, 5.22] and [1.13, 4.15] percentage points. These are gains on B's requests. Across all rApp decisions, the corresponding differences are +0.10 points [−0.05, +0.25] and +0.04 points [−0.08, +0.17], which do not establish a whole-rApp gain.</p>
+    <p>In the source experiment, the failing source's mean selection weight falls from 0.381 at the end of its healthy period to 0.251 after drift and 0.155 after outage. Ordinary learning updates drive the change, without a separate failure detector. Compared with freezing source weights, adaptation increases switch-offs and reduces errors among them, while increasing wrong switch-offs as a fraction of all decisions.</p>
+    <p class="source-note">Source: Sections V–VI of the <a href="/works/one-bit-rapp/one_bit_energy_rapp_provider.pdf">paper</a>. Decision score is the mean binary outcome under the stated operator objective. The forecast experiment uses a missed-opportunity reward probability of 0.8, and the source experiment uses 0.5. Confidence intervals use five timeline averages, each averaging four selection seeds.</p>
+  </section>
+
+  <section class="section" id="scope">
+    <h2>What this establishes</h2>
+    <p>This is an application architecture and a replay evaluation. It demonstrates useful adaptation under the specified objectives and preservation of explicit-outcome learning. It adds no new optimality or regret guarantee and does not establish superiority over other adaptive controllers.</p>
+    <p>The traffic trace is fixed, so switching decisions do not change later traffic. Conditions, forecast products and the transfer of traffic to another cell are modelled. The results do not measure energy savings or the performance of actual forecast products. All runs share one recorded network trace, and some preprocessing uses the full trace.</p>
+    <p>The service boundary is modelled within one process. A deployment would need to match each delayed bit to its request, retain the selected local choices and preserve update order. Stable decoding also matters near floating-point limits. The implementation uses the sibling-weight sum when the selected weight exceeds one half. A testbed with separately controlled components and measured network outcomes is the next step.</p>
+  </section>
+
+  <section class="section" id="reproduction">
+    <h2>Paper, code and supporting evidence</h2>
+    <p>The <a href="https://doi.org/10.5281/zenodo.23499181">reproduction package, release 2.0.0</a>, contains frozen code, processed counter inputs, cached model responses, reference results and checksums. Its main archive holds 900 complete runs, including the source comparison and forecast-service evaluations at three operator objectives. A supplementary archive holds 560 cost-sensitivity runs. Those additional runs reuse the same trace and condition timelines.</p>
+    <p>Verification commands check saved results, recompute reported numbers and redraw figures. Separate replay commands rerun the experiments. Cached responses mean no model endpoint or fresh inference is needed after installing the listed dependencies. The language model used as a context source is not trained by this feedback.</p>
+    <ul>
+      <li><a href="https://doi.org/10.5281/zenodo.23499909">Paper record, posted 20 October 2026</a> and <a href="/works/one-bit-rapp/one_bit_energy_rapp_provider.pdf">matching seven-page PDF</a>.</li>
+      <li><a href="https://doi.org/10.5281/zenodo.23499181">Code, processed inputs and reference results</a>. <a href="https://doi.org/10.5281/zenodo.23356827">All reproduction versions</a>.</li>
+      <li><a href="https://doi.org/10.5281/zenodo.17815388">Underlying public network-counter dataset</a>, using Dataset_03.</li>
+      <li><a href="/works/hierarchical-selection/">The underlying hierarchical learning method</a> and <a href="https://arxiv.org/abs/2605.00921">its public preprint</a>.</li>
+      <li><a href="/works/camino/">CAMINO</a>, the earlier context-aware intent-mediation application.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="abstract">
+    <h2>Abstract</h2>
+    <p>An energy-saving rApp decides every 15 minutes whether a capacity cell can be switched off. We build it as a modular hierarchy whose components learn to choose switching strategies, load thresholds and context sources. Only the top-level component receives the outcome of the rApp's final switching decision. According to that outcome, it raises or lowers the weight of the component it selected. Each lower component learns from whether the weight assigned to it by the component above increased or decreased, then updates the weights for its own choices. This carries one bit of feedback down the selected path while each component keeps its context and internal choices to itself. A simulated weather forecast service illustrates how a component with its own internal hierarchy uses the same feedback to tune its choices to the operator's switching priorities. The forecast service doesn't receive the rApp's decision record or its scoring rule. We evaluate the hierarchy by replaying 83 days of public counters from 277 capacity cells, with simulated conditions and simulated forecast products. The replays demonstrate adaptation away from a failing context source and tuning of forecast responses to an operator prioritising avoidance of wrong switch-offs. Across different component contexts and learning rules, the hierarchy reproduces the decisions and learned weights obtained with explicit outcome feedback, even when feedback arrives only after each 15-minute interval closes.</p>
+  </section>
+
+  <section class="section citation" id="citation">
+    <h2>Citation</h2>
+    <p>Joss Armstrong, “Learning From One Bit of Feedback in a Modular Hierarchical rApp,” Zenodo preprint, 20 October 2026. DOI: <a href="https://doi.org/10.5281/zenodo.23499909">10.5281/zenodo.23499909</a>.</p>
+    <p><a href="/works/one-bit-rapp/citation.bib" download>Download BibTeX citation</a> · <a href="https://doi.org/10.5281/zenodo.23499908">All paper versions</a></p>
+    <p class="source-note">The PDF hosted here is identical to the paper in Zenodo record 23499909. The paper and the reproduction software have separate records and DOIs.</p>
+  </section>
+</main>
+<footer class="footer"><div>Joss Armstrong · Researcher · Ericsson Ireland</div></footer>
+</body>
+</html>
