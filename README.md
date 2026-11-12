@@ -2,7 +2,9 @@
 
 Static HTML/CSS scholarly website for Joss Armstrong.
 
-The catalogue contains 27 works: 9 peer-reviewed published papers, 14 preprints (10 arXiv, 3 Zenodo and 1 PsyArXiv), 3 SSRN working papers, and 1 published white paper. Stable IDs in `data/works.json` also identify the corresponding articles in `works/index.html`; update both files together. Within each category the works are ordered by descending year, preserving the existing order for ties.
+The catalogue contains 28 works: 9 peer-reviewed published papers, 14 preprints (10 arXiv, 3 Zenodo and 1 PsyArXiv), 3 SSRN working papers, 1 published white paper and 1 blog article. Stable IDs in `data/works.json` also identify the corresponding articles in `works/index.html`; update both files together. Within each category the works are ordered by descending year, preserving the existing order for ties.
+
+Articles and commentary have their own Works section. The Ericsson Blog article published on 12 November 2026 is featured on the homepage and linked from the TACIT and ORACLE companion pages. Its catalogue type is `Blog article`, and its primary URL points directly to Ericsson. The site carries a short original introduction without reproducing the article or its photograph.
 
 TACIT and ORACLE have author companion pages at `/works/tacit/` and `/works/oracle/`, including explanations, scoped evaluation results, publication metadata and downloadable BibTeX citations. For these records, `url` remains the published-paper DOI and `page_url` identifies the companion page used by the Works title link. Update each page's citation metadata, JSON-LD and `citation.bib` together when correcting bibliographic details. Shared companion-page styles are in `css/paper.css`.
 

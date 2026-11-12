@@ -28,6 +28,12 @@ Works are ordered by descending year within each publication category. Ties reta
 
 TACIT, ORACLE, PECDAFs and cell similarity include constructed teaching examples, explicitly distinguished from the papers' empirical data. TACIT uses the paper's exact aggregation and reputation-update rules. ORACLE distinguishes rApp policy voting from validator consensus. PECDAFs illustrates observational cohort comparison, not causal identification. Cell similarity separates Pearson correlation, operating levels and SHAP model explanations; the visual contains no synthetic SHAP results.
 
+## Articles and commentary
+- Articles and commentary catalogue: https://jossarmstrong.org/works/#articles-and-commentary
+- Can rApps resolve their own conflicts? Research insights from Ericsson, by Joss Armstrong, Ericsson Blog, 12 November 2026: https://www.ericsson.com/en/blog/2026/11/can-rapps-resolve-their-own-conflicts
+
+The blog article gives an accessible overview of TACIT and ORACLE. It is listed as a blog article in its own category, with the full text hosted by Ericsson.
+
 ## Preprint records with hosted PDFs
 - Task-relative information contracts (Zenodo preprint, PDF and BibTeX): https://jossarmstrong.org/works/tri-contracts/
 - Task-Sufficient Contraction (arXiv:2610.08884, explanatory figure, PDF and BibTeX): https://jossarmstrong.org/works/tsc/

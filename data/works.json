@@ -405,5 +405,29 @@
       "work-2025-begreen-demo"
     ],
     "note": "BeGREEN Intelligence Plane implementation and evaluation in simulated O-RAN environments using VIAVI TeraVM AI RSG. Contributor credit; project white paper, not a peer-reviewed publication."
+  },
+  {
+    "id": "work-2026-rapp-conflicts-blog",
+    "title": "Can rApps resolve their own conflicts? Research insights from Ericsson",
+    "year": 2026,
+    "type": "Blog article",
+    "status": "Published",
+    "venue": "Ericsson Blog",
+    "url": "https://www.ericsson.com/en/blog/2026/11/can-rapps-resolve-their-own-conflicts",
+    "authors": [
+      "Joss Armstrong"
+    ],
+    "release_date": "2026-11-12",
+    "topics": [
+      "rApps",
+      "conflict resolution",
+      "reputation",
+      "verifiable coordination"
+    ],
+    "related_works": [
+      "work-2026-tacit",
+      "work-2026-oracle"
+    ],
+    "note": "Accessible overview of TACIT and ORACLE. Published as an Ericsson Blog article."
   }
 ]
